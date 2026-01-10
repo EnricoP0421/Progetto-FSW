@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import GameDex from './views/GameDex.vue'
+import App from './App.vue'
 
-createApp(GameDex).mount('#app')
+createApp(App).mount('#app')
