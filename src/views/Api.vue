@@ -3,7 +3,6 @@
     
     <!-- Header -->
     <div class="section-header">
-      <span class="section-label">API</span>
       <h1 class="section-title">API React Native</h1>
       <p class="section-description">
         Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
@@ -12,7 +11,7 @@
 
     <!-- Cards -->
     <div class="features-grid">
-      <div class="feature-card" @click="showSection('how')">
+      <div class="feature-card" @click="showSection('how'); console.log('CLICK HOW')">
         <div class="feature-icon">⚙️</div>
         <h3>Come Funziona</h3>
         <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
@@ -50,7 +49,7 @@
     </div>
 
     <!-- API CONTENT -->
-    <div v-show="activeSection === 'how'" class="api-section">
+     <div v-show="activeSection === 'how'" class="api-section">
       <h2>Come Funziona React Native</h2>
       <div class="steps">
         <div class="step">
@@ -107,7 +106,7 @@
         </div>
       </div>
     </div>
-    
+
     <div v-show="activeSection === 'component'" class="api-section">
       <h2>Componenti di Base</h2>
       <p>
@@ -185,9 +184,9 @@ export default {
     }
   },
   methods: {
-    showSection(id) {
-      this.activeSection = id
-    }
+    showSection(id) { 
+      this.activeSection = id 
+    } 
   }
 }
 </script>
@@ -196,15 +195,6 @@ export default {
 /* Importa i font */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;600;800&display=swap');
 
-:root {
-  --bg-dark: #0a0e27;
-  --bg-card: #151b3d;
-  --accent-blue: #61dafb;
-  --accent-purple: #7c3aed;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --code-bg: #1e293b;
-}
 
 .container {
   max-width: 1400px;
@@ -231,23 +221,6 @@ export default {
   text-transform: uppercase;
 }
 
-.section-title {
-  font-size: clamp(36px, 5vw, 52px);
-  font-weight: 800;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-description {
-  font-size: 18px;
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-
 /* Cards */
 .features-grid {
   display: grid;
@@ -271,67 +244,19 @@ export default {
   box-shadow: 0 20px 60px rgba(97, 218, 251, 0.2);
 }
 
-.feature-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
 .feature-card h3 {
   font-size: 22px;
   margin-bottom: 10px;
 }
 
-.feature-card p {
-  color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-/* API Content */
-.api-section {
-  background: var(--bg-card);
-  border-radius: 20px;
-  padding: 50px;
-  margin-bottom: 40px;
-  border: 1px solid rgba(97, 218, 251, 0.15);
-}
 
 .api-section h2 {
   margin-bottom: 20px;
   font-size: 30px;
 }
 
-.api-section p {
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-.api-section ul {
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-left: 20px;
-}
-
 .api-section li {
   margin-bottom: 10px;
-}
-
-pre {
-  background: var(--code-bg);
-  padding: 20px;
-  border-radius: 12px;
-  overflow-x: auto;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  border: 1px solid rgba(97, 218, 251, 0.2);
 }
 
 .code-line {
@@ -363,7 +288,6 @@ pre {
 .function { color: #82aaff; }
 .string { color: #c3e88d; }
 .component { color: #ffcb6b; }
-.tag { color: var(--accent-blue); }
 
 .steps {
   display: grid;
@@ -378,43 +302,11 @@ pre {
   align-items: start;
 }
 
-.step-number {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--bg-dark);
-  flex-shrink: 0;
-}
-
 .step-content h3 {
   font-size: 26px;
   margin-bottom: 15px;
   font-weight: 700;
 }
-
-.step-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
-
-.step-code {
-  margin-top: 20px;
-  padding: 20px;
-  background: var(--code-bg);
-  border-radius: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  border: 1px solid rgba(97, 218, 251, 0.2);
-  overflow-x: auto;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .container {

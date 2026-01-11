@@ -132,6 +132,11 @@
       color: var(--text-secondary);
       margin-bottom: 20px;
     }
+    .api-section ul {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-left: 20px;
+}
 
     pre {
       background: var(--code-bg);
