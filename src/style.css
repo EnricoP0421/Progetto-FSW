@@ -110,7 +110,6 @@
 
     /* API Content */
     .api-section {
-      display: none;
       background: var(--bg-card);
       border-radius: 20px;
       padding: 50px;
@@ -132,6 +131,11 @@
       color: var(--text-secondary);
       margin-bottom: 20px;
     }
+    .api-section ul {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-left: 20px;
+}
 
     pre {
       background: var(--code-bg);
@@ -227,7 +231,7 @@
             border: 1px solid rgba(97, 218, 251, 0.2);
             overflow-x: auto;
         }
-nav {
+            nav {
             position: fixed;
             top: 0;
             left: 0;
