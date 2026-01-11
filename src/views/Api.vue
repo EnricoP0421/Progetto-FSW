@@ -11,7 +11,7 @@
 
     <!-- Cards -->
     <div class="features-grid">
-      <div class="feature-card" @click="showSection('how'); console.log('CLICK HOW')">
+      <div class="feature-card" @click="showSection('how')">
         <div class="feature-icon">⚙️</div>
         <h3>Come Funziona</h3>
         <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
@@ -180,7 +180,7 @@ export default {
   name: 'Api',
   data() {
     return {
-      activeSection: ''
+      activeSection: null
     }
   },
   methods: {
@@ -231,7 +231,6 @@ export default {
 
 .feature-card {
   padding: 40px;
-  background: var(--bg-card);
   border-radius: 20px;
   border: 1px solid rgba(97, 218, 251, 0.1);
   cursor: pointer;
@@ -249,6 +248,13 @@ export default {
   margin-bottom: 10px;
 }
 
+.feature-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 .api-section h2 {
   margin-bottom: 20px;
