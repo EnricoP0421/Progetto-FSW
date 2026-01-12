@@ -1,7 +1,7 @@
 <template>
 <section class="container">
 <div class="section-header">
-    <h1 class="section-title">Home React Native</h1>
+    <h1 class="section-title">Home</h1>
      <p class="section-description">Un unico codice, esperienze native su ogni dispositivo</p>
   </div>
 
