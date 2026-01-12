@@ -1,35 +1,22 @@
 <template>
   <div id="app">
-    <nav class="nav-bar">
-      <button 
-        @click="currentView = 'Home'" 
-        :class="{ active: currentView === 'Home' }"
-        class="nav-button"
-      >
-        Home
-      </button>
-      <button 
-        @click="currentView = 'Api'" 
-        :class="{ active: currentView === 'Api' }"
-        class="nav-button"
-      >
-        API React Native
-      </button>
-      <button 
-        @click="currentView = 'GameDex'" 
-        :class="{ active: currentView === 'GameDex' }"
-        class="nav-button"
-      >
-        GameDex
-      </button>
-      <button 
-        @click="currentView = 'insertion'" 
-        :class="{ active: currentView === 'insertion' }"
-        class="nav-button"
-      >
-        Inserimento Dati
-      </button>
-    </nav>
+    <nav class="top-nav">
+  <div class="nav-inner">
+
+    <div class="brand">
+      <span class="logo">⚛</span>
+      <span class="brand-name">React Native</span>
+    </div>
+
+    <div class="nav-links">
+      <button @click="currentView='Home'" :class="{active:currentView==='Home'}">Home</button>
+      <button @click="currentView='Api'" :class="{active:currentView==='Api'}">API</button>
+      <button @click="currentView='GameDex'" :class="{active:currentView==='GameDex'}">Gamedex</button>
+      <button @click="currentView='insertion'" :class="{active:currentView==='insertion'}">Inserimento</button>
+    </div>
+
+  </div>
+</nav>
     
     <component :is="currentView" />
   </div>
@@ -68,54 +55,83 @@ body {
   color: #e2e8f0;
 }
 
-.nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(10, 14, 39, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 20px 40px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(97, 218, 251, 0.1);
+.top-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:rgba(10,14,39,.92);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(97,218,251,.08);
+  z-index:1000;
 }
 
-.nav-button {
-  padding: 12px 30px;
-  background: rgba(21, 27, 61, 0.6);
-  border: 1px solid rgba(97, 218, 251, 0.2);
-  border-radius: 12px;
-  color: #e2e8f0;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:18px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.nav-button:hover {
-  background: rgba(97, 218, 251, 0.1);
-  border-color: rgba(97, 218, 251, 0.4);
-  transform: translateY(-2px);
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:700;
+  font-size:26px;
+  color:#7dd3fc;
 }
 
-.nav-button.active {
-  background: linear-gradient(135deg, #61dafb, #7c3aed);
-  border-color: transparent;
-  color: #0a0e27;
+.logo{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#61dafb,#7c3aed);
+  color:#0a0e27;
+  font-size:20px;
 }
 
-@media (max-width: 768px) {
-  .nav-bar {
-    padding: 15px 20px;
-    gap: 10px;
-  }
-  
-  .nav-button {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
+.nav-links{
+  display:flex;
+  gap:28px;
+}
+
+.nav-links button{
+  background:none;
+  border:none;
+  color:#94a3b8;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  position:relative;
+  padding:6px 0;
+}
+
+.nav-links button::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:#7dd3fc;
+  transition:.3s;
+}
+
+.nav-links button:hover{
+  color:#e2e8f0;
+}
+
+.nav-links button.active{
+  color:#7dd3fc;
+}
+
+.nav-links button.active::after{
+  width:100%;
 }
 </style>

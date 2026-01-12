@@ -1,0 +1,22 @@
+[
+  { "id": 1, "titolo": "The Legend of Zelda: Breath of the Wild", "genere": "Action RPG", "anno": 2017, "piattaforma": "Nintendo Switch", "sviluppatore": "Nintendo", "valutazione": 97, "modalita": "Single Player" },
+  { "id": 2, "titolo": "God of War", "genere": "Action", "anno": 2018, "piattaforma": "PlayStation", "sviluppatore": "Santa Monica Studio", "valutazione": 94, "modalita": "Single Player" },
+  { "id": 3, "titolo": "Minecraft", "genere": "Sandbox", "anno": 2011, "piattaforma": "Multi-platform", "sviluppatore": "Mojang", "valutazione": 93, "modalita": "Single / Multi Player" },
+  { "id": 4, "titolo": "The Witcher 3", "genere": "RPG", "anno": 2015, "piattaforma": "Multi-platform", "sviluppatore": "CD Projekt Red", "valutazione": 92, "modalita": "Single Player" },
+  { "id": 5, "titolo": "Red Dead Redemption 2", "genere": "Action", "anno": 2018, "piattaforma": "Multi-platform", "sviluppatore": "Rockstar Games", "valutazione": 97, "modalita": "Single Player" },
+  { "id": 6, "titolo": "Elden Ring", "genere": "Action RPG", "anno": 2022, "piattaforma": "Multi-platform", "sviluppatore": "FromSoftware", "valutazione": 96, "modalita": "Single Player" },
+  { "id": 7, "titolo": "Horizon Zero Dawn", "genere": "Action RPG", "anno": 2017, "piattaforma": "PlayStation", "sviluppatore": "Guerrilla Games", "valutazione": 89, "modalita": "Single Player" },
+  { "id": 8, "titolo": "GTA V", "genere": "Action", "anno": 2013, "piattaforma": "Multi-platform", "sviluppatore": "Rockstar Games", "valutazione": 96, "modalita": "Single / Multi Player" },
+  { "id": 9, "titolo": "Fortnite", "genere": "Battle Royale", "anno": 2017, "piattaforma": "Multi-platform", "sviluppatore": "Epic Games", "valutazione": 85, "modalita": "Multi Player" },
+  { "id": 10, "titolo": "FIFA 23", "genere": "Sport", "anno": 2022, "piattaforma": "Multi-platform", "sviluppatore": "EA Sports", "valutazione": 78, "modalita": "Multi Player" },
+  { "id": 11, "titolo": "Among Us", "genere": "Party", "anno": 2020, "piattaforma": "Multi-platform", "sviluppatore": "Innersloth", "valutazione": 80, "modalita": "Multi Player" },
+  { "id": 12, "titolo": "League of Legends", "genere": "MOBA", "anno": 2009, "piattaforma": "PC", "sviluppatore": "Riot Games", "valutazione": 90, "modalita": "Multi Player" },
+  { "id": 13, "titolo": "Call of Duty: Warzone", "genere": "FPS", "anno": 2020, "piattaforma": "Multi-platform", "sviluppatore": "Activision", "valutazione": 83, "modalita": "Multi Player" },
+  { "id": 14, "titolo": "Super Mario Odyssey", "genere": "Platform", "anno": 2017, "piattaforma": "Nintendo Switch", "sviluppatore": "Nintendo", "valutazione": 97, "modalita": "Single Player" },
+  { "id": 15, "titolo": "Dark Souls III", "genere": "Action RPG", "anno": 2016, "piattaforma": "Multi-platform", "sviluppatore": "FromSoftware", "valutazione": 89, "modalita": "Single Player" },
+  { "id": 16, "titolo": "Rocket League", "genere": "Sport", "anno": 2015, "piattaforma": "Multi-platform", "sviluppatore": "Psyonix", "valutazione": 86, "modalita": "Multi Player" },
+  { "id": 17, "titolo": "Overwatch", "genere": "FPS", "anno": 2016, "piattaforma": "Multi-platform", "sviluppatore": "Blizzard", "valutazione": 91, "modalita": "Multi Player" },
+  { "id": 18, "titolo": "Animal Crossing: New Horizons", "genere": "Simulation", "anno": 2020, "piattaforma": "Nintendo Switch", "sviluppatore": "Nintendo", "valutazione": 90, "modalita": "Single / Multi Player" },
+  { "id": 19, "titolo": "Valorant", "genere": "FPS", "anno": 2020, "piattaforma": "PC", "sviluppatore": "Riot Games", "valutazione": 88, "modalita": "Multi Player" },
+  { "id": 20, "titolo": "The Sims 4", "genere": "Simulation", "anno": 2014, "piattaforma": "PC", "sviluppatore": "Maxis", "valutazione": 87, "modalita": "Single Player" }
+]
