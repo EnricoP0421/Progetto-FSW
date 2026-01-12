@@ -4,7 +4,7 @@
   <div class="nav-inner">
 
     <div class="brand">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" class="brand-logo">
+      <span class="logo">⚛</span>
       <span class="brand-name">React Native</span>
     </div>
 
@@ -26,13 +26,15 @@
 import GameDex from './views/GameDex.vue'
 import Api from './views/Api.vue'
 import Home from './views/Home.vue'
+import insertion from './views/insertion.vue'
 
 export default {
   name: 'App',
   components: {
     Home,
     GameDex,
-    Api
+    Api,
+    insertion
   },
   data() {
     return {
@@ -79,20 +81,21 @@ body {
   display:flex;
   align-items:center;
   gap:12px;
-}
-
-.brand-logo{
-  height:100px;        /* stessa altezza del testo */
-  width:auto;
-  object-fit:contain;
-  opacity:.9;
-}
-
-.brand-name{
   font-weight:700;
-  font-size: 40px;
-  letter-spacing:.2px;
+  font-size:26px;
   color:#7dd3fc;
+}
+
+.logo{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#61dafb,#7c3aed);
+  color:#0a0e27;
+  font-size:20px;
 }
 
 .nav-links{
