@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Gestione Esami</span>
       <h1 class="section-title">Inserimento</h1>
       <p class="section-description">
         Gestisci i tuoi esami: visualizza, aggiungi, modifica ed elimina

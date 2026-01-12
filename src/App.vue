@@ -4,7 +4,7 @@
   <div class="nav-inner">
 
     <div class="brand">
-      <span class="logo">⚛</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="Logo" class="logo" />
       <span class="brand-name">React Native</span>
     </div>
 
@@ -87,13 +87,12 @@ body {
 }
 
 .logo{
-  width:38px;
-  height:38px;
+  width: 80px;
+  height: 80px;
   border-radius:10px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg,#61dafb,#7c3aed);
   color:#0a0e27;
   font-size:20px;
 }
@@ -135,5 +134,10 @@ body {
 
 .nav-links button.active::after{
   width:100%;
+}
+.brand-name {
+  font-size: 40px; 
+  font-weight: 800; 
+  color: #7dd3fc;
 }
 </style>
