@@ -38,16 +38,18 @@
 <script>
 import GameDex from './views/GameDex.vue'
 import Api from './views/Api.vue'
+import Home from './views/Home.vue'
 
 export default {
   name: 'App',
   components: {
+    Home,
     GameDex,
     Api
   },
   data() {
     return {
-      currentView: 'Api' // Pagina iniziale
+      currentView: 'Home' // Pagina iniziale
     }
   }
 }

@@ -20,6 +20,10 @@
       color: var(--text-primary);
     }
 
+    h1 {
+      background:linear-gradient(135deg,#fff 0%,var(--accent-blue) 100%);
+    }
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
@@ -316,11 +320,25 @@
             font-weight: 700;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+.card{
+  background:var(--bg-card);
+}
+.card:hover{
+  border-color:var(--accent-blue);
+}
+.card p{
+  color:var(--text-secondary);
+}
+
 
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(97, 218, 251, 0.3);
         }
+.header-card p{
+  margin-top:6px;
+  color:var(--text-secondary);
+}
 
         .nav-cta::before {
             display: none;
