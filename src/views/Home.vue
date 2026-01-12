@@ -7,8 +7,8 @@
 
 <div class="menu">
 
-  <div class="main-card">
-    <div class="header-card" onclick="toggle(this)">
+  <div class="main-card" :class="{ open: open === 1 }">
+    <div class="header-card" @click="open = open === 1 ? null : 1">
       <h3>Che cos’è</h3>
       <p>Introduzione a React Native</p>
     </div>
@@ -48,8 +48,8 @@
 </div>
   </div>
 
-  <div class="main-card">
-    <div class="header-card" onclick="toggle(this)">
+  <div class="main-card" :class="{ open: open === 2 }">
+    <div class="header-card" @click="open = open === 2 ? null : 2">
       <h3>Storia e futuro</h3>
       <p>Evoluzione del framework</p>
     </div>
@@ -88,8 +88,8 @@
 </div>
 
 
-<div class="main-card">
-  <div class="header-card" onclick="toggle(this)">
+<div class="main-card" :class="{ open: open === 3 }">
+  <div class="header-card" @click="open = open === 3 ? null : 3">
     <h3>Vantaggi</h3>
     <p>Perché sceglierlo</p>
   </div>
@@ -118,26 +118,15 @@
 </section>
 </template>
 <script>
-function toggle(header){
-  const main = header.parentElement;
-  document.querySelectorAll('.main-card').forEach(c=>{
-    if(c!==main) c.classList.remove('open');
-  });
-  main.classList.toggle('open');
+export default {
+  data() {
+    return {
+      open: null
+    }
+  }
 }
 </script>
 <style scoped>
-
-body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding-top:70px
-}
-
-
 
 h1{
   font-size:90px;
@@ -158,6 +147,7 @@ h1{
   display:flex;
   flex-direction:column;
   gap:40px;
+  margin: 0 auto;  
 }
 
 .card{
@@ -205,6 +195,10 @@ h1{
   border-radius:20px;
   padding:32px 36px;
   cursor:pointer;
+  min-height: 110px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .header-card h3{
@@ -214,7 +208,7 @@ h1{
 
 
 .body-card{
-  margin-top:20px;
+  margin-top:0;
   background:#1b2252;
   border-radius:20px;
   padding:0 26px;
@@ -225,7 +219,7 @@ h1{
 
 .main-card.open .body-card{
   max-height:1200px;
-  padding:26px;
+  padding:26px 26px 30px;
 }
 
 .body-flex{
