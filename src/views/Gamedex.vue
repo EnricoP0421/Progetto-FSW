@@ -53,8 +53,8 @@ export default {
 }
 
 h1{
-  font-size:48px;
-  font-weight:800;
+  font-size:90px;
+  font-weight:1000;
   color:#7dd3fc;
   margin-bottom:30px;
   display:flex;
