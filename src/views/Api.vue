@@ -117,8 +117,7 @@
       <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
       <p>Ecco un esempio pratico di un'app che gestisce una lista della spesa con useState e FlatList:</p>
       
-      <div class="code-container">
-        <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
+      <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">TextInput</span>, <span class="component">FlatList</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
 
 <span class="keyword">export default function</span> <span class="function">ShoppingList</span>() {
@@ -167,15 +166,14 @@
     padding: <span class="string">5</span>,
   },
 });</pre>
-      </div>
       
       <div class="info-box">
         <strong>📝 Concetti chiave:</strong>
         <ul>
-          <li><strong>useState</strong>: gestisce lo stato della lista e del campo di testo</li>
-          <li><strong>TextInput</strong>: permette all'utente di inserire nuovi elementi</li>
-          <li><strong>FlatList</strong>: renderizza liste lunghe in modo ottimizzato</li>
-          <li><strong>keyExtractor</strong>: identifica univocamente ogni elemento della lista</li>
+          <li><strong>useState :</strong> gestisce lo stato della lista e del campo di testo</li>
+          <li><strong>TextInput :</strong> permette all'utente di inserire nuovi elementi</li>
+          <li><strong>FlatList :</strong> renderizza liste lunghe in modo ottimizzato</li>
+          <li><strong>keyExtractor :</strong> identifica univocamente ogni elemento della lista</li>
         </ul>
       </div>
     </div>
@@ -191,16 +189,15 @@
       <h3 class="subsection-title">Proprietà Flexbox Principali</h3>
       <div class="info-box">
         <ul>
-          <li><strong>flex</strong>: definisce quanto spazio occupa un componente rispetto agli altri</li>
-          <li><strong>flexDirection</strong>: 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
-          <li><strong>justifyContent</strong>: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' - allineamento sull'asse principale</li>
-          <li><strong>alignItems</strong>: 'center' | 'flex-start' | 'flex-end' | 'stretch' - allineamento sull'asse secondario</li>
-          <li><strong>gap</strong>: spazio tra gli elementi figli</li>
+          <li><strong>flex :</strong> definisce quanto spazio occupa un componente rispetto agli altri</li>
+          <li><strong>flexDirection :</strong> 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
+          <li><strong>justifyContent :</strong> 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' - allineamento sull'asse principale</li>
+          <li><strong>alignItems :</strong> 'center' | 'flex-start' | 'flex-end' | 'stretch' - allineamento sull'asse secondario</li>
+          <li><strong>gap :</strong> spazio tra gli elementi figli</li>
         </ul>
       </div>
 
       <h3 class="subsection-title">Esempio di Stili</h3>
-      <div class="code-container">
         <pre><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
   container: {
     flex: <span class="string">1</span>,
@@ -222,7 +219,6 @@
     marginTop: <span class="string">10</span>,
   }
 });</pre>
-      </div>
       
       <div class="tip-box">
         <strong>💡 Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
@@ -303,7 +299,6 @@
       <h3 class="subsection-title">Esempio 1: Hello World con Interazione</h3>
       <p>Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
       
-      <div class="code-container">
         <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">Text</span>, <span class="component">View</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
 
@@ -334,12 +329,10 @@
     marginBottom: <span class="string">20</span>,
   },
 });</pre>
-      </div>
       
       <h3 class="subsection-title">Esempio 2: Contatore Interattivo</h3>
       <p>Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
       
-      <div class="code-container">
         <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
 
@@ -373,7 +366,6 @@
     gap: <span class="string">10</span>,
   },
 });</pre>
-      </div>
       
       <div class="tip-box">
         <strong>🎓 Best Practices:</strong>
