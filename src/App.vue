@@ -136,7 +136,7 @@ body {
   width:100%;
 }
 .brand-name {
-  font-size: 400px; 
+  font-size: 45px; 
   font-weight: 800; 
   color: #7dd3fc;
 }

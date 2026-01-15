@@ -428,6 +428,7 @@ export default {
 
 .delete-btn {
   background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
 }
 
 .delete-btn:hover {
@@ -527,6 +528,7 @@ export default {
 
 .delete-action-btn {
   background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
 }
 
 .delete-action-btn:hover:not(:disabled) {

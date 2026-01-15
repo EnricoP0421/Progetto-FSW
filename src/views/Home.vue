@@ -129,8 +129,7 @@ export default {
 <style scoped>
 
 h1{
-  font-size:90px;
-  margin-bottom:70px;
+  font-size: clamp(36px, 5vw, 52px);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
