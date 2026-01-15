@@ -1,74 +1,64 @@
-# Progetto FSW - React Native API Guide
+Progetto – Fondamenti dei Sistemi Web
 
-## 🚀 Avvio Rapido
+Argomento: React Native
+Tecnologie: Vue 3, JavaScript, HTML, CSS
 
-### Prerequisiti
-- [Node.js](https://nodejs.org) (versione 16 o superiore)
+Descrizione
 
-### Installazione e Avvio
+Il progetto consiste nello sviluppo di una Single Page Application (SPA) interamente lato client, realizzata per il corso di Fondamenti dei Sistemi Web.
+L’obiettivo è presentare un approfondimento sull’argomento React Native, combinando contenuti statici e funzionalità dinamiche.
 
-**Opzione 1: Script Automatico**
+L’applicazione è strutturata in quattro viste, come richiesto dalle specifiche del progetto.
 
-Windows:
-```bash
-setup.bat
-```
+Struttura dell’applicazione
 
-Mac/Linux:
-```bash
-./setup.sh
-```
+Home
+Vista statica introduttiva che presenta React Native e il contesto generale dell’applicazione.
 
-**Opzione 2: Manuale**
+API
+Vista statica di approfondimento tecnico su React Native, con spiegazione di concetti, caratteristiche e utilizzo.
 
-```bash
-# 1. Installa dipendenze
+Gamedex
+Vista dinamica che carica e visualizza dati provenienti da un file JSON (games.json), mostrando un elenco in formato tabellare.
+
+Inserimento
+Vista dinamica che implementa operazioni di CRUD (Create, Read, Update, Delete) su dati persistenti salvati nel localStorage del browser.
+
+Tecnologie utilizzate
+
+Vue 3 per la realizzazione della Single Page Application
+
+JavaScript per la logica applicativa
+
+HTML & CSS per struttura e stile
+
+Vite utilizzato esclusivamente come strumento di sviluppo e build per l’esecuzione dei componenti Vue
+
+L’applicazione rimane completamente client-side, senza backend o database.
+
+Persistenza dei dati
+
+I dati inseriti dall’utente nella vista “Inserimento” vengono salvati tramite localStorage, garantendo la persistenza anche dopo il refresh della pagina.
+
+Avvio del progetto
+
+Installare le dipendenze:
+
 npm install
 
-# 2. Avvia il server di sviluppo
+
+Avviare il server di sviluppo:
+
 npm run dev
-```
 
-## 📖 Comandi Disponibili
+Note finali
 
-```bash
-npm run dev      # Avvia server di sviluppo (http://localhost:3000)
-npm run build    # Crea build di produzione
-npm run preview  # Anteprima build di produzione
-```
+Il progetto rispetta i vincoli del corso:
 
-## 📁 Struttura Progetto
+nessun backend
 
-```
-Progetto-FSW/
-├── src/
-│   ├── App.vue           # Componente principale con navigazione
-│   ├── main.js           # Entry point
-│   └── views/
-│       ├── Api.vue       # Guida API React Native
-│       └── GameDex.vue   # Database giochi
-├── index.html
-├── package.json
-└── vite.config.js
-```
+nessun database
 
-## 🎯 Features
+utilizzo esclusivo di tecnologie lato client
 
-- ✅ Navigazione tra pagine
-- ✅ Design moderno e responsive
-- ✅ Hot reload durante sviluppo
-- ✅ Guida completa React Native API
-
-## 📚 Documentazione Completa
-
-Leggi [GUIDA_COMPLETA.md](GUIDA_COMPLETA.md) per istruzioni dettagliate.
-
-## ⚡ Tech Stack
-
-- Vue 3
-- Vite
-- CSS moderno con animazioni
-
----
-
-Made with ❤️ for learning React Native
+struttura coerente con le specifiche fornite
