@@ -4,7 +4,7 @@
   <div class="nav-inner">
 
     <div class="brand">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="Logo" class="logo" />
+      <img :src="reactNativeIcon" alt="React Native icon" class="logo" />
       <span class="brand-name">React Native</span>
     </div>
 
@@ -27,6 +27,7 @@ import GameDex from './views/GameDex.vue'
 import Api from './views/Api.vue'
 import Home from './views/Home.vue'
 import insertion from './views/insertion.vue'
+import reactNativeIcon from './images/React native icona.png'
 
 export default {
   name: 'App',
@@ -38,7 +39,8 @@ export default {
   },
   data() {
     return {
-      currentView: 'Home' // Pagina iniziale
+      currentView: 'Home', // Pagina iniziale
+      reactNativeIcon
     }
   }
 }

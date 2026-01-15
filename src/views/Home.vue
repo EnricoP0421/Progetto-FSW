@@ -24,14 +24,14 @@
       </p>
     </div>
 
-    <img class="body-image" src="https://cdn.worldvectorlogo.com/logos/react-1.svg" alt="React Native">
+    <img class="body-image" :src="reactLogo" alt="React logo" />
     
     </div>
     <p class="full-text">
     A differenza delle soluzioni ibride basate su WebView, React Native utilizza componenti nativi reali, garantendo prestazioni elevate, fluidità dell’interfaccia e un’esperienza utente simile a quella delle app sviluppate interamente in linguaggio nativo.
   </p>
     <div class="body-flex">
-    <img class="body-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVpZiIFya7v1Bqyy4EGWM8tDx28qUpUEbTcQ&s" alt="React Native">
+    <img class="body-image" :src="imgGeneric" alt="Immagine generica" />
    
     <div class="body-text">
       <p>
@@ -62,7 +62,7 @@
   </p>
 
   <div class="center-image">
-    <img src="https://miro.medium.com/1*YELk-XsmG3isUOc6xOSW0w.png" alt="React Native">
+    <img :src="imgYel" alt="Immagine 2" />
   </div>
 
   <p>
@@ -72,7 +72,7 @@
     Il framework si è evoluto fino a diventare una soluzione matura, adatta anche ad applicazioni con milioni di utenti.
   </p>
 <div class="body-flex">
-    <img class="body-image-second" src="https://miro.medium.com/1*OhmYGQJZ6KIlPsxvS2vbtA.png" alt="React Native">
+    <img class="body-image-second" :src="imgOhm" alt="Immagine 1" />
    
     <div class="body-text">
         <p>Guardando al futuro, il team di React Native sta lavorando alla New Architecture,</p>
@@ -108,7 +108,7 @@
     </ul>
     
   </div>
-  <img class="body-image-third" src="https://formazione.jdk.it/wp-content/uploads/2024/07/react-two.webp" alt="React Native">
+  <img class="body-image-third" :src="reactLogoTwo" alt="React logo alternative" />
   </div>
   <p>Nonostante alcune limitazioni (come la necessità di codice nativo per funzionalità molto specifiche), React Native rappresenta un eccellente compromesso tra produttività, potenza e flessibilità.</p>
   </div>
@@ -118,10 +118,21 @@
 </section>
 </template>
 <script>
+import imgOhm from '../images/1_OhmYGQJZ6KIlPsxvS2vbtA.png'
+import imgYel from '../images/1_YELk-XsmG3isUOc6xOSW0w.png'
+import imgGeneric from '../images/images.png'
+import reactLogo from '../images/react-1.svg'
+import reactLogoTwo from '../images/react-two.webp'
+
 export default {
   data() {
     return {
-      open: null
+      imgOhm,
+      imgYel,
+      imgGeneric,
+      reactLogo,
+      reactLogoTwo,
+      open: null   
     }
   }
 }
@@ -231,20 +242,31 @@ h1{
   flex:1;
 }
 
+.body-text p {
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+
 .body-image{
   width:200px;
   border-radius:16px;
   box-shadow:0 12px 30px rgba(0,0,0,.35);
+  margin: 20px 0; 
 }
-.body-image-second{
+.body-image-second {
   width:400px;
   border-radius:16px;
   box-shadow:0 12px 30px rgba(0,0,0,.35);
+  margin: 25px 0;
 }
-.body-image-third{
+
+.body-image-third {
   width:300px;
   border-radius:16px;
   box-shadow:0 12px 30px rgba(0,0,0,.35);
+  margin-top: 20px;
+  margin-bottom: 28px;
 }
 .full-text{
   margin-top:24px;
@@ -252,9 +274,10 @@ h1{
   line-height:1.6;
 }
 .center-image{
-  margin:30px 0;
+  margin: 50px 0;
   display:flex;
   justify-content:center;
+  margin-top: 20px;
 }
 
 .center-image img{
