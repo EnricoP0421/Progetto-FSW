@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Native - SPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800;1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigazione -->
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <div class="brand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="Logo" class="logo" />
+                <span class="brand-name">React Native</span>
+            </div>
+            
+            <div class="nav-links">
+                <button data-page="home" class="nav-btn active">Home</button>
+                <button data-page="api" class="nav-btn">API</button>
+                <button data-page="gamedex" class="nav-btn">Gamedex</button>
+                <button data-page="insertion" class="nav-btn">Inserimento</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenitore per le pagine -->
+    <div id="app"></div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>
