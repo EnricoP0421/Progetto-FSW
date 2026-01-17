@@ -1,21 +1,51 @@
 // Router e gestione dello stato
 const app = {
-    currentPage: 'home',
-    games: [],
-    exams: [],
-    editingExamId: null,
-    activeApiSection: 'how'
+  currentPage: 'home',
+  games: [],
+
+  // ESAMI (NUOVO MODELLO)
+  exams: [],
+  selectedExamId: null,
+  activeSection: null,
+  nextExamId: 1,
+
+  editingExamId: null, // puoi anche eliminarlo, non serve più
+  activeApiSection: 'how'
 };
 
 // Carica esami dal localStorage
-function loadExams() {
-    const stored = localStorage.getItem('exams');
-    app.exams = stored ? JSON.parse(stored) : [];
+function saveExams() {
+  localStorage.setItem('examsData', JSON.stringify({
+    exams: app.exams,
+    nextId: app.nextExamId
+  }));
 }
 
-// Salva esami nel localStorage
-function saveExams() {
-    localStorage.setItem('exams', JSON.stringify(app.exams));
+function initializeSampleExams() {
+  app.exams = [
+    { id: 1, name: 'Programmazione', grade: 28, date: '2024-01-15' },
+    { id: 2, name: "Elementi di Matematica per l'Informatica", grade: 25, date: '2024-02-20' },
+    { id: 3, name: 'Architettura degli Elaboratori e Sistemi Operativi', grade: 30, date: '2024-03-10' },
+    { id: 4, name: 'Reti di Calcolatori e Programmazione Reti', grade: 27, date: '2024-04-05' }
+  ];
+  app.nextExamId = 5;
+  saveExams();
+}
+
+function loadExams() {
+  const saved = localStorage.getItem('examsData');
+  if (!saved) {
+    initializeSampleExams();
+    return;
+  }
+  try {
+    const parsed = JSON.parse(saved);
+    app.exams = parsed.exams || [];
+    app.nextExamId = parsed.nextId || 1;
+  } catch (e) {
+    console.error('Errore nel caricamento esami:', e);
+    initializeSampleExams();
+  }
 }
 
 // Funzioni per caricare le pagine
@@ -214,93 +244,40 @@ const pages = {
         `;
     },
 
-    insertion: () => {
-        const examsList = app.exams.map(exam => `
-            <tr>
-                <td data-label="Materia">${exam.materia}</td>
-                <td data-label="Data">${exam.data}</td>
-                <td data-label="Voto">${exam.voto}</td>
-                <td data-label="CFU">${exam.cfu}</td>
-                <td data-label="Azioni" class="actions-cell">
-                    <button class="btn-edit" onclick="editExam(${exam.id})">✏️ Modifica</button>
-                    <button class="btn-delete" onclick="deleteExam(${exam.id})">🗑️ Elimina</button>
-                </td>
-            </tr>
-        `).join('');
+    insertion: () => `
+    <section class="container">
+    <div class="section-header">
+      <h1 class="section-title">Inserimento</h1>
+      <p class="section-description">
+        Gestisci i tuoi esami: visualizza, aggiungi, modifica ed elimina
+      </p>
+    </div>
 
-        const editingExam = app.exams.find(e => e.id === app.editingExamId);
+    <div class="exam-management">
+      <div class="exams-list">
+        <h2>Dati degli esami:</h2>
+        <div id="examsContainer" class="exams-container"></div>
+      </div>
 
-        return `
-            <section class="container">
-                <h1 class="section-title">Gestione Esami</h1>
-                
-                <div class="form-container">
-                    <h2 style="margin-bottom: 20px;">${app.editingExamId ? '✏️ Modifica Esame' : '➕ Nuovo Esame'}</h2>
-                    <form id="exam-form" onsubmit="saveExam(event)">
-                        <div class="form-group">
-                            <label>Materia</label>
-                            <input type="text" id="materia" value="${editingExam ? editingExam.materia : ''}" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Data Esame</label>
-                            <input type="date" id="data" value="${editingExam ? editingExam.data : ''}" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Voto (18-30)</label>
-                                <input type="number" id="voto" min="18" max="30" value="${editingExam ? editingExam.voto : ''}" required>
-                            </div>
-                            <div class="form-group">
-                                <label>CFU</label>
-                                <input type="number" id="cfu" min="1" max="12" value="${editingExam ? editingExam.cfu : ''}" required>
-                            </div>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="submit" class="btn-submit">
-                                ${app.editingExamId ? '💾 Salva Modifiche' : '➕ Aggiungi Esame'}
-                            </button>
-                            ${app.editingExamId ? '<button type="button" class="btn-cancel" onclick="cancelEdit()">❌ Annulla</button>' : ''}
-                        </div>
-                    </form>
-                </div>
+      <div class="exam-form">
+        <div class="form-section add-section" data-section="add">
+          <button class="section-btn add-btn" type="button">Aggiungi</button>
+          <div class="mount"></div>
+        </div>
 
-                ${app.exams.length > 0 ? `
-                <div class="exams-container">
-                    <h2 style="margin-bottom: 20px; color: #7dd3fc;">📚 I Miei Esami (${app.exams.length})</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Materia</th>
-                                <th>Data</th>
-                                <th>Voto</th>
-                                <th>CFU</th>
-                                <th>Azioni</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${examsList}
-                        </tbody>
-                    </table>
-                    
-                    <div class="stats-container">
-                        <div class="stat-card">
-                            <div class="stat-value">${calculateAverage()}</div>
-                            <div class="stat-label">Media Voti</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${calculateTotalCFU()}</div>
-                            <div class="stat-label">CFU Totali</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${app.exams.length}</div>
-                            <div class="stat-label">Esami Sostenuti</div>
-                        </div>
-                    </div>
-                </div>
-                ` : '<div class="empty-state">📝 Nessun esame registrato. Inizia aggiungendone uno!</div>'}
-            </section>
-        `;
-    }
+        <div class="form-section modify-section" data-section="modify">
+          <button class="section-btn modify-btn" type="button">Modifica</button>
+          <div class="mount"></div>
+        </div>
+
+        <div class="form-section delete-section" data-section="delete">
+          <button class="section-btn delete-btn" type="button">Elimina</button>
+          <div class="mount"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    `,
 };
 
 // Contenuti delle sezioni API
@@ -732,10 +709,14 @@ function loadPage(pageName) {
     }else if (pageName === 'insertion') {
         loadExams();
         appDiv.innerHTML = pages[pageName]();
+        initInsertionPage();
     } else if (pageName === 'api') {
-        appDiv.innerHTML = pages[pageName]();
-        showApiSection(app.activeApiSection);
-    } else {
+  appDiv.innerHTML = pages[pageName]();
+
+  // NON aprire nulla automaticamente
+  const contentDiv = document.getElementById('api-content');
+  if (contentDiv) contentDiv.innerHTML = '';
+} else {
         appDiv.innerHTML = pages[pageName]();
     }
 
@@ -782,69 +763,226 @@ function toggleCard(cardId) {
     card.classList.toggle('open');
 }
 
-// CRUD Esami
-function saveExam(event) {
-    event.preventDefault();
-
-    const materia = document.getElementById('materia').value;
-    const data = document.getElementById('data').value;
-    const voto = parseInt(document.getElementById('voto').value);
-    const cfu = parseInt(document.getElementById('cfu').value);
-
-    if (app.editingExamId) {
-        // Modifica esame esistente
-        const index = app.exams.findIndex(e => e.id === app.editingExamId);
-        app.exams[index] = {
-            id: app.editingExamId,
-            materia,
-            data,
-            voto,
-            cfu
-        };
-        app.editingExamId = null;
-    } else {
-        // Aggiungi nuovo esame
-        const newExam = {
-            id: Date.now(),
-            materia,
-            data,
-            voto,
-            cfu
-        };
-        app.exams.push(newExam);
-    }
-
-    saveExams();
-    loadPage('insertion');
+function formatDate(dateString) {
+  const d = new Date(dateString);
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${day}/${month}/${year}`;
 }
 
-function editExam(id) {
-    app.editingExamId = id;
-    loadPage('insertion');
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
 }
 
-function deleteExam(id) {
-    if (confirm('Sei sicuro di voler eliminare questo esame?')) {
-        app.exams = app.exams.filter(e => e.id !== id);
+function getSelectedExam() {
+  return app.exams.find(e => e.id === app.selectedExamId) || null;
+}
+
+function renderExamsList() {
+  const container = document.getElementById('examsContainer');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  if (app.exams.length === 0) {
+    container.innerHTML = `<div class="no-exams"><p>Nessun esame inserito</p></div>`;
+    return;
+  }
+
+  for (const exam of app.exams) {
+    const item = document.createElement('div');
+    item.className = 'exam-item' + (app.selectedExamId === exam.id ? ' selected' : '');
+    item.innerHTML = `
+      <div class="exam-info">
+        <h3>${escapeHtml(exam.name)}</h3>
+        <div class="exam-details">
+          <span class="exam-grade">Voto: ${exam.grade}</span>
+          <span class="exam-date">${formatDate(exam.date)}</span>
+        </div>
+      </div>
+    `;
+
+    item.addEventListener('click', () => {
+      app.selectedExamId = exam.id;
+      renderExamsList();
+      if (app.activeSection) mountSection(app.activeSection); // aggiorna form aperto
+    });
+
+    container.appendChild(item);
+  }
+}
+
+function unmountAllSections() {
+  document.querySelectorAll('.form-section .mount').forEach(m => m.innerHTML = '');
+}
+
+function mountSection(section) {
+  unmountAllSections();
+
+  const sec = document.querySelector(`.form-section[data-section="${section}"]`);
+  if (!sec) return;
+
+  const mount = sec.querySelector('.mount');
+  const selected = getSelectedExam();
+
+  if (section === 'add') {
+    mount.innerHTML = `
+      <div class="form-content">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Corso:</label>
+            <input id="newName" class="form-input" type="text" placeholder="Nome del corso" />
+          </div>
+          <div class="form-group">
+            <label>Voto:</label>
+            <input id="newGrade" class="form-input" type="number" min="18" max="30" placeholder="18-30" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Data:</label>
+          <input id="newDate" class="form-input" type="date" />
+        </div>
+        <button id="btnAddExam" class="action-btn add-action-btn" type="button">Aggiungi +</button>
+      </div>
+    `;
+
+    mount.querySelector('#btnAddExam').addEventListener('click', () => {
+      const name = mount.querySelector('#newName').value.trim();
+      const gradeRaw = mount.querySelector('#newGrade').value.trim();
+      const date = mount.querySelector('#newDate').value;
+
+      if (!name || !gradeRaw || !date) return alert('Compila tutti i campi');
+
+      const grade = parseInt(gradeRaw, 10);
+      if (Number.isNaN(grade) || grade < 18 || grade > 30) return alert('Il voto deve essere tra 18 e 30');
+
+      app.exams.push({ id: app.nextExamId++, name, grade, date });
+      saveExams();
+      renderExamsList();
+
+      mount.querySelector('#newName').value = '';
+      mount.querySelector('#newGrade').value = '';
+      mount.querySelector('#newDate').value = '';
+    });
+  }
+
+  if (section === 'modify') {
+    const disabled = selected ? '' : 'disabled';
+
+    mount.innerHTML = `
+      <div class="form-content">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Corso:</label>
+            <input id="editName" class="form-input" type="text" placeholder="Nome del corso" ${disabled}
+                   value="${selected ? escapeHtml(selected.name) : ''}" />
+          </div>
+          <div class="form-group">
+            <label>Voto:</label>
+            <input id="editGrade" class="form-input" type="number" min="18" max="30" placeholder="18-30" ${disabled}
+                   value="${selected ? selected.grade : ''}" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Data:</label>
+            <input id="editDate" class="form-input" type="date" ${disabled}
+                   value="${selected ? selected.date : ''}" />
+          </div>
+          <div class="form-group">
+            <label>Esame da modificare:</label>
+            <input class="form-input" type="text" disabled
+                   placeholder="Seleziona un esame dalla lista"
+                   value="${selected ? escapeHtml(selected.name) : ''}" />
+          </div>
+        </div>
+
+        <button id="btnUpdateExam" class="action-btn modify-action-btn" type="button" ${disabled}>Modifica</button>
+      </div>
+    `;
+
+    const btn = mount.querySelector('#btnUpdateExam');
+    if (btn && selected) {
+      btn.addEventListener('click', () => {
+        const name = mount.querySelector('#editName').value.trim();
+        const gradeRaw = mount.querySelector('#editGrade').value.trim();
+        const date = mount.querySelector('#editDate').value;
+
+        if (!name || !gradeRaw || !date) return alert('Compila tutti i campi');
+
+        const grade = parseInt(gradeRaw, 10);
+        if (Number.isNaN(grade) || grade < 18 || grade > 30) return alert('Il voto deve essere tra 18 e 30');
+
+        const idx = app.exams.findIndex(e => e.id === selected.id);
+        if (idx !== -1) app.exams[idx] = { ...app.exams[idx], name, grade, date };
+
+        app.selectedExamId = null;
         saveExams();
-        loadPage('insertion');
+        renderExamsList();
+        mountSection('modify'); // reset form come nel Vue
+      });
     }
+  }
+
+  if (section === 'delete') {
+    const disabled = selected ? '' : 'disabled';
+
+    mount.innerHTML = `
+      <div class="form-content">
+        <div class="form-group">
+          <label>Esame da eliminare:</label>
+          <input class="form-input" type="text" disabled
+                 placeholder="Seleziona un esame dalla lista"
+                 value="${selected ? escapeHtml(selected.name) : ''}" />
+        </div>
+
+        <button id="btnDeleteExam" class="action-btn delete-action-btn" type="button" ${disabled}>Elimina</button>
+      </div>
+    `;
+
+    const btn = mount.querySelector('#btnDeleteExam');
+    if (btn && selected) {
+      btn.addEventListener('click', () => {
+        if (!confirm('Sei sicuro di voler eliminare questo esame?')) return;
+
+        app.exams = app.exams.filter(e => e.id !== selected.id);
+        app.selectedExamId = null;
+        saveExams();
+        renderExamsList();
+        mountSection('delete');
+      });
+    }
+  }
 }
 
-function cancelEdit() {
-    app.editingExamId = null;
-    loadPage('insertion');
+function toggleInsertionSection(section) {
+  if (app.activeSection === section) {
+    app.activeSection = null;
+    unmountAllSections();
+  } else {
+    app.activeSection = section;
+    mountSection(section);
+  }
 }
 
-function calculateAverage() {
-    if (app.exams.length === 0) return '0.0';
-    const sum = app.exams.reduce((acc, exam) => acc + exam.voto, 0);
-    return (sum / app.exams.length).toFixed(1);
+function initInsertionPage() {
+  // listeners sui 3 bottoni sezione
+  document.querySelectorAll('.form-section').forEach(sec => {
+    const btn = sec.querySelector('.section-btn');
+    btn.addEventListener('click', () => toggleInsertionSection(sec.dataset.section));
+  });
+
+  // render lista
+  renderExamsList();
 }
 
-function calculateTotalCFU() {
-    return app.exams.reduce((acc, exam) => acc + exam.cfu, 0);
-}
 
 // Inizializzazione
 document.addEventListener('DOMContentLoaded', () => {
