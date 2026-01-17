@@ -497,25 +497,34 @@ tbody tr td:nth-child(2) {
 }
 
 .api-section {
-  background: #1b2252;
-  padding: 40px;
-  border-radius: 26px;
-  border: 1px solid rgba(97, 218, 251, .25);
-  margin-top: 40px;
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 50px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(97, 218, 251, 0.15);
+}
+
+.api-section.active {
+  display: block;
 }
 
 .api-section h2 {
-  color: #7dd3fc;
-  font-size: 36px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.api-section p {
+  line-height: 1.8;
+  color: var(--text-secondary);
   margin-bottom: 20px;
 }
 
-.api-section h3 {
-  color: #e2e8f0;
-  font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+.api-section ul {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-left: 20px;
 }
+
 
 .subsection-title {
   color: #7dd3fc;
