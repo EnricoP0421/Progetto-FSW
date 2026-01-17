@@ -724,11 +724,12 @@ function loadPage(pageName) {
     const appDiv = document.getElementById('app');
     
     // Se è la pagina gamedex e non abbiamo ancora caricato i giochi
-    if (pageName === 'gamedex' && app.games.length === 0) {
-        loadGames().then(() => {
-            appDiv.innerHTML = pages[pageName]();
-        });
-    } else if (pageName === 'insertion') {
+    if (pageName === 'gamedex') {
+    // carica (o ricarica) i giochi e poi renderizza la pagina
+    loadGames().then(() => {
+        appDiv.innerHTML = pages[pageName]();
+    });
+    }else if (pageName === 'insertion') {
         loadExams();
         appDiv.innerHTML = pages[pageName]();
     } else if (pageName === 'api') {
@@ -748,15 +749,22 @@ function loadPage(pageName) {
     });
 }
 
-// Carica i giochi dal file JSON
 async function loadGames() {
-    try {
-        const response = await fetch('/games.json');
-        app.games = await response.json();
-    } catch (error) {
-        console.error('Errore nel caricamento dei giochi:', error);
-        app.games = [];
+  try {
+    // IMPORTANTISSIMO: niente "/" davanti
+    const response = await fetch("games.json", { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} - ${response.statusText}`);
     }
+
+    app.games = await response.json();
+    return app.games;
+  } catch (error) {
+    console.error("Errore nel caricamento dei giochi:", error);
+    app.games = [];
+    return [];
+  }
 }
 
 // Toggle per le card espandibili
