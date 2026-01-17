@@ -284,10 +284,10 @@ const apiSections = {
                     <div class="step-content">
                         <h3>Installa React Native</h3>
                         <p>Inizia configurando l'ambiente di sviluppo. React Native CLI ti permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
-                        <div class="code-block">
-                            <code>npx react-native init MiaApp</code>
-                            <code>cd MiaApp</code>
-                            <code>npx react-native run-android</code>
+                        <div class="step-code">
+                          <span class="code-line"><span class="keyword">npx</span> react-native init MiaApp</span>
+                          <span class="code-line"><span class="keyword">cd</span> MiaApp</span>
+                          <span class="code-line"><span class="keyword">npx</span> react-native run-android</span>
                         </div>
                     </div>
                 </div>
@@ -297,12 +297,12 @@ const apiSections = {
                     <div class="step-content">
                         <h3>Crea Componenti React</h3>
                         <p>Utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
-                        <div class="code-block">
-                            <code>const MioComponente = () => (</code>
-                            <code>  &lt;View style={styles.container}&gt;</code>
-                            <code>    &lt;Text&gt;Testo Nativo&lt;/Text&gt;</code>
-                            <code>  &lt;/View&gt;</code>
-                            <code>);</code>
+                        <div class="step-code">
+                            <span class="code-line"><span class="keyword">const</span> <span class="function">MioComponente</span> = () => (</span>
+                            <span class="code-line">  &lt;<span class="tag">View</span> style={styles.container}&gt;</span>
+                            <span class="code-line">    &lt;<span class="tag">Text</span>&gt;<span class="string">Testo Nativo</span>&lt;/<span class="tag">Text</span>&gt;</span>
+                            <span class="code-line">  &lt;/<span class="tag">View</span>&gt;</span>
+                           <span class="code-line">);</span>
                         </div>
                     </div>
                 </div>
@@ -312,14 +312,14 @@ const apiSections = {
                     <div class="step-content">
                         <h3>Stilizza con Flexbox</h3>
                         <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive. Gli stili sono definiti in JavaScript utilizzando un subset di CSS.</p>
-                        <div class="code-block">
-                            <code>const styles = StyleSheet.create({</code>
-                            <code>  container: {</code>
-                            <code>    flex: 1,</code>
-                            <code>    justifyContent: 'center',</code>
-                            <code>    backgroundColor: '#61dafb'</code>
-                            <code>  }</code>
-                            <code>});</code>
+                        <div class="step-code">
+                            <span class="code-line"><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({</span>
+                            <span class="code-line">  container: {</span>
+                            <span class="code-line">    flex: <span class="string">1</span>,</span>
+                            <span class="code-line">    justifyContent: <span class="string">'center'</span>,</span>
+                            <span class="code-line">    backgroundColor: <span class="string">'#61dafb'</span></span>
+                            <span class="code-line">  }</span>
+                            <span class="code-line">});</span>
                         </div>
                     </div>
                 </div>
@@ -344,47 +344,63 @@ const apiSections = {
             </p>
             
             <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
-            <div class="code-block">
-                <code>import React, { useState } from 'react';</code>
-                <code>import { View, Text, TextInput, FlatList, Button, StyleSheet } from 'react-native';</code>
-                <code></code>
-                <code>export default function ShoppingList() {</code>
-                <code>  const [items, setItems] = useState([]);</code>
-                <code>  const [text, setText] = useState('');</code>
-                <code>  </code>
-                <code>  const addItem = () => {</code>
-                <code>    if (text.trim() !== '') {</code>
-                <code>      setItems([...items, text]);</code>
-                <code>      setText('');</code>
-                <code>    }</code>
-                <code>  };</code>
-                <code>  </code>
-                <code>  return (</code>
-                <code>    &lt;View style={styles.container}&gt;</code>
-                <code>      &lt;TextInput</code>
-                <code>        style={styles.input}</code>
-                <code>        value={text}</code>
-                <code>        onChangeText={setText}</code>
-                <code>        placeholder="Aggiungi un prodotto"</code>
-                <code>      /&gt;</code>
-                <code>      &lt;Button title="Aggiungi" onPress={addItem} /&gt;</code>
-                <code>      &lt;FlatList</code>
-                <code>        data={items}</code>
-                <code>        keyExtractor={(item, index) => index.toString()}</code>
-                <code>        renderItem={({ item }) => &lt;Text style={styles.item}&gt;{item}&lt;/Text&gt;}</code>
-                <code>      /&gt;</code>
-                <code>    &lt;/View&gt;</code>
-                <code>  );</code>
-                <code>}</code>
-            </div>
-            
+                <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">TextInput</span>, <span class="component">FlatList</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+
+<span class="keyword">export default function</span> <span class="function">ShoppingList</span>() {
+  <span class="keyword">const</span> [items, setItems] = <span class="function">useState</span>([]);
+  <span class="keyword">const</span> [text, setText] = <span class="function">useState</span>(<span class="string">''</span>);
+  
+  <span class="keyword">const</span> <span class="function">addItem</span> = () => {
+    <span class="keyword">if</span> (text.<span class="function">trim</span>() !== <span class="string">''</span>) {
+      <span class="function">setItems</span>([...<span class="variable">items</span>, text]);
+      <span class="function">setText</span>(<span class="string">''</span>);
+    }
+  };
+  
+  <span class="keyword">return</span> (
+    &lt;<span class="component">View</span> style={styles.container}&gt;
+      &lt;<span class="component">TextInput</span>
+        style={styles.input}
+        value={text}
+        onChangeText={setText}
+        placeholder=<span class="string">"Aggiungi un prodotto"</span>
+      /&gt;
+      &lt;<span class="component">Button</span> title=<span class="string">"Aggiungi"</span> onPress={addItem} /&gt;
+      &lt;<span class="component">FlatList</span>
+        data={items}
+        keyExtractor={(item, index) => index.<span class="function">toString</span>()}
+        renderItem={({ item }) => &lt;<span class="component">Text</span> style={styles.item}&gt;{item}&lt;/<span class="component">Text</span>&gt;}
+      /&gt;
+    &lt;/<span class="component">View</span>&gt;
+  );
+}
+
+<span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
+  container: {
+    flex: <span class="string">1</span>,
+    padding: <span class="string">20</span>,
+    backgroundColor: <span class="string">'#fff'</span>,
+  },
+  input: {
+    borderWidth: <span class="string">1</span>,
+    borderColor: <span class="string">'#ccc'</span>,
+    padding: <span class="string">10</span>,
+    marginBottom: <span class="string">10</span>,
+  },
+  item: {
+    fontSize: <span class="string">18</span>,
+    padding: <span class="string">5</span>,
+  },
+});</pre>
+                        
             <div class="info-box">
                 <strong>📝 Concetti chiave:</strong>
                 <ul>
-                    <li><strong>useState</strong>: gestisce lo stato della lista e del campo di testo</li>
-                    <li><strong>TextInput</strong>: permette all'utente di inserire nuovi elementi</li>
-                    <li><strong>FlatList</strong>: renderizza liste lunghe in modo ottimizzato</li>
-                    <li><strong>keyExtractor</strong>: identifica univocamente ogni elemento della lista</li>
+                    <li><strong>useState:</strong> gestisce lo stato della lista e del campo di testo</li>
+                    <li><strong>TextInput:</strong> permette all'utente di inserire nuovi elementi</li>
+                    <li><strong>FlatList:</strong> renderizza liste lunghe in modo ottimizzato</li>
+                    <li><strong>keyExtractor:</strong> identifica univocamente ogni elemento della lista</li>
                 </ul>
             </div>
         </div>
