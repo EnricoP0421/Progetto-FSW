@@ -1,6 +1,6 @@
-# Fondamenti di Sistemi Web – Progetto A.A. 2024/2025
+# Fondamenti di Sistemi Web – Progetto A.A. 2025/2026
 
-Single Page Application (SPA) realizzata per l’esame di **Fondamenti di Sistemi Web** – Università di Bologna, A.A. 2024/25.
+Single Page Application (SPA) realizzata per l’esame di **Fondamenti di Sistemi Web** – Università di Bologna, A.A. 2025/26.
 
 Il progetto consiste in un’applicazione web **client-side**, accessibile e responsive, che presenta un approfondimento sul framework **React Native**, includendo viste statiche, visualizzazione di dati JSON e operazioni CRUD con persistenza locale.
 
@@ -130,7 +130,7 @@ Il design dell’applicazione è stato progettato seguendo i criteri indicati ne
 
 Progetto realizzato per il corso di **Fondamenti di Sistemi Web** da:
 Lorenzo Billi ed Enrico Poli 
-Anno Accademico 2024/2025
+Anno Accademico 2025/2026
 
 
 ---
