@@ -15,9 +15,12 @@
 }
 
 body {
-  font-family: 'Sora', sans-serif;
+  font-family: sans-serif;
   background: var(--bg-dark);
   color: var(--text-primary);
+}
+text {
+  color:white;
 }
 
 .top-nav {
