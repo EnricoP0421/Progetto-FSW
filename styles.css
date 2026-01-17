@@ -8,7 +8,6 @@
   --code-bg: #1e293b;
 }
 
-/* Reset e stili base */
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +20,6 @@ body {
   color: var(--text-primary);
 }
 
-
-/* Navigazione */
 .top-nav {
   position: fixed;
   top: 0;
@@ -109,15 +106,12 @@ body {
   color: #7dd3fc;
 }
 
-/* Container principale */
 .container {
   max-width: 1200px;
   margin: 120px auto 80px;
   padding: 60px 20px;
 }
 
-
-/* Titolo sezioni */
 h1 {
   font-size: 80px;
   margin-bottom: 70px;
@@ -147,7 +141,6 @@ h1 {
   color: #94a3b8;
 }
 
-/* Stili Home */
 .menu {
   max-width: 900px;
   width: 100%;
@@ -280,12 +273,11 @@ h1 {
   top: 4px;
   width: 22px;
   height: 22px;
-  background-image: url("https://images-cdn.openxcell.com/wp-content/uploads/2024/07/25082439/reactnative-inner.svg");
+  background-image: url("images/punto-elenco-react-native.svg");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-/* Stili Tabella */
 table {
   width: 100%;
   border-collapse: separate;
@@ -335,7 +327,6 @@ tbody tr td:nth-child(2) {
   color: #f8fafc;
 }
 
-/* Form Inserimento */
 .form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -408,7 +399,6 @@ tbody tr td:nth-child(2) {
   font-weight: 600;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .brand-name {
     font-size: 40px;
@@ -458,7 +448,6 @@ tbody tr td:nth-child(2) {
     width: 100%;
   }
 }
-/* Stili API */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -818,7 +807,6 @@ h3.subsection-title {
   font-size: 14px;
 }
 
-/* Stili CRUD Esami */
 .exams-container {
   margin-top: 60px;
 }
@@ -931,7 +919,6 @@ h3.subsection-title {
   margin-top: 40px;
 }
 
-/* Responsive per form */
 @media (max-width: 600px) {
   .form-row {
     grid-template-columns: 1fr;

@@ -1,19 +1,14 @@
-// Router e gestione dello stato
 const app = {
   currentPage: 'home',
   games: [],
-
-  // ESAMI (NUOVO MODELLO)
   exams: [],
   selectedExamId: null,
   activeSection: null,
   nextExamId: 1,
-
-  editingExamId: null, // puoi anche eliminarlo, non serve più
+  editingExamId: null,
   activeApiSection: 'how'
 };
 
-// Carica esami dal localStorage
 function saveExams() {
   localStorage.setItem('examsData', JSON.stringify({
     exams: app.exams,
@@ -48,7 +43,6 @@ function loadExams() {
   }
 }
 
-// Funzioni per caricare le pagine
 const pages = {
     home: () => `
         <section class="container">
@@ -280,7 +274,6 @@ const pages = {
     `,
 };
 
-// Contenuti delle sezioni API
 const apiSections = {
     how: () => `
         <div class="api-section">
@@ -686,7 +679,6 @@ examples: () => `
 
 };
 
-// Funzione per mostrare sezione API
 function showApiSection(section) {
     app.activeApiSection = section;
     const contentDiv = document.getElementById('api-content');
@@ -695,14 +687,11 @@ function showApiSection(section) {
     }
 }
 
-// Funzione per caricare una pagina
 function loadPage(pageName) {
     app.currentPage = pageName;
     const appDiv = document.getElementById('app');
     
-    // Se è la pagina gamedex e non abbiamo ancora caricato i giochi
     if (pageName === 'gamedex') {
-    // carica (o ricarica) i giochi e poi renderizza la pagina
     loadGames().then(() => {
         appDiv.innerHTML = pages[pageName]();
     });
@@ -713,14 +702,12 @@ function loadPage(pageName) {
     } else if (pageName === 'api') {
   appDiv.innerHTML = pages[pageName]();
 
-  // NON aprire nulla automaticamente
   const contentDiv = document.getElementById('api-content');
   if (contentDiv) contentDiv.innerHTML = '';
 } else {
         appDiv.innerHTML = pages[pageName]();
     }
 
-    // Aggiorna lo stato attivo dei bottoni
     document.querySelectorAll('.nav-btn').forEach(btn => {
         if (btn.dataset.page === pageName) {
             btn.classList.add('active');
@@ -732,7 +719,6 @@ function loadPage(pageName) {
 
 async function loadGames() {
   try {
-    // IMPORTANTISSIMO: niente "/" davanti
     const response = await fetch("games.json", { cache: "no-store" });
 
     if (!response.ok) {
@@ -748,18 +734,15 @@ async function loadGames() {
   }
 }
 
-// Toggle per le card espandibili
 function toggleCard(cardId) {
     const card = document.getElementById(`card-${cardId}`);
     
-    // Chiudi tutte le altre card
     document.querySelectorAll('.main-card').forEach(c => {
         if (c.id !== `card-${cardId}`) {
             c.classList.remove('open');
         }
     });
     
-    // Toggle della card cliccata
     card.classList.toggle('open');
 }
 
@@ -811,7 +794,7 @@ function renderExamsList() {
     item.addEventListener('click', () => {
       app.selectedExamId = exam.id;
       renderExamsList();
-      if (app.activeSection) mountSection(app.activeSection); // aggiorna form aperto
+      if (app.activeSection) mountSection(app.activeSection);
     });
 
     container.appendChild(item);
@@ -926,7 +909,7 @@ function mountSection(section) {
         app.selectedExamId = null;
         saveExams();
         renderExamsList();
-        mountSection('modify'); // reset form come nel Vue
+        mountSection('modify');
       });
     }
   }
@@ -973,20 +956,16 @@ function toggleInsertionSection(section) {
 }
 
 function initInsertionPage() {
-  // listeners sui 3 bottoni sezione
   document.querySelectorAll('.form-section').forEach(sec => {
     const btn = sec.querySelector('.section-btn');
     btn.addEventListener('click', () => toggleInsertionSection(sec.dataset.section));
   });
 
-  // render lista
   renderExamsList();
 }
 
 
-// Inizializzazione
 document.addEventListener('DOMContentLoaded', () => {
-    // Aggiungi event listener ai bottoni di navigazione
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const page = e.target.dataset.page;
@@ -994,6 +973,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Carica la pagina home
     loadPage('home');
 });
