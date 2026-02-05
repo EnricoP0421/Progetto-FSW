@@ -26,7 +26,6 @@ function escapeHtml(str) {
     .replaceAll("'","&#039;");
 }
 
-// COMPONENTE HOME
 const HomePage = {
   methods: {
     toggleCard(cardId) {
@@ -145,7 +144,6 @@ const HomePage = {
   `
 };
 
-// COMPONENTE API
 const ApiPage = {
   data() {
     return {
@@ -154,7 +152,6 @@ const ApiPage = {
   },
   methods: {
     showApiSection(section) {
-      // Toggle: se la sezione è già aperta, la chiude
       if (this.activeSection === section) {
         this.activeSection = null;
       } else {
@@ -634,7 +631,6 @@ const ApiPage = {
   `
 };
 
-// COMPONENTE GAMEDEX
 const GamedexPage = {
   data() {
     return {
@@ -691,7 +687,6 @@ const GamedexPage = {
   `
 };
 
-// COMPONENTE INSERTION
 const InsertionPage = {
   data() {
     return {
@@ -972,7 +967,6 @@ const InsertionPage = {
   `
 };
 
-// DEFINIZIONE ROUTES
 const routes = [
   { path: '/home', component: HomePage },
   { path: '/api', component: ApiPage },
@@ -981,13 +975,11 @@ const routes = [
   { path: '/', redirect: '/home' }
 ];
 
-// CREAZIONE ROUTER
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHashHistory(),
   routes
 });
 
-// CREAZIONE E MOUNT DELL'APP VUE
 const app = Vue.createApp({});
 app.use(router);
 app.mount('#app');
