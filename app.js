@@ -1,9 +1,45 @@
 function formatDate(dateString) {
+  // Controlla se la data è valida prima di formattarla
+  if (!dateString || dateString === '') {
+    return 'Data non inserita';
+  }
+  
+  // Se la data è già in formato DD/MM/YY o DD/MM/YYYY, convertila prima
+  if (typeof dateString === 'string' && dateString.includes('/')) {
+    const parts = dateString.split('/');
+    if (parts.length === 3) {
+      let [day, month, year] = parts;
+      // Converti anno a 2 cifre in 4 cifre
+      if (year.length === 2) {
+        year = '20' + year;
+      }
+      // Crea la data in formato ISO: YYYY-MM-DD
+      dateString = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    }
+  }
+  
   const d = new Date(dateString);
+  
+  // Verifica che la data sia valida
+  if (isNaN(d.getTime())) {
+    return 'Data non valida';
+  }
+  
   const day = String(d.getDate()).padStart(2, '0');
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const year = d.getFullYear();
   return `${day}/${month}/${year}`;
+}
+
+function isDateInFuture(dateString) {
+  if (!dateString) return false;
+  
+  const d = new Date(dateString);
+  const oggi = new Date();
+  oggi.setHours(0, 0, 0, 0);
+  d.setHours(0, 0, 0, 0);
+  
+  return d > oggi;
 }
 
 function escapeHtml(str) {
@@ -762,13 +798,18 @@ const InsertionPage = {
     },
     addExam() {
       if (!this.newExam.name || !this.newExam.grade || !this.newExam.date) {
-        alert('Compila tutti i campi');
+        alert('Compila tutti i campi!');
         return;
       }
 
-      const grade = parseInt(this.newExam.grade, 10);
-      if (isNaN(grade) || grade < 18 || grade > 30) {
+      const grade = parseInt(this.newExam.grade);
+      if (grade < 18 || grade > 30) {
         alert('Il voto deve essere tra 18 e 30');
+        return;
+      }
+
+      if (isDateInFuture(this.newExam.date)) {
+        alert('Non puoi inserire una data futura');
         return;
       }
 
@@ -783,14 +824,21 @@ const InsertionPage = {
       this.newExam = { name: '', grade: '', date: '' };
     },
     updateExam() {
+      if (!this.selectedExamId) return;
+
       if (!this.editExam.name || !this.editExam.grade || !this.editExam.date) {
-        alert('Compila tutti i campi');
+        alert('Compila tutti i campi!');
         return;
       }
 
-      const grade = parseInt(this.editExam.grade, 10);
-      if (isNaN(grade) || grade < 18 || grade > 30) {
+      const grade = parseInt(this.editExam.grade);
+      if (grade < 18 || grade > 30) {
         alert('Il voto deve essere tra 18 e 30');
+        return;
+      }
+
+      if (isDateInFuture(this.editExam.date)) {
+        alert('Non puoi inserire una data futura!');
         return;
       }
 
