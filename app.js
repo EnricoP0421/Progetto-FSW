@@ -1,30 +1,5 @@
 function formatDate(dateString) {
-  // Controlla se la data è valida prima di formattarla
-  if (!dateString || dateString === '') {
-    return 'Data non inserita';
-  }
-  
-  // Se la data è già in formato DD/MM/YY o DD/MM/YYYY, convertila prima
-  if (typeof dateString === 'string' && dateString.includes('/')) {
-    const parts = dateString.split('/');
-    if (parts.length === 3) {
-      let [day, month, year] = parts;
-      // Converti anno a 2 cifre in 4 cifre
-      if (year.length === 2) {
-        year = '20' + year;
-      }
-      // Crea la data in formato ISO: YYYY-MM-DD
-      dateString = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-    }
-  }
-  
   const d = new Date(dateString);
-  
-  // Verifica che la data sia valida
-  if (isNaN(d.getTime())) {
-    return 'Data non valida';
-  }
-  
   const day = String(d.getDate()).padStart(2, '0');
   const month = String(d.getMonth() + 1).padStart(2, '0');
   const year = d.getFullYear();
@@ -766,10 +741,10 @@ const InsertionPage = {
     },
     initializeSampleExams() {
       this.exams = [
-        { id: 1, name: 'Programmazione', grade: 28, date: '15/01/25' },
-        { id: 2, name: "Elementi di Matematica per l'Informatica", grade: 25, date: '20/02/25' },
-        { id: 3, name: 'Architettura degli Elaboratori e Sistemi Operativi', grade: 30, date: '10/03/25' },
-        { id: 4, name: 'Reti di Calcolatori e Programmazione Reti', grade: 27, date: '05/04/25' }
+        { id: 1, name: 'Programmazione', grade: 28, date: '2024-01-15' },
+        { id: 2, name: "Elementi di Matematica per l'Informatica", grade: 25, date: '2024-02-20' },
+        { id: 3, name: 'Architettura degli Elaboratori e Sistemi Operativi', grade: 30, date: '2024-01-10' },
+        { id: 4, name: 'Reti di Calcolatori e Programmazione Reti', grade: 27, date: '2024-02-05' }
       ];
       this.nextExamId = 5;
       this.saveExams();
@@ -838,7 +813,7 @@ const InsertionPage = {
       }
 
       if (isDateInFuture(this.editExam.date)) {
-        alert('Non puoi inserire una data futura!');
+        alert('Non puoi inserire una data futura');
         return;
       }
 
