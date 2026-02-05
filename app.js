@@ -93,62 +93,51 @@ const HomePage = {
             <p>
               Facebook intuì che gli stessi principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali come Ionic o Cordova.
             </p>
-            <p>
-              Il primo rilascio pubblico di React Native avvenne nel marzo 2015, quando il framework fu rilasciato come progetto open source.
-            </p>
-            <div class="body-flex">
-              <div class="body-text">
-                <p>
-                  Nel 2016 Microsoft portò React Native anche su Windows e sul desktop, dimostrando la flessibilità del sistema.
-                </p>
-                <p>
-                  Nel 2018 Facebook annunciò la "re-architettura" di React Native, un progetto pluriennale volto a modernizzare il motore interno e migliorare l'interoperabilità con il codice nativo.
-                </p>
-              </div>
-              <img class="body-image" src="images/react-two.webp" alt="React Native">
+            <div class="center-image">
+              <img src="images/1_YELk-XsmG3isUOc6xOSW0w.png" alt="React Native">
             </div>
             <p>
-              Tra le innovazioni più recenti figurano il "New Architecture" (basato su JSI e Fabric), che permette comunicazione sincrona tra JavaScript e nativo, e il "Turbo Modules", per migliorare le prestazioni dei moduli nativi.
+              Nel corso degli anni, React Native è cresciuto rapidamente grazie al contributo della community open source e a un ecosistema sempre più ricco di strumenti come Expo, React Navigation e Redux.
             </p>
             <p>
-              Il futuro di React Native si concentra su prestazioni ancora più elevate, supporto migliorato per il web (React Native Web), strumenti di sviluppo più avanzati e un ecosistema di librerie sempre più maturo.
+              Il framework si è evoluto fino a diventare una soluzione matura, adatta anche ad applicazioni con milioni di utenti.
             </p>
+            <div class="body-flex">
+              <img class="body-image-second" src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="React Native">
+              <div class="body-text">
+                  <p>Guardando al futuro, il team di React Native sta lavorando alla New Architecture,</p>
+                  <ul class="custom-list">
+                    <li>Fabric, un nuovo sistema di rendering più veloce</li>
+                    <li>TurboModules, per una gestione più efficiente dei moduli nativi</li>
+                  </ul>
+                <p>Queste innovazioni porteranno prestazioni ancora più vicine a quelle delle app completamente native, rendendo React Native una scelta solida anche negli anni a venire.</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="main-card" id="card-3">
           <div class="header-card" @click="toggleCard(3)">
-            <h3>Vantaggi e Svantaggi</h3>
-            <p>Analisi comparativa</p>
+            <h3>Vantaggi</h3>
+            <p>Perchè sceglierlo</p>
           </div>
           <div class="body-card">
-            <div class="body-flex">
-              <div class="body-text">
-                <h4>Vantaggi</h4>
-                <ul class="pros-cons">
-                  <li><strong>Codice condiviso:</strong> Scrivi una volta, esegui su Android e iOS</li>
-                  <li><strong>Performance native:</strong> Utilizza componenti nativi reali</li>
-                  <li><strong>Hot Reload:</strong> Vedi le modifiche istantaneamente durante lo sviluppo</li>
-                  <li><strong>Grande comunità:</strong> Migliaia di librerie e risorse disponibili</li>
-                  <li><strong>Competenze web:</strong> Usa JavaScript e React che già conosci</li>
-                  <li><strong>Aggiornamenti rapidi:</strong> Possibilità di over-the-air updates</li>
-                </ul>
+            <p>React Native offre numerosi vantaggi che lo rendono uno dei framework più scelti nello sviluppo mobile moderno:</p>
+              <div class="body-flex">
+                <div class="body-text">
+                  <ul class="custom-list">
+                    <li><strong>Codice unico per più piattaforme</strong> (Android e iOS)</li>
+                    <li><strong>Prestazioni elevate</strong>, grazie al rendering nativo</li>
+                    <li><strong>Fast Refresh</strong>, per aggiornare l'app in tempo reale durante lo sviluppo</li>
+                    <li><strong>Grande community</strong> e ampia disponibilità di librerie</li>
+                    <li><strong>Facile apprendimento</strong> per sviluppatori web</li>
+                    <li><strong>Ecosistema completo</strong> (Expo, UI libraries, strumenti di testing)</li>
+                    <li><strong>Riduzione dei costi e dei tempi di sviluppo</strong></li>
+                  </ul>
+                </div>
+                <img class="body-image-third" src="images/react-two.webp" alt="React Native">
               </div>
-              <img class="body-image" src="images/1_YELk-XsmG3isUOc6xOSW0w.png" alt="Vantaggi">
-            </div>
-            <div class="body-flex">
-              <img class="body-image" src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Svantaggi">
-              <div class="body-text">
-                <h4>Svantaggi</h4>
-                <ul class="pros-cons">
-                  <li><strong>Dimensione app:</strong> Le app tendono ad essere più grandi rispetto alle native pure</li>
-                  <li><strong>Debugging complesso:</strong> Errori tra JavaScript e nativo possono essere difficili da tracciare</li>
-                  <li><strong>Aggiornamenti breaking:</strong> Le nuove versioni possono richiedere migrazioni significative</li>
-                  <li><strong>API native limitate:</strong> Non tutte le API native sono disponibili out-of-the-box</li>
-                  <li><strong>Dipendenza da terze parti:</strong> Per funzionalità avanzate serve affidarsi a moduli esterni</li>
-                </ul>
-              </div>
-            </div>
+            <p>Nonostante alcune limitazioni (come la necessità di codice nativo per funzionalità molto specifiche), React Native rappresenta un eccellente compromesso tra produttività, potenza e flessibilità.</p>
           </div>
         </div>
       </div>
