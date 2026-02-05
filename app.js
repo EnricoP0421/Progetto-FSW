@@ -747,11 +747,10 @@ createApp({
         const activeCards = ref([]);
         
         const toggleCard = (cardId) => {
-            const index = activeCards.value.indexOf(cardId);
-            if (index > -1) {
-                activeCards.value.splice(index, 1);
+            if (activeCards.value.includes(cardId)) {
+                activeCards.value = [];
             } else {
-                activeCards.value.push(cardId);
+                activeCards.value = [cardId];
             }
         };
 
