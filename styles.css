@@ -1213,19 +1213,3 @@ h3.subsection-title {
     top: 0;
   }
 }
-
-/* Stili aggiuntivi per Vue Router */
-.nav-links a.nav-btn {
-    text-decoration: none;
-    color: inherit;
-}
-
-.nav-links a.nav-btn.router-link-active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.nav-links a.nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}

@@ -506,10 +506,10 @@ const InsertionPage = {
     },
     initializeSampleExams() {
       this.exams = [
-        { id: 1, name: 'Programmazione', grade: 28, date: '2024-01-15' },
-        { id: 2, name: "Elementi di Matematica per l'Informatica", grade: 25, date: '2024-02-20' },
-        { id: 3, name: 'Architettura degli Elaboratori e Sistemi Operativi', grade: 30, date: '2024-03-10' },
-        { id: 4, name: 'Reti di Calcolatori e Programmazione Reti', grade: 27, date: '2024-04-05' }
+        { id: 1, name: 'Programmazione', grade: 28, date: '15/01/2025' },
+        { id: 2, name: "Elementi di Matematica per l'Informatica", grade: 25, date: '20/02/2025' },
+        { id: 3, name: 'Architettura degli Elaboratori e Sistemi Operativi', grade: 30, date: '10/03/2025' },
+        { id: 4, name: 'Reti di Calcolatori e Programmazione Reti', grade: 27, date: '05/04/2025' }
       ];
       this.nextExamId = 5;
       this.saveExams();
