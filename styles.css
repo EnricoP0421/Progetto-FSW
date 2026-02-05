@@ -68,7 +68,8 @@ text {
   gap: 28px;
 }
 
-.nav-links button {
+.nav-links button,
+.nav-links a {
   background: none;
   border: none;
   color: #94a3b8;
@@ -78,9 +79,13 @@ text {
   position: relative;
   padding: 6px 0;
   font-family: inherit;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s;
 }
 
-.nav-links button::after {
+.nav-links button::after,
+.nav-links a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -91,15 +96,22 @@ text {
   transition: .3s;
 }
 
-.nav-links button:hover {
+.nav-links button:hover,
+.nav-links a:hover {
   color: #e2e8f0;
 }
 
-.nav-links button.active {
+.nav-links button.active,
+.nav-links a.active,
+.nav-links a.router-link-active,
+.nav-links a.router-link-exact-active {
   color: #7dd3fc;
 }
 
-.nav-links button.active::after {
+.nav-links button.active::after,
+.nav-links a.active::after,
+.nav-links a.router-link-active::after,
+.nav-links a.router-link-exact-active::after {
   width: 100%;
 }
 
