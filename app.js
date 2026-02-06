@@ -27,27 +27,16 @@ function escapeHtml(str) {
 }
 
 const HomePage = {
-  methods: {
-    toggleCard(cardId) {
-      const card = document.getElementById(`card-${cardId}`);
-      document.querySelectorAll('.main-card').forEach(c => {
-        if (c.id !== `card-${cardId}`) {
-          c.classList.remove('open');
-        }
-      });
-      card.classList.toggle('open');
-    }
-  },
   template: `
-    <section class="container">
+   <section class="container home-page">
       <div class="section-header">
         <h1 class="section-title">Home</h1>
         <p class="section-description">Un unico codice, esperienze native su ogni dispositivo</p>
       </div>
 
       <div class="menu">
-        <div class="main-card" id="card-1">
-          <div class="header-card" @click="toggleCard(1)">
+        <div class="main-card open" id="card-1">
+          <div class="header-card">
             <h3>Che cos'è</h3>
             <p>Introduzione a React Native</p>
           </div>
@@ -80,8 +69,8 @@ const HomePage = {
           </div>
         </div>
 
-        <div class="main-card" id="card-2">
-          <div class="header-card" @click="toggleCard(2)">
+        <div class="main-card open" id="card-2">
+          <div class="header-card">
             <h3>Storia e futuro</h3>
             <p>Evoluzione del framework</p>
           </div>
@@ -115,8 +104,8 @@ const HomePage = {
           </div>
         </div>
 
-        <div class="main-card" id="card-3">
-          <div class="header-card" @click="toggleCard(3)">
+        <div class="main-card open" id="card-3">
+          <div class="header-card">
             <h3>Vantaggi</h3>
             <p>Perchè sceglierlo</p>
           </div>
@@ -159,7 +148,7 @@ const ApiPage = {
       }
     },
     getSectionContent() {
-      if (!this.activeSection) return '';
+      if (!this.activeSection) return ''; 
       
       const sections = {
         how: `

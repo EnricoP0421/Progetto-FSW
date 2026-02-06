@@ -1,13 +1,3 @@
-:root {
-  --bg-dark: #0a0e27;
-  --bg-card: #151b3d;
-  --accent-blue: #61dafb;
-  --accent-purple: #7c3aed;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --code-bg: #1e293b;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +6,8 @@
 
 body {
   font-family: sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
+  background: #0a0e27;
+  color: white;
 }
 text {
   color:white;
@@ -130,7 +120,7 @@ text {
 h1 {
   font-size: 80px;
   margin-bottom: 70px;
-    background: linear-gradient(135deg, #fff 0%, var(--accent-blue) 100%);
+  color: #61dafb;
 }
 
 .section-header {
@@ -146,10 +136,7 @@ h1 {
   margin-top:40pv;
   margin-bottom: 20px;
   text-align:center;
-  background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+   color: #61dafb;
 }
 
 .section-description {
@@ -457,7 +444,7 @@ tbody tr td:nth-child(2) {
 
 .feature-card {
   padding: 40px;
-  background: var(--bg-card);
+  background: #151b3d;
   border-radius: 20px;
   border: 1px solid rgba(97, 218, 251, 0.1);
   cursor: pointer;
@@ -475,7 +462,7 @@ tbody tr td:nth-child(2) {
 .feature-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  background: linear-gradient( #61dafb, #7c3aed);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -497,7 +484,7 @@ tbody tr td:nth-child(2) {
 }
 
 .api-section {
-  background: var(--bg-card);
+  background: #151b3d;
   border-radius: 20px;
   padding: 50px;
   margin-bottom: 40px;
@@ -515,12 +502,12 @@ tbody tr td:nth-child(2) {
 
 .api-section p {
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: #94a3b8;
   margin-bottom: 20px;
 }
 
 .api-section ul {
-  color: var(--text-secondary);
+  color: #94a3b8;
   line-height: 1.8;
   margin-left: 20px;
 }
@@ -549,14 +536,14 @@ tbody tr td:nth-child(2) {
 .step-number {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  background: linear-gradient( #61dafb, #7c3aed);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   font-weight: 800;
-  color: var(--bg-dark);
+  color: #0a0e27;
   flex-shrink: 0;
 }
 
@@ -571,7 +558,7 @@ tbody tr td:nth-child(2) {
 .step-code {
   margin-top: 20px;
   padding: 20px;
-  background: var(--code-bg);
+  background: #1e293b;
   border-radius: 12px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
@@ -740,7 +727,7 @@ tbody tr td:nth-child(2) {
 }
 
 pre {
-  background: var(--code-bg);
+  background: #1e293b;
   padding: 20px;
   border-radius: 12px;
   overflow-x: auto;
@@ -996,10 +983,11 @@ h3.subsection-title {
   grid-template-columns: 400px 1fr;
   gap: 40px;
   align-items: start;
+  color: white;
 }
 
 .exams-list {
-  background: var(--bg-card);
+  background: #151b3d;
   border-radius: 20px;
   padding: 30px;
   border: 1px solid rgba(97, 218, 251, 0.1);
@@ -1022,7 +1010,7 @@ h3.subsection-title {
 .no-exams {
   text-align: center;
   padding: 40px 20px;
-  color: var(--text-secondary);
+  color: #94a3b8;
 }
 
 .exam-item {
@@ -1041,7 +1029,7 @@ h3.subsection-title {
 }
 
 .exam-item.selected {
-  border-color: var(--accent-blue);
+  border-color: #61dafb;
   background: rgba(97, 218, 251, 0.15);
 }
 
@@ -1055,12 +1043,12 @@ h3.subsection-title {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #94a3b8;
 }
 
 .exam-grade {
   font-weight: 600;
-  color: var(--accent-blue);
+  color: #61dafb;
 }
 
 .exam-form {
@@ -1084,7 +1072,7 @@ h3.subsection-title {
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;
-  color: var(--bg-dark);
+  color: #0a0e27;
 }
 
 .add-section {
@@ -1126,7 +1114,7 @@ h3.subsection-title {
 
 .form-content {
   padding: 30px;
-  background: var(--bg-card);
+  background: #151b3d;
   animation: slideDown 0.3s ease;
 }
 
@@ -1162,8 +1150,8 @@ h3.subsection-title {
 }
 
 .form-input:focus {
-  outline: none;
-  border-color: var(--accent-blue);
+  outline: none; 
+  border-color: #61dafb;
   box-shadow: 0 0 0 3px rgba(97, 218, 251, 0.1);
 }
 
@@ -1180,7 +1168,7 @@ h3.subsection-title {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: var(--bg-dark);
+  color: #0a0e27;
 }
 
 .action-btn:disabled {
@@ -1225,4 +1213,15 @@ h3.subsection-title {
     position: relative;
     top: 0;
   }
+}
+
+.home-page .body-card{
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 26px 26px 30px !important;
+}
+
+/* Home: header non cliccabile */
+.home-page .header-card{
+  cursor: default !important;
 }
