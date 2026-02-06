@@ -147,6 +147,7 @@ h1 {
   margin-bottom: 20px;
   text-align:center;
   background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
