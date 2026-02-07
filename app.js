@@ -134,26 +134,62 @@ const HomePage = {
 };
 
 const ApiPage = {
-  data() {
-    return {
-      activeSection: null
-    };
-  },
   methods: {
-    showApiSection(section) {
-      if (this.activeSection === section) {
-        this.activeSection = null;
-      } else {
-        this.activeSection = section;
-      }
-    },
-    getSectionContent() {
-      if (!this.activeSection) return ''; 
-      
-      const sections = {
-        how: `
-          <div class="api-section">
+    // scroll morbido ai blocchi della pagina API
+    scrollToApiSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  },
+  template: `
+    <section class="container api-page">
+      <div class="section-header">
+        <h1 class="section-title">API React Native</h1>
+        <p class="section-description">
+          Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
+        </p>
+      </div>
+
+      <div class="api-layout">
+        <!-- Sidebar segnalibri -->
+        <nav class="api-sidenav" aria-label="Segnalibri API">
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-how')">
+            <span class="api-bookmark-icon">⚙️</span>
+            <h3>Come Funziona</h3>
+          </button>
+
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-component')">
+            <span class="api-bookmark-icon">🧩</span>
+            <h3>Componenti</h3>
+          </button>
+
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-styles')">
+            <span class="api-bookmark-icon">🎨</span>
+            <h3>Stili</h3>
+          </button>
+
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-sintax')">
+            <span class="api-bookmark-icon">📘</span>
+            <h3>Sintassi di Base</h3>
+          </button>
+
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-debug')">
+            <span class="api-bookmark-icon">🛠️</span>
+            <h3>Debug e strumenti</h3>
+          </button>
+
+          <button class="api-bookmark" type="button" @click="scrollToApiSection('api-examples')">
+            <span class="api-bookmark-icon">💡</span>
+            <h3>Esempi di codice</h3>
+          </button>
+        </nav>
+
+        <!-- Contenuto: tutte le sezioni statiche -->
+        <div class="api-content" v-pre>
+          <div id="api-how" class="api-section">
             <h2>Come Funziona React Native</h2>
+
             <div class="steps">
               <div class="step">
                 <div class="step-number">1</div>
@@ -180,14 +216,14 @@ const ApiPage = {
                     <span class="code-line">  &lt;/<span class="tag">View</span>&gt;</span>
                     <span class="code-line">);</span>
                   </div>
-                </div>
+                  </div>
               </div>
 
               <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
                   <h3>Stilizza con Flexbox</h3>
-                  <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive. Gli stili sono definiti in JavaScript utilizzando un subset di CSS.</p>
+                  <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive.</p>
                   <div class="step-code">
                     <span class="code-line"><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({</span>
                     <span class="code-line">  container: {</span>
@@ -197,23 +233,22 @@ const ApiPage = {
                     <span class="code-line">  }</span>
                     <span class="code-line">});</span>
                   </div>
-                </div>
+                  </div>
               </div>
 
               <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
                   <h3>Pubblica la Tua App</h3>
-                  <p>Quando sei pronto, compila la tua app per produzione e pubblicala su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
-                </div>
+                  <p>Quando sei pronto, compila la tua app per produzione e pubblicala su App Store e Google Play Store.</p>
+                  </div>
               </div>
             </div>
           </div>
-        `,
-        component: `
-          <div class="api-section">
+
+          <div id="api-component" class="api-section">
             <h2>Componenti di Base</h2>
-            <p>
+             <p>
               React Native utilizza componenti nativi come <strong>View</strong>, <strong>Text</strong>, <strong>Button</strong>, <strong>TextInput</strong> e <strong>FlatList</strong>.
               Lo stato dell'app viene gestito tramite hook come <strong>useState</strong>, che permette di rendere l'interfaccia dinamica e interattiva.
             </p>
@@ -279,9 +314,8 @@ const ApiPage = {
               </ul>
             </div>
           </div>
-        `,
-        styles: `
-          <div class="api-section">
+
+          <div id="api-styles" class="api-section">
             <h2>Gestione degli Stili</h2>
             <p>
               Gli stili in React Native vengono definiti in JavaScript usando <strong>StyleSheet.create</strong>.
@@ -327,9 +361,8 @@ const ApiPage = {
               <strong>💡 Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
             </div>
           </div>
-        `,
-        sintax: `
-          <div class="api-section">
+
+          <div id="api-sintax" class="api-section">
             <h2>Sintassi di Base</h2>
             <p style="margin-bottom: 32px;">
               React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
@@ -408,11 +441,10 @@ const ApiPage = {
               <a href="https://reactnative.dev/docs/components-and-apis" target="_blank" rel="noopener">documentazione ufficiale di React Native</a>.
             </div>
           </div>
-        `,
-        debug: `
-          <div class="api-section">
+
+          <div id="api-debug" class="api-section">
             <h2>Debug e Strumenti</h2>
-            <p>
+             <p>
               Durante lo sviluppo di applicazioni mobile, il debug è una fase fondamentale per individuare errori, 
               ottimizzare le prestazioni e garantire la corretta esecuzione del codice.
             </p>
@@ -472,9 +504,8 @@ const ApiPage = {
               per aprire il Dev Menu con opzioni come: reload, debug JS remotely, enable fast refresh, e show inspector.
             </div>
           </div>
-        `,
-        examples: `
-          <div class="api-section">
+
+          <div id="api-examples" class="api-section">
             <h2>Esempi Pratici di Codice</h2>
             <p style="margin-bottom: 32px;">
               Di seguito trovi alcuni esempi pratici che dimostrano i concetti fondamentali di React Native,
@@ -562,60 +593,8 @@ const ApiPage = {
               </ul>
             </div>
           </div>
-        `
-      };
-      
-      return sections[this.activeSection] || '';
-    }
-  },
-  template: `
-    <section class="container">
-      <div class="section-header">
-        <h1 class="section-title">API React Native</h1>
-        <p class="section-description">
-          Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card" @click="showApiSection('how')">
-          <div class="feature-icon">⚙️</div>
-          <h3>Come Funziona</h3>
-          <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
-        </div>
-
-        <div class="feature-card" @click="showApiSection('component')">
-          <div class="feature-icon">🧩</div>
-          <h3>Componenti</h3>
-          <p>Creazione dell'interfaccia con JSX.</p>
-        </div>
-
-        <div class="feature-card" @click="showApiSection('styles')">
-          <div class="feature-icon">🎨</div>
-          <h3>Stili</h3>
-          <p>Layout Flexbox e StyleSheet.</p>
-        </div>
-
-        <div class="feature-card" @click="showApiSection('sintax')">
-          <div class="feature-icon">📘</div>
-          <h3>Sintassi di Base</h3>
-          <p>Componenti fondamentali e hook.</p>
-        </div>
-
-        <div class="feature-card" @click="showApiSection('debug')">
-          <div class="feature-icon">🛠️</div>
-          <h3>Debug e strumenti</h3>
-          <p>Strumenti per lo sviluppo e il debugging.</p>
-        </div>
-
-        <div class="feature-card" @click="showApiSection('examples')">
-          <div class="feature-icon">💡</div>
-          <h3>Esempi di codice</h3>
-          <p>Esempi pratici di codice.</p>
         </div>
       </div>
-
-      <div id="api-content" v-html="getSectionContent()"></div>
     </section>
   `
 };
@@ -821,7 +800,7 @@ const InsertionPage = {
     this.loadExams();
   },
   template: `
-    <section class="container">
+    <section class="container insertion-page">
       <div class="section-header">
         <h1 class="section-title">Inserimento</h1>
         <p class="section-description">
@@ -855,8 +834,8 @@ const InsertionPage = {
         <div class="exam-form">
           <!-- Sezione Aggiungi -->
           <div class="form-section add-section">
-            <button class="section-btn add-btn" type="button" @click="toggleSection('add')">Aggiungi</button>
-            <div class="mount" v-if="activeSection === 'add'">
+            <button class="section-btn add-btn" type="button">Aggiungi</button>
+            <div class="mount">
               <div class="form-content">
                 <div class="form-row">
                   <div class="form-group">
@@ -879,8 +858,8 @@ const InsertionPage = {
 
           <!-- Sezione Modifica -->
           <div class="form-section modify-section">
-            <button class="section-btn modify-btn" type="button" @click="toggleSection('modify')">Modifica</button>
-            <div class="mount" v-if="activeSection === 'modify'">
+            <button class="section-btn modify-btn" type="button">Modifica</button>
+            <div class="mount">
               <div class="form-content">
                 <div class="form-row">
                   <div class="form-group">
@@ -931,8 +910,8 @@ const InsertionPage = {
 
           <!-- Sezione Elimina -->
           <div class="form-section delete-section">
-            <button class="section-btn delete-btn" type="button" @click="toggleSection('delete')">Elimina</button>
-            <div class="mount" v-if="activeSection === 'delete'">
+            <button class="section-btn delete-btn" type="button">Elimina</button>
+            <div class="mount">
               <div class="form-content">
                 <div class="form-group">
                   <label>Esame da eliminare:</label>
