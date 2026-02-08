@@ -1001,10 +1001,12 @@ h3.subsection-title {
   gap: 30px;
   align-items: start;
 }
+
 .api-page .api-sidenav{
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 120px;            /* sotto la navbar */
+  transform: none;       /* rimuove la centratura */
+  align-self: start;     /* resta allineata al top della colonna */
 
   display: flex;
   flex-direction: column;
