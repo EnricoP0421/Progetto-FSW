@@ -1274,19 +1274,22 @@ h3.subsection-title {
   gap: 30px;
   align-items: start;
 }
-
 .api-page .api-sidenav{
   position: sticky;
-  top: 120px; /* stesso top della tua UI */
+  top: 50%;
+  transform: translateY(-50%);
+
   display: flex;
   flex-direction: column;
   gap: 14px;
   padding: 18px;
+
   background: rgba(21, 27, 61, 0.8);
   border: 1px solid rgba(97, 218, 251, 0.12);
   border-radius: 18px;
   backdrop-filter: blur(10px);
 }
+
 
 .api-page .api-bookmark{
   display: grid;
@@ -1344,7 +1347,7 @@ h3.subsection-title {
   .api-page .api-layout{
     grid-template-columns: 1fr;
   }
-  .api-page .api-sidenav{
+    .api-page .api-sidenav{
     position: relative;
     top: auto;
   }
