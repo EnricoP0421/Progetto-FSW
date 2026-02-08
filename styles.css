@@ -524,14 +524,19 @@ tbody tr td:nth-child(2) {
 
 .info-box ul {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 0px;
+  padding-left: 22px;
 }
 
 .info-box li {
   margin-bottom: 8px;
   line-height: 1.6;
+  padding-left: 6px;
 }
 
+.info-box li::marker {
+  color: #61dafb;
+}
 
 .tools-grid {
   display: grid;
@@ -673,6 +678,14 @@ h3.subsection-title {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
+  white-space: normal;
+}
+
+.info-box ul li strong {
+  display: inline;
+  color: #61dafb;
+  white-space: nowrap;
+  margin-right: 6px;
 }
 
 .info-box a {
@@ -702,7 +715,19 @@ h3.subsection-title {
 }
 
 .tip-box ul {
-  margin: 10px 0 0 20px;
+  margin-top: 10px;
+  margin-left: 0;
+  padding-left: 22px;
+}
+
+.tip-box li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  padding-left: 6px;
+}
+
+.tip-box li::marker {
+  color: #c792ea;
 }
 
 .tip-box code {
@@ -1004,9 +1029,9 @@ h3.subsection-title {
 
 .api-page .api-sidenav{
   position: sticky;
-  top: 120px;            /* sotto la navbar */
-  transform: none;       /* rimuove la centratura */
-  align-self: start;     /* resta allineata al top della colonna */
+  top: 120px;
+  transform: none;
+  align-self: start;
 
   display: flex;
   flex-direction: column;
@@ -1061,17 +1086,14 @@ h3.subsection-title {
   color: #e2e8f0;
 }
 
-/* contenuto */
 .api-page .api-content{
   min-width: 0;
 }
 
-/* spazio sopra ogni sezione così lo scroll non finisce sotto la navbar */
 .api-page .api-section{
   scroll-margin-top: 120px;
 }
 
-/* mobile: sidebar sopra, poi contenuto */
 @media (max-width: 900px){
   .api-page .api-layout{
     grid-template-columns: 1fr;
