@@ -5,7 +5,10 @@ createApp({
   <div class="d-flex flex-column min-vh-100">
     <header class="py-3 mb-3">
       <div class="container d-flex justify-content-between align-items-center">
-        <h1 class="h4 m-0">React Native Hub</h1>
+        <div class="d-flex align-items-center gap-2">
+          <img src="images/React native icona.png" alt="React Logo" class="logo-react">
+          <h1 class="h4 m-0">React Native Hub</h1>
+        </div>
         <nav>
           <ul class="nav">
             <li class="nav-item">
