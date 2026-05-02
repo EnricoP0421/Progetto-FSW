@@ -62,16 +62,7 @@ createApp({
         <!-- REACT NATIVE / API -->
         <section v-else-if="vista === 'react'" class="main-section">
           <h2 class="mb-3">React Native</h2>
-
-          <h3>Storia e futuro</h3>
-          <p>
-            React Native nasce dall’idea di riutilizzare i concetti di React anche nel mondo mobile.
-            A differenza delle soluzioni ibride basate su WebView, React Native utilizza componenti
-            nativi e comunica con essi tramite un bridge JavaScript. Questo permette di ottenere
-            interfacce fluide e integrate con il sistema operativo.
-          </p>
-
-          <h3 class="mt-4">API e concetti principali</h3>
+         <h3 class="mt-4">API e concetti principali</h3>
           <div class="row">
             <div class="col-md-6" v-for="api in sezioniAPI" :key="api.titolo">
               <h4 class="h6 mt-3">{{ api.titolo }}</h4>
@@ -108,8 +99,11 @@ export default function App() {
                    placeholder="Cerca titolo o genere"
                    v-model="filtroGiochi">
             <select class="form-select form-select-sm" v-model="ordinamentoGiochi">
-              <option value="desc">Anno: dal più recente</option>
-              <option value="asc">Anno: dal più vecchio</option>
+              <option value="id">ID crescente</option>
+              <option value="anno_desc">Dall'anno più recente</option>
+              <option value="anno_asc">Dall'anno più vecchio</option>
+              <option value="val_desc">Dalla valutazione più alta</option>
+              <option value="val_asc">Dalla valutazione più bassa</option>
             </select>
           </div>
 
@@ -252,7 +246,7 @@ export default function App() {
       giochi: [],
       caricamentoGiochi: false,
       filtroGiochi: "",
-      ordinamentoGiochi: "desc",
+      ordinamentoGiochi: "id",
 
       esami: [],
       formEsame: {
@@ -266,24 +260,38 @@ export default function App() {
 
   computed: {
     giochiFiltrati() {
-      let lista = [...this.giochi];
+  let lista = [...this.giochi];
 
-      if (this.filtroGiochi.trim() !== "") {
-        const f = this.filtroGiochi.toLowerCase();
-        lista = lista.filter(g =>
-          g.titolo.toLowerCase().includes(f) ||
-          g.genere.toLowerCase().includes(f)
-        );
-      }
+  if (this.filtroGiochi.trim() !== "") {
+    const f = this.filtroGiochi.toLowerCase();
+    lista = lista.filter(g =>
+      g.titolo.toLowerCase().includes(f) ||
+      g.genere.toLowerCase().includes(f)
+    );
+  }
 
-      lista.sort((a, b) => {
-        return this.ordinamentoGiochi === "asc"
-          ? a.anno - b.anno
-          : b.anno - a.anno;
-      });
+  if (this.ordinamentoGiochi === "id") {
+    lista.sort((a, b) => a.id - b.id);
+  }
 
-      return lista;
-    }
+  if (this.ordinamentoGiochi === "anno_desc") {
+    lista.sort((a, b) => b.anno - a.anno);
+  }
+
+  if (this.ordinamentoGiochi === "anno_asc") {
+    lista.sort((a, b) => a.anno - b.anno);
+  }
+
+  if (this.ordinamentoGiochi === "val_desc") {
+    lista.sort((a, b) => b.valutazione - a.valutazione);
+  }
+
+  if (this.ordinamentoGiochi === "val_asc") {
+    lista.sort((a, b) => a.valutazione - b.valutazione);
+  }
+
+  return lista;
+}
   },
 
   methods: {
