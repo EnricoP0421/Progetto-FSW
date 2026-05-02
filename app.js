@@ -251,13 +251,17 @@ export default function App() {
       filtroGiochi: "",
       ordinamentoGiochi: "id",
 
-      esami: [],
-      formEsame: {
-        id: null,
-        corso: "",
-        voto: "",
-        data: ""
-      }
+      esami: [
+      { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
+      { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
+      { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
+    ],
+    formEsame: {
+      id: null,
+      corso: "",
+      voto: "",
+      data: ""
+    }
     };
   },
 
@@ -312,10 +316,16 @@ export default function App() {
         });
     },
 
-    caricaEsami() {
-      const salvati = localStorage.getItem("esami-react");
-      this.esami = salvati ? JSON.parse(salvati) : [];
-    },
+caricaEsami() {
+  try {
+    const salvati = localStorage.getItem("esami-react");
+    if (salvati) {
+      this.esami = JSON.parse(salvati);
+    }
+  } catch (e) {
+    console.warn("LocalStorage non disponibile, uso solo gli esami iniziali.");
+  }
+},
 
     salvaEsamiLS() {
       localStorage.setItem("esami-react", JSON.stringify(this.esami));
