@@ -36,29 +36,63 @@ createApp({
           <h2 class="mb-3">Home</h2>
 
           <h3>Che cosa è React Native?</h3>
-          <p>
-            React Native è un framework open source sviluppato da Facebook che permette di creare
-            applicazioni mobili native utilizzando JavaScript e il paradigma di React. L’idea centrale
-            è quella di scrivere il codice una sola volta e distribuirlo su più piattaforme, come
-            Android e iOS, mantenendo però componenti e prestazioni native.
-          </p>
+            <div class="react-row">
+              <div class="react-text">
+                <p>
+                  React Native è un framework open source sviluppato da Facebook che permette di creare
+                  applicazioni mobili native utilizzando JavaScript e il paradigma di React. L’idea centrale
+                  è quella di scrivere il codice una sola volta e distribuirlo su più piattaforme, come
+                  Android e iOS, mantenendo però componenti e prestazioni native.
+                </p>
+                <p>
+                  A differenza delle soluzioni ibride basate su WebView, React Native utilizza componenti nativi reali,
+                  garantendo prestazioni elevate, fluidità dell'interfaccia e un'esperienza utente simile a
+                  quella delle app sviluppate interamente in linguaggio nativo.
+                </p>
+              </div>
+
+              <div >
+                <img src="images/react-1.svg" class="react-image" alt="React Native">
+              </div>
+
+            </div>
+          
 
           <h3 class="mt-4">Storia e futuro</h3>
-          <p>
-            React Native nasce come estensione di React.js, la libreria front‑end introdotta nel 2013.
-            Nel 2015 viene rilasciato come progetto open source e da allora è cresciuto grazie a una
-            comunità molto attiva. Oggi è utilizzato da aziende come Facebook, Instagram, Discord e
-            molte altre. Il futuro di React Native punta a una sempre maggiore integrazione con le
-            piattaforme native e a strumenti di sviluppo più rapidi e accessibili.
-          </p>
+            <div class="react-row-2">
+              <p>
+                React Native nasce come evoluzione naturale di React.js, la libreria JavaScript introdotta nel 2013 che ha 
+                rivoluzionato lo sviluppo web grazie al Virtual DOM e alla programmazione dichiarativa. Facebook intuì che gli stessi 
+                principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali 
+                come Ionic o Cordova.
+              </p>
+              
+                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" class="react-image-2" alt="React Native">
+
+              <div class="react-text-2">
+                <p style="padding-top: 20px;">
+                  Guardando al futuro, il team di React Native sta lavorando alla New Architecture:
+                </p>
+                <ul>
+                  <li>Fabric, un nuovo sistema di rendering più veloce</li>
+                  <li>TurboModules, per una gestione più efficiente dei moduli nativi</li>
+                </ul>
+                <p>
+                  Questi miglioramenti promettono di rendere React Native ancora più performante e scalabile, consolidando la sua posizione come uno dei framework più popolari per lo sviluppo mobile cross-platform.
+                </p>
+                </div>
+
+              </div>
 
           <h3 class="mt-4">Vantaggi</h3>
           <ul>
-            <li>Scrittura del codice una sola volta (DRY: Don't Repeat Yourself).</li>
-            <li>Prestazioni elevate grazie al rendering nativo.</li>
-            <li>Aggiornamenti rapidi e live reload durante lo sviluppo.</li>
-            <li>Comunità attiva e strumenti come Expo, React Navigation, Redux.</li>
-            <li>Accessibilità per chi proviene dal mondo web (React).</li>
+            <li>Codice unico per più piattaforme (Android e iOS)</li>
+            <li>Prestazioni elevate, grazie al rendering nativo</li>
+            <li>Fast Refresh, per aggiornare l'app in tempo reale durante lo sviluppo</li>
+            <li>Grande community e ampia disponibilità di librerie</li>
+            <li>Facile apprendimento per sviluppatori web</li>
+            <li>Ecosistema completo (Expo, UI libraries, strumenti di testing)</li>
+            <li>Riduzione dei costi e dei tempi di sviluppo</li>
           </ul>
         </section>
 
@@ -67,24 +101,20 @@ createApp({
           <h2 class="mb-3">React Native</h2>
          <h3 class="mt-4">API e concetti principali</h3>
           <div class="row">
-            <div class="col-md-6" v-for="api in sezioniAPI" :key="api.titolo">
-              <h4 class="h6 mt-3">{{ api.titolo }}</h4>
-              <p class="small">{{ api.testo }}</p>
-            </div>
+            <div class="col-md-6"
+     v-for="api in sezioniAPI"
+     :key="api.titolo"
+     @click="selezionaBlocco(api)"
+     style="cursor:pointer">
+  <h4 class="h6 mt-3">{{ api.titolo }}</h4>
+  <p class="small">{{ api.testo }}</p>
+</div>
           </div>
 
-          <h3 class="mt-4">Esempio di codice</h3>
-          <pre><code>
-import { View, Text } from 'react-native';
-
-export default function App() {
-  return (
-    <View>
-      <Text>Hello React Native!</Text>
-    </View>
-  );
-}
-          </code></pre>
+          <div v-if="bloccoSelezionato" class="mt-4 p-3 border rounded bg-light">
+  <h3>{{ bloccoSelezionato.titolo }}</h3>
+  <div class="mt-2" v-html="bloccoSelezionato.approfondimento"></div>
+          </div>
         </section>
 
         <!-- GAMEDEX -->
@@ -220,32 +250,56 @@ export default function App() {
       vista: "home",
 
       sezioniAPI: [
-        {
-          titolo: "Come funziona?",
-          testo: "React Native utilizza un bridge tra JavaScript e i componenti nativi, permettendo di scrivere logica in JS e interfacce con elementi nativi."
-        },
-        {
-          titolo: "Sintassi di base",
-          testo: "La sintassi è simile a React: componenti, props, stato e JSX per descrivere l’interfaccia utente."
-        },
-        {
-          titolo: "Componenti",
-          testo: "I componenti principali sono View, Text, Image, ScrollView, Button e molti altri, tutti mappati su elementi nativi."
-        },
-        {
-          titolo: "Stili",
-          testo: "Gli stili si definiscono con oggetti JavaScript e seguono il modello Flexbox, pensato per layout responsive."
-        },
-        {
-          titolo: "Debug e strumenti",
-          testo: "Strumenti come Expo, React DevTools e Flipper aiutano a testare, debuggare e distribuire le app in modo rapido."
-        },
-        {
-          titolo: "Esempi di codice",
-          testo: "Un componente è una funzione che restituisce JSX e può essere riutilizzato in più parti dell’app."
-        }
-      ],
+  {
+    titolo: "Come funziona?",
+    testo: "React Native utilizza un bridge tra JavaScript e i componenti nativi.",
+    approfondimento: "Il bridge permette a JavaScript di comunicare con i componenti nativi Android e iOS. La logica dell’app gira nel thread JS, mentre l’interfaccia è renderizzata con componenti nativi reali, garantendo prestazioni elevate rispetto alle WebView."
+  },
+  {
+    titolo: "Sintassi di base",
+    testo: "Componenti, props, stato e JSX come in React.",
+    approfondimento: "La sintassi di React Native è identica a React: si usano componenti funzionali, hook come useState e JSX per descrivere l’interfaccia. Questo rende il framework molto accessibile per chi proviene dal web."
+  },
+  {
+    titolo: "Componenti",
+    testo: "View, Text, Image, Button, FlatList e altri.",
+    approfondimento: "I componenti React Native corrispondono a elementi nativi: View diventa un UIView su iOS e un ViewGroup su Android. FlatList è ottimizzata per liste lunghe, TextInput gestisce input dinamici e Button usa pulsanti nativi."
+  },
+  {
+    titolo: "Stili",
+    testo: "Stili in JS con Flexbox.",
+    approfondimento: "React Native usa Flexbox per il layout. Proprietà come flex, justifyContent, alignItems e flexDirection permettono di creare interfacce responsive. Gli stili sono definiti tramite StyleSheet.create per migliori performance."
+  },
+  {
+    titolo: "Debug e strumenti",
+    testo: "Fast Refresh, DevTools, Flipper.",
+    approfondimento: "Fast Refresh aggiorna l’app in tempo reale mantenendo lo stato. React Developer Tools permette di ispezionare componenti e stato. Flipper offre strumenti avanzati per rete, performance, database e log."
+  },
+  {
+  titolo: "Esempi di codice",
+  testo: "Componenti riutilizzabili con JSX.",
+  approfondimento: `
+Ecco un esempio semplice di componente React Native:
 
+<pre><code>
+import React, { useState } from 'react';
+import { View, Text, Button } from 'react-native';
+
+export default function App() {
+  const [msg, setMsg] = useState("Benvenuto!");
+
+  return (
+    < View >
+      < Text >{msg}< /Text >
+      < Button title="Cambia testo" onPress={() => setMsg("Hai premuto il pulsante!")} / >
+    < /View >
+  );
+}
+</code></pre>
+`
+}
+],
+        bloccoSelezionato: null,
       giochi: [],
       caricamentoGiochi: false,
       filtroGiochi: "",
@@ -325,6 +379,11 @@ caricaEsami() {
   } catch (e) {
     console.warn("LocalStorage non disponibile, uso solo gli esami iniziali.");
   }
+},
+
+selezionaBlocco(api) {
+  this.bloccoSelezionato = api;
+  console.log("Blocco selezionato:", api.titolo);
 },
 
     salvaEsamiLS() {

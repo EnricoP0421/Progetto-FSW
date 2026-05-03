@@ -38,6 +38,55 @@ h1, h2, h3 {
   color: #1f4f7b;
 }
 
+.react-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.react-image {
+  width: 200px;        
+  border-radius: 20px; 
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .react-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .react-image {
+    margin-top: 10px;
+  }
+}
+
+.react-text {
+  flex: 1; 
+}
+
+.react.text-2{
+  align-items: center;
+}
+
+.react-image-box {
+  flex-shrink: 0; 
+}
+
+
+
+.react-row-2 {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px;
+}
+
+.react-image-2 {
+  width: 350px;
+  border-radius: 20px;
+
+}
+
 .table thead {
   background-color: #1f4f7b;
   color: #fff;
@@ -56,6 +105,6 @@ form input {
 }
 
 footer {
-  background-color: #1f4f7b;
+  background-color: #1f4f7b;  
   color: #fff;
 }
