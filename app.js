@@ -15,7 +15,7 @@ createApp({
               <button class="nav-link" :class="{active: vista==='home'}" @click="vista='home'">Home</button>
             </li>
             <li class="nav-item">
-              <button class="nav-link" :class="{active: vista==='react'}" @click="vista='react'">React Native</button>
+              <button class="nav-link" :class="{active: vista==='react'}" @click="vista='react'">Fondamenti</button>
             </li>
             <li class="nav-item">
               <button class="nav-link" :class="{active: vista==='gamedex'}" @click="vista='gamedex'">GameDex</button>
@@ -99,7 +99,7 @@ createApp({
         <!-- REACT NATIVE / API -->
         <section v-else-if="vista === 'react'" class="main-section">
           <div class="section-header">
-            <h1 class="section-title">API React Native</h1>
+            <h1 class="section-title">Fondamenti di React Native</h1>
             <p class="section-description">
               Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
             </p>
