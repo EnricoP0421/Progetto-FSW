@@ -98,23 +98,52 @@ createApp({
 
         <!-- REACT NATIVE / API -->
         <section v-else-if="vista === 'react'" class="main-section">
-          <h2 class="mb-3">React Native</h2>
-         <h3 class="mt-4">API e concetti principali</h3>
-          <div class="row">
-            <div class="col-md-6"
-     v-for="api in sezioniAPI"
-     :key="api.titolo"
-     @click="selezionaBlocco(api)"
-     style="cursor:pointer">
-  <h4 class="h6 mt-3">{{ api.titolo }}</h4>
-  <p class="small">{{ api.testo }}</p>
-</div>
+          <div class="section-header">
+            <h1 class="section-title">API React Native</h1>
+            <p class="section-description">
+              Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
+            </p>
           </div>
 
-          <div v-if="bloccoSelezionato" class="mt-4 p-3 border rounded bg-light">
-  <h3>{{ bloccoSelezionato.titolo }}</h3>
-  <div class="mt-2" v-html="bloccoSelezionato.approfondimento"></div>
+          <div class="features-grid">
+            <div class="feature-card" @click="showApiSection('how')">
+              <div class="feature-icon">⚙️</div>
+              <h3>Come Funziona</h3>
+              <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
+            </div>
+
+            <div class="feature-card" @click="showApiSection('component')">
+              <div class="feature-icon">🧩</div>
+              <h3>Componenti</h3>
+              <p>Creazione dell'interfaccia con JSX.</p>
+            </div>
+
+            <div class="feature-card" @click="showApiSection('styles')">
+              <div class="feature-icon">🎨</div>
+              <h3>Stili</h3>
+              <p>Layout Flexbox e StyleSheet.</p>
+            </div>
+
+            <div class="feature-card" @click="showApiSection('sintax')">
+              <div class="feature-icon">📘</div>
+              <h3>Sintassi di Base</h3>
+              <p>Componenti fondamentali e hook.</p>
+            </div>
+
+            <div class="feature-card" @click="showApiSection('debug')">
+              <div class="feature-icon">🛠️</div>
+              <h3>Debug e strumenti</h3>
+              <p>Strumenti per lo sviluppo e il debugging.</p>
+            </div>
+
+            <div class="feature-card" @click="showApiSection('examples')">
+              <div class="feature-icon">💡</div>
+              <h3>Esempi di codice</h3>
+              <p>Esempi pratici di codice.</p>
+            </div>
           </div>
+
+          <div id="api-content" v-html="getSectionContent()"></div>
         </section>
 
         <!-- GAMEDEX -->
@@ -249,57 +278,7 @@ createApp({
     return {
       vista: "home",
 
-      sezioniAPI: [
-  {
-    titolo: "Come funziona?",
-    testo: "React Native utilizza un bridge tra JavaScript e i componenti nativi.",
-    approfondimento: "Il bridge permette a JavaScript di comunicare con i componenti nativi Android e iOS. La logica dell’app gira nel thread JS, mentre l’interfaccia è renderizzata con componenti nativi reali, garantendo prestazioni elevate rispetto alle WebView."
-  },
-  {
-    titolo: "Sintassi di base",
-    testo: "Componenti, props, stato e JSX come in React.",
-    approfondimento: "La sintassi di React Native è identica a React: si usano componenti funzionali, hook come useState e JSX per descrivere l’interfaccia. Questo rende il framework molto accessibile per chi proviene dal web."
-  },
-  {
-    titolo: "Componenti",
-    testo: "View, Text, Image, Button, FlatList e altri.",
-    approfondimento: "I componenti React Native corrispondono a elementi nativi: View diventa un UIView su iOS e un ViewGroup su Android. FlatList è ottimizzata per liste lunghe, TextInput gestisce input dinamici e Button usa pulsanti nativi."
-  },
-  {
-    titolo: "Stili",
-    testo: "Stili in JS con Flexbox.",
-    approfondimento: "React Native usa Flexbox per il layout. Proprietà come flex, justifyContent, alignItems e flexDirection permettono di creare interfacce responsive. Gli stili sono definiti tramite StyleSheet.create per migliori performance."
-  },
-  {
-    titolo: "Debug e strumenti",
-    testo: "Fast Refresh, DevTools, Flipper.",
-    approfondimento: "Fast Refresh aggiorna l’app in tempo reale mantenendo lo stato. React Developer Tools permette di ispezionare componenti e stato. Flipper offre strumenti avanzati per rete, performance, database e log."
-  },
-  {
-  titolo: "Esempi di codice",
-  testo: "Componenti riutilizzabili con JSX.",
-  approfondimento: `
-Ecco un esempio semplice di componente React Native:
-
-<pre><code>
-import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
-
-export default function App() {
-  const [msg, setMsg] = useState("Benvenuto!");
-
-  return (
-    < View >
-      < Text >{msg}< /Text >
-      < Button title="Cambia testo" onPress={() => setMsg("Hai premuto il pulsante!")} / >
-    < /View >
-  );
-}
-</code></pre>
-`
-}
-],
-        bloccoSelezionato: null,
+      activeSection: null,
       giochi: [],
       caricamentoGiochi: false,
       filtroGiochi: "",
@@ -381,9 +360,427 @@ caricaEsami() {
   }
 },
 
-selezionaBlocco(api) {
-  this.bloccoSelezionato = api;
-  console.log("Blocco selezionato:", api.titolo);
+showApiSection(section) {
+  this.activeSection = section;
+},
+
+getSectionContent() {
+  const sections = {
+    how: `
+          <div class="api-section">
+            <h2>Come Funziona React Native</h2>
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Installa React Native</h3>
+                  <p>Inizia configurando l'ambiente di sviluppo. React Native CLI ti permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
+                  <div class="step-code">
+                    <span class="code-line"><span class="keyword">npx</span> react-native init MiaApp</span>
+                    <span class="code-line"><span class="keyword">cd</span> MiaApp</span>
+                    <span class="code-line"><span class="keyword">npx</span> react-native run-android</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Crea Componenti React</h3>
+                  <p>Utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
+                  <div class="step-code">
+                    <span class="code-line"><span class="keyword">const</span> <span class="function">MioComponente</span> = () => (</span>
+                    <span class="code-line">  &lt;<span class="tag">View</span> style={styles.container}&gt;</span>
+                    <span class="code-line">    &lt;<span class="tag">Text</span>&gt;<span class="string">Testo Nativo</span>&lt;/<span class="tag">Text</span>&gt;</span>
+                    <span class="code-line">  &lt;/<span class="tag">View</span>&gt;</span>
+                    <span class="code-line">);</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Stilizza con Flexbox</h3>
+                  <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive. Gli stili sono definiti in JavaScript utilizzando un subset di CSS.</p>
+                  <div class="step-code">
+                    <span class="code-line"><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({</span>
+                    <span class="code-line">  container: {</span>
+                    <span class="code-line">    flex: <span class="string">1</span>,</span>
+                    <span class="code-line">    justifyContent: <span class="string">'center'</span>,</span>
+                    <span class="code-line">    backgroundColor: <span class="string">'#61dafb'</span></span>
+                    <span class="code-line">  }</span>
+                    <span class="code-line">});</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3>Pubblica la Tua App</h3>
+                  <p>Quando sei pronto, compila la tua app per produzione e pubblicala su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+    component: `
+          <div class="api-section">
+            <h2>Componenti di Base</h2>
+            <p>
+              React Native utilizza componenti nativi come <strong>View</strong>, <strong>Text</strong>, <strong>Button</strong>, <strong>TextInput</strong> e <strong>FlatList</strong>.
+              Lo stato dell'app viene gestito tramite hook come <strong>useState</strong>, che permette di rendere l'interfaccia dinamica e interattiva.
+            </p>
+            
+            <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
+            <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">TextInput</span>, <span class="component">FlatList</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+
+<span class="keyword">export default function</span> <span class="function">ShoppingList</span>() {
+  <span class="keyword">const</span> [items, setItems] = <span class="function">useState</span>([]);
+  <span class="keyword">const</span> [text, setText] = <span class="function">useState</span>(<span class="string">''</span>);
+  
+  <span class="keyword">const</span> <span class="function">addItem</span> = () => {
+    <span class="keyword">if</span> (text.<span class="function">trim</span>() !== <span class="string">''</span>) {
+      <span class="function">setItems</span>([...<span class="variable">items</span>, text]);
+      <span class="function">setText</span>(<span class="string">''</span>);
+    }
+  };
+  
+  <span class="keyword">return</span> (
+    &lt;<span class="component">View</span> style={styles.container}&gt;
+      &lt;<span class="component">TextInput</span>
+        style={styles.input}
+        value={text}
+        onChangeText={setText}
+        placeholder=<span class="string">"Aggiungi un prodotto"</span>
+      /&gt;
+      &lt;<span class="component">Button</span> title=<span class="string">"Aggiungi"</span> onPress={addItem} /&gt;
+      &lt;<span class="component">FlatList</span>
+        data={items}
+        keyExtractor={(item, index) => index.<span class="function">toString</span>()}
+        renderItem={({ item }) => &lt;<span class="component">Text</span> style={styles.item}&gt;{item}&lt;/<span class="component">Text</span>&gt;}
+      /&gt;
+    &lt;/<span class="component">View</span>&gt;
+  );
+}
+
+<span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
+  container: {
+    flex: <span class="string">1</span>,
+    padding: <span class="string">20</span>,
+    backgroundColor: <span class="string">'#fff'</span>,
+  },
+  input: {
+    borderWidth: <span class="string">1</span>,
+    borderColor: <span class="string">'#ccc'</span>,
+    padding: <span class="string">10</span>,
+    marginBottom: <span class="string">10</span>,
+  },
+  item: {
+    fontSize: <span class="string">18</span>,
+    padding: <span class="string">5</span>,
+  },
+});</pre>
+                    
+            <div class="info-box">
+              <strong>📝 Concetti chiave:</strong>
+              <ul>
+                <li><strong>useState:</strong> gestisce lo stato della lista e del campo di testo</li>
+                <li><strong>TextInput:</strong> permette all'utente di inserire nuovi elementi</li>
+                <li><strong>FlatList:</strong> renderizza liste lunghe in modo ottimizzato</li>
+                <li><strong>keyExtractor:</strong> identifica univocamente ogni elemento della lista</li>
+              </ul>
+            </div>
+          </div>
+        `,
+    styles: `
+          <div class="api-section">
+            <h2>Gestione degli Stili</h2>
+            <p>
+              Gli stili in React Native vengono definiti in JavaScript usando <strong>StyleSheet.create</strong>.
+              Il layout è basato su <strong>Flexbox</strong>, un sistema flessibile che permette di creare interfacce responsive
+              che si adattano a diverse dimensioni dello schermo.
+            </p>
+            
+            <h3 class="subsection-title">Proprietà Flexbox Principali</h3>
+            <div class="info-box">
+              <ul>
+                <li><strong>flex:</strong> definisce quanto spazio occupa un componente rispetto agli altri</li>
+                <li><strong>flexDirection:</strong> 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
+                <li><strong>justifyContent:</strong> 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'</li>
+                <li><strong>alignItems:</strong> 'center' | 'flex-start' | 'flex-end' | 'stretch'</li>
+                <li><strong>gap:</strong> spazio tra gli elementi figli</li>
+              </ul>
+            </div>
+
+            <h3 class="subsection-title">Esempio di Stili</h3>
+            <pre><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
+  container: {
+    flex: <span class="string">1</span>,
+    justifyContent: <span class="string">'center'</span>,
+    alignItems: <span class="string">'center'</span>,
+    backgroundColor: <span class="string">'#f0f0f0'</span>,
+    padding: <span class="string">20</span>,
+  },
+  text: {
+    fontSize: <span class="string">24</span>,
+    fontWeight: <span class="string">'bold'</span>,
+    color: <span class="string">'#333'</span>,
+    marginBottom: <span class="string">15</span>,
+  },
+  button: {
+    backgroundColor: <span class="string">'#007AFF'</span>,
+    padding: <span class="string">15</span>,
+    borderRadius: <span class="string">8</span>,
+    marginTop: <span class="string">10</span>,
+  }
+});</pre>
+            
+            <div class="tip-box">
+              <strong>💡 Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
+            </div>
+          </div>
+        `,
+    sintax: `
+          <div class="api-section">
+            <h2>Sintassi di Base</h2>
+            <p style="margin-bottom: 32px;">
+              React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
+              Ecco i principali elementi che utilizzerai quotidianamente nello sviluppo.
+            </p>
+
+            <div class="syntax-grid">
+              <div class="syntax-item">
+                <h3>🎣 useState</h3>
+                <p>Hook per la gestione dello stato locale del componente. Quando modifichi lo stato, il componente si ri-renderizza.</p>
+                <div class="code-example">
+                  <code>const [value, setValue] = useState(initialValue);</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>📦 View</h3>
+                <p>Contenitore principale per il layout (come un <code>div</code> nel web). Supporta Flexbox.</p>
+                <div class="code-example">
+                  <code>&lt;View style={styles.container}&gt;...&lt;/View&gt;</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>📝 Text</h3>
+                <p>Componente per visualizzare testo. In React Native, il testo va sempre dentro <code>Text</code>.</p>
+                <div class="code-example">
+                  <code>&lt;Text style={styles.title}&gt;Hello&lt;/Text&gt;</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>🔘 Button</h3>
+                <p>Pulsante nativo: usa <code>onPress</code> (non <code>onClick</code>).</p>
+                <div class="code-example">
+                  <code>&lt;Button title="Click" onPress={handlePress} /&gt;</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>⌨️ TextInput</h3>
+                <p>Campo di input testo con evento <code>onChangeText</code>.</p>
+                <div class="code-example">
+                  <code>&lt;TextInput value={text} onChangeText={setText} /&gt;</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>📋 FlatList</h3>
+                <p>Lista ottimizzata: renderizza solo gli elementi visibili per performance migliori.</p>
+                <div class="code-example">
+                  <code>&lt;FlatList data={items} renderItem={...} /&gt;</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>🎨 StyleSheet.create</h3>
+                <p>Definisce stili in modo ottimizzato e "validato".</p>
+                <div class="code-example">
+                  <code>const styles = StyleSheet.create({...});</code>
+                </div>
+              </div>
+
+              <div class="syntax-item">
+                <h3>🖼️ Image</h3>
+                <p>Per immagini locali o remote (via <code>uri</code>).</p>
+                <div class="code-example">
+                  <code>&lt;Image source={{uri: 'https://...'}} style={{width: 100, height: 100}} /&gt;</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-box">
+              <strong>📚 Documentazione:</strong> 
+              Per approfondire ogni componente e API, consulta la 
+              <a href="https://reactnative.dev/docs/components-and-apis" target="_blank" rel="noopener">documentazione ufficiale di React Native</a>.
+            </div>
+          </div>
+        `,
+    debug: `
+          <div class="api-section">
+            <h2>Debug e Strumenti</h2>
+            <p>
+              Durante lo sviluppo di applicazioni mobile, il debug è una fase fondamentale per individuare errori, 
+              ottimizzare le prestazioni e garantire la corretta esecuzione del codice.
+            </p>
+            
+            <div class="tools-grid">
+              <div class="tool-card">
+                <h3>⚡ Fast Refresh</h3>
+                <p>
+                  Aggiorna automaticamente l'applicazione ogni volta che salvi il codice, mantenendo lo stato corrente. 
+                  Permette di vedere istantaneamente le modifiche senza dover riavviare l'intera app.
+                </p>
+              </div>
+              
+              <div class="tool-card">
+                <h3>🖥️ Console.log</h3>
+                <p>
+                  Il metodo più semplice per il debug. Stampa valori, oggetti e messaggi nella console per verificare 
+                  il flusso del codice e controllare i dati in tempo reale durante l'esecuzione.
+                </p>
+              </div>
+              
+              <div class="tool-card">
+                <h3>🔍 React Developer Tools</h3>
+                <p>
+                  Estensione browser che permette di ispezionare la gerarchia dei componenti React, visualizzare props e state, 
+                  e analizzare le performance. Essenziale per debug avanzato.
+                </p>
+              </div>
+              
+              <div class="tool-card">
+                <h3>📱 React Native Debugger</h3>
+                <p>
+                  Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia. 
+                  Offre funzionalità di breakpoint e inspection avanzata.
+                </p>
+              </div>
+              
+              <div class="tool-card">
+                <h3>⚠️ Error Boundaries</h3>
+                <p>
+                  Componenti speciali che catturano gli errori JavaScript nei loro componenti figli, permettendo di 
+                  mostrare un'interfaccia di fallback invece di far crashare l'intera app.
+                </p>
+              </div>
+              
+              <div class="tool-card">
+                <h3>📊 Flipper</h3>
+                <p>
+                  Piattaforma di debug estensibile creata da Meta. Offre network inspector, database viewer, 
+                  performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
+                </p>
+              </div>
+            </div>
+            
+            <div class="info-box">
+              <strong>🎯 Menu di Debug:</strong> Durante lo sviluppo, scuoti il dispositivo (o premi Cmd+D su iOS / Ctrl+M su Android) 
+              per aprire il Dev Menu con opzioni come: reload, debug JS remotely, enable fast refresh, e show inspector.
+            </div>
+          </div>
+        `,
+    examples: `
+          <div class="api-section">
+            <h2>Esempi Pratici di Codice</h2>
+            <p style="margin-bottom: 32px;">
+              Di seguito trovi alcuni esempi pratici che dimostrano i concetti fondamentali di React Native,
+              dalla gestione dello stato alla creazione di interfacce interattive.
+            </p>
+
+            <h3 class="subsection-title">Esempio 1: Hello World con Interazione</h3>
+            <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
+
+            <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { <span class="component">Text</span>, <span class="component">View</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+
+<span class="keyword">export default function</span> <span class="function">App</span>() {
+  <span class="keyword">const</span> [message, setMessage] = <span class="function">useState</span>(<span class="string">'Benvenuto in React Native!'</span>);
+
+  <span class="keyword">const</span> <span class="function">changeMessage</span> = () => {
+    <span class="function">setMessage</span>(<span class="string">'Hai premuto il pulsante!'</span>);
+  };
+
+  <span class="keyword">return</span> (
+    &lt;<span class="component">View</span> style={styles.container}&gt;
+      &lt;<span class="component">Text</span> style={styles.text}&gt;{message}&lt;/<span class="component">Text</span>&gt;
+      &lt;<span class="component">Button</span> title=<span class="string">"Premi qui"</span> onPress={changeMessage} /&gt;
+    &lt;/<span class="component">View</span>&gt;
+  );
+}
+
+<span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
+  container: {
+    flex: <span class="string">1</span>,
+    justifyContent: <span class="string">'center'</span>,
+    alignItems: <span class="string">'center'</span>,
+    backgroundColor: <span class="string">'#fff'</span>,
+  },
+  text: {
+    fontSize: <span class="string">20</span>,
+    marginBottom: <span class="string">20</span>,
+  },
+});</pre>
+            
+            <h3 class="subsection-title">Esempio 2: Contatore Interattivo</h3>
+            <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
+            
+            <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
+<span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
+
+<span class="keyword">export default function</span> <span class="function">Counter</span>() {
+  <span class="keyword">const</span> [count, setCount] = <span class="function">useState</span>(<span class="string">0</span>);
+
+  <span class="keyword">return</span> (
+    &lt;<span class="component">View</span> style={styles.container}&gt;
+      &lt;<span class="component">Text</span> style={styles.counter}&gt;{count}&lt;/<span class="component">Text</span>&gt;
+      &lt;<span class="component">View</span> style={styles.buttons}&gt;
+        &lt;<span class="component">Button</span> title=<span class="string">"Incrementa"</span> onPress={() => <span class="function">setCount</span>(count + <span class="string">1</span>)} /&gt;
+        &lt;<span class="component">Button</span> title=<span class="string">"Decrementa"</span> onPress={() => <span class="function">setCount</span>(count - <span class="string">1</span>)} /&gt;
+      &lt;/<span class="component">View</span>&gt;
+    &lt;/<span class="component">View</span>&gt;
+  );
+}
+
+<span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
+  container: {
+    flex: <span class="string">1</span>,
+    justifyContent: <span class="string">'center'</span>,
+    alignItems: <span class="string">'center'</span>,
+    backgroundColor: <span class="string">'#fff'</span>,
+  },
+  counter: {
+    fontSize: <span class="string">48</span>,
+    marginBottom: <span class="string">20</span>,
+  },
+  buttons: {
+    flexDirection: <span class="string">'row'</span>,
+    gap: <span class="string">10</span>,
+  },
+});</pre>
+
+            <div class="tip-box">
+              <strong>🎓 Best Practices:</strong>
+              <ul>
+                <li>Usa sempre <code>useState</code> per gestire dati che cambiano nel tempo</li>
+                <li>Mantieni i componenti piccoli e focalizzati su un singolo compito</li>
+                <li>Definisci gli stili con <code>StyleSheet.create</code> per migliori performance</li>
+                <li>Usa <code>FlatList</code> invece di <code>ScrollView</code> per liste lunghe</li>
+              </ul>
+            </div>
+          </div>
+        `
+  };
+  
+  return sections[this.activeSection] || '';
 },
 
     salvaEsamiLS() {
