@@ -106,44 +106,41 @@ createApp({
           </div>
 
           <div class="features-grid">
-            <div class="feature-card" @click="showApiSection('how')">
-              <div class="feature-icon">⚙️</div>
+            <div class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
               <h3>Come Funziona</h3>
               <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
             </div>
 
-            <div class="feature-card" @click="showApiSection('component')">
-              <div class="feature-icon">🧩</div>
+            <div class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
               <h3>Componenti</h3>
               <p>Creazione dell'interfaccia con JSX.</p>
             </div>
 
-            <div class="feature-card" @click="showApiSection('styles')">
-              <div class="feature-icon">🎨</div>
+            <div class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
               <h3>Stili</h3>
               <p>Layout Flexbox e StyleSheet.</p>
             </div>
 
-            <div class="feature-card" @click="showApiSection('sintax')">
-              <div class="feature-icon">📘</div>
+            <div class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
               <h3>Sintassi di Base</h3>
               <p>Componenti fondamentali e hook.</p>
             </div>
 
-            <div class="feature-card" @click="showApiSection('debug')">
-              <div class="feature-icon">🛠️</div>
+            <div class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
               <h3>Debug e strumenti</h3>
               <p>Strumenti per lo sviluppo e il debugging.</p>
             </div>
 
-            <div class="feature-card" @click="showApiSection('examples')">
-              <div class="feature-icon">💡</div>
+            <div class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
               <h3>Esempi di codice</h3>
               <p>Esempi pratici di codice.</p>
             </div>
           </div>
 
-          <div id="api-content" v-html="getSectionContent()"></div>
+          <div v-if="activeSection" class="api-content-wrapper">
+            <button class="btn-back" @click="showApiSection(null)">← Torna alle sezioni</button>
+            <div v-html="getSectionContent()"></div>
+          </div>
         </section>
 
         <!-- GAMEDEX -->
@@ -485,7 +482,7 @@ getSectionContent() {
 });</pre>
                     
             <div class="info-box">
-              <strong>📝 Concetti chiave:</strong>
+              <strong>Concetti chiave:</strong>
               <ul>
                 <li><strong>useState:</strong> gestisce lo stato della lista e del campo di testo</li>
                 <li><strong>TextInput:</strong> permette all'utente di inserire nuovi elementi</li>
@@ -539,7 +536,7 @@ getSectionContent() {
 });</pre>
             
             <div class="tip-box">
-              <strong>💡 Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
+              <strong>Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
             </div>
           </div>
         `,
@@ -553,7 +550,7 @@ getSectionContent() {
 
             <div class="syntax-grid">
               <div class="syntax-item">
-                <h3>🎣 useState</h3>
+                <h3>useState</h3>
                 <p>Hook per la gestione dello stato locale del componente. Quando modifichi lo stato, il componente si ri-renderizza.</p>
                 <div class="code-example">
                   <code>const [value, setValue] = useState(initialValue);</code>
@@ -561,7 +558,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>📦 View</h3>
+                <h3>View</h3>
                 <p>Contenitore principale per il layout (come un <code>div</code> nel web). Supporta Flexbox.</p>
                 <div class="code-example">
                   <code>&lt;View style={styles.container}&gt;...&lt;/View&gt;</code>
@@ -569,7 +566,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>📝 Text</h3>
+                <h3>Text</h3>
                 <p>Componente per visualizzare testo. In React Native, il testo va sempre dentro <code>Text</code>.</p>
                 <div class="code-example">
                   <code>&lt;Text style={styles.title}&gt;Hello&lt;/Text&gt;</code>
@@ -577,7 +574,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>🔘 Button</h3>
+                <h3>Button</h3>
                 <p>Pulsante nativo: usa <code>onPress</code> (non <code>onClick</code>).</p>
                 <div class="code-example">
                   <code>&lt;Button title="Click" onPress={handlePress} /&gt;</code>
@@ -585,7 +582,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>⌨️ TextInput</h3>
+                <h3>TextInput</h3>
                 <p>Campo di input testo con evento <code>onChangeText</code>.</p>
                 <div class="code-example">
                   <code>&lt;TextInput value={text} onChangeText={setText} /&gt;</code>
@@ -593,7 +590,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>📋 FlatList</h3>
+                <h3>FlatList</h3>
                 <p>Lista ottimizzata: renderizza solo gli elementi visibili per performance migliori.</p>
                 <div class="code-example">
                   <code>&lt;FlatList data={items} renderItem={...} /&gt;</code>
@@ -601,7 +598,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>🎨 StyleSheet.create</h3>
+                <h3>StyleSheet.create</h3>
                 <p>Definisce stili in modo ottimizzato e "validato".</p>
                 <div class="code-example">
                   <code>const styles = StyleSheet.create({...});</code>
@@ -609,7 +606,7 @@ getSectionContent() {
               </div>
 
               <div class="syntax-item">
-                <h3>🖼️ Image</h3>
+                <h3>Image</h3>
                 <p>Per immagini locali o remote (via <code>uri</code>).</p>
                 <div class="code-example">
                   <code>&lt;Image source={{uri: 'https://...'}} style={{width: 100, height: 100}} /&gt;</code>
@@ -618,7 +615,7 @@ getSectionContent() {
             </div>
 
             <div class="info-box">
-              <strong>📚 Documentazione:</strong> 
+              <strong>Documentazione:</strong> 
               Per approfondire ogni componente e API, consulta la 
               <a href="https://reactnative.dev/docs/components-and-apis" target="_blank" rel="noopener">documentazione ufficiale di React Native</a>.
             </div>
@@ -634,7 +631,7 @@ getSectionContent() {
             
             <div class="tools-grid">
               <div class="tool-card">
-                <h3>⚡ Fast Refresh</h3>
+                <h3>Fast Refresh</h3>
                 <p>
                   Aggiorna automaticamente l'applicazione ogni volta che salvi il codice, mantenendo lo stato corrente. 
                   Permette di vedere istantaneamente le modifiche senza dover riavviare l'intera app.
@@ -642,7 +639,7 @@ getSectionContent() {
               </div>
               
               <div class="tool-card">
-                <h3>🖥️ Console.log</h3>
+                <h3>Console.log</h3>
                 <p>
                   Il metodo più semplice per il debug. Stampa valori, oggetti e messaggi nella console per verificare 
                   il flusso del codice e controllare i dati in tempo reale durante l'esecuzione.
@@ -650,7 +647,7 @@ getSectionContent() {
               </div>
               
               <div class="tool-card">
-                <h3>🔍 React Developer Tools</h3>
+                <h3>React Developer Tools</h3>
                 <p>
                   Estensione browser che permette di ispezionare la gerarchia dei componenti React, visualizzare props e state, 
                   e analizzare le performance. Essenziale per debug avanzato.
@@ -658,7 +655,7 @@ getSectionContent() {
               </div>
               
               <div class="tool-card">
-                <h3>📱 React Native Debugger</h3>
+                <h3>React Native Debugger</h3>
                 <p>
                   Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia. 
                   Offre funzionalità di breakpoint e inspection avanzata.
@@ -666,7 +663,7 @@ getSectionContent() {
               </div>
               
               <div class="tool-card">
-                <h3>⚠️ Error Boundaries</h3>
+                <h3>Error Boundaries</h3>
                 <p>
                   Componenti speciali che catturano gli errori JavaScript nei loro componenti figli, permettendo di 
                   mostrare un'interfaccia di fallback invece di far crashare l'intera app.
@@ -674,7 +671,7 @@ getSectionContent() {
               </div>
               
               <div class="tool-card">
-                <h3>📊 Flipper</h3>
+                <h3>Flipper</h3>
                 <p>
                   Piattaforma di debug estensibile creata da Meta. Offre network inspector, database viewer, 
                   performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
@@ -683,7 +680,7 @@ getSectionContent() {
             </div>
             
             <div class="info-box">
-              <strong>🎯 Menu di Debug:</strong> Durante lo sviluppo, scuoti il dispositivo (o premi Cmd+D su iOS / Ctrl+M su Android) 
+              <strong>Menu di Debug:</strong> Durante lo sviluppo, scuoti il dispositivo (o premi Cmd+D su iOS / Ctrl+M su Android) 
               per aprire il Dev Menu con opzioni come: reload, debug JS remotely, enable fast refresh, e show inspector.
             </div>
           </div>
@@ -768,7 +765,7 @@ getSectionContent() {
 });</pre>
 
             <div class="tip-box">
-              <strong>🎓 Best Practices:</strong>
+              <strong>Best Practices:</strong>
               <ul>
                 <li>Usa sempre <code>useState</code> per gestire dati che cambiano nel tempo</li>
                 <li>Mantieni i componenti piccoli e focalizzati su un singolo compito</li>

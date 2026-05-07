@@ -105,6 +105,240 @@ form input {
 }
 
 footer {
-  background-color: #1f4f7b;  
+  background-color: #1f4f7b;
   color: #fff;
 }
+
+/* ── Fondamenti: section header ── */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e8f0fe;
+}
+
+.section-title {
+  color: #1f4f7b;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: #555;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Features grid ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  background: #fff;
+  border: 2px solid #e8f0fe;
+  border-radius: 12px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.feature-card:hover {
+  border-color: #1f4f7b;
+  box-shadow: 0 4px 16px rgba(31, 79, 123, 0.15);
+  transform: translateY(-3px);
+}
+
+.feature-card.active {
+  border-color: #1f4f7b;
+  background: #e8f0fe;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Back button ── */
+.btn-back {
+  background: none;
+  border: none;
+  color: #1f4f7b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.4rem 0;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: opacity 0.2s;
+  font-size: 0.95rem;
+}
+
+.btn-back:hover { opacity: 0.65; }
+
+/* ── Content wrapper (animazione fade-in) ── */
+.api-content-wrapper {
+  border-top: 2px solid #e8f0fe;
+  padding-top: 1.5rem;
+  animation: fadeSlideIn 0.25s ease;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── API section ── */
+.api-section { padding: 0.5rem 0; }
+
+/* ── Steps (Come Funziona) ── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  background: #1f4f7b;
+  color: #fff;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.step-content { flex: 1; }
+
+.step-code {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* ── Tools grid (Debug) ── */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .tools-grid { grid-template-columns: 1fr; }
+}
+
+.tool-card {
+  background: #f8faff;
+  border-left: 4px solid #1f4f7b;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+/* ── Syntax grid ── */
+.syntax-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .syntax-grid { grid-template-columns: 1fr; }
+}
+
+.syntax-item {
+  background: #f8faff;
+  border: 1px solid #e8f0fe;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.subsection-title {
+  color: #1f4f7b;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* ── Code examples ── */
+.code-example {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  font-family: monospace;
+  font-size: 0.82rem;
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 10px;
+  padding: 1.25rem;
+  font-family: monospace;
+  font-size: 0.88rem;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+/* ── Info / Tip boxes ── */
+.info-box {
+  background: #e8f4ff;
+  border-left: 4px solid #1f4f7b;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.tip-box {
+  background: #fffbea;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* ── Syntax highlighting ── */
+.keyword   { color: #cba6f7; }
+.function  { color: #89dceb; }
+.component { color: #89b4fa; }
+.string    { color: #a6e3a1; }
+.tag       { color: #f38ba8; }
+.variable  { color: #fab387; }
