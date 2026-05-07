@@ -220,10 +220,11 @@ createApp({
               <label class="form-label">Data</label>
               <input v-model="formEsame.data" type="date" class="form-control" required>
             </div>
-            <div class="col-md-3 d-flex align-items-end">
-              <button class="btn btn-primary w-100">
+            <div class="col-md-3 d-flex align-items-end gap-2">
+              <button class="btn btn-primary flex-grow-1">
                 {{ formEsame.id ? 'Aggiorna' : 'Aggiungi' }}
               </button>
+              <button v-if="formEsame.id" type="button" class="btn btn-outline-secondary" @click="resetFormEsame">Annulla</button>
             </div>
           </form>
 
