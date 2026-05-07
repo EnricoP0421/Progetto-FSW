@@ -33,7 +33,10 @@ createApp({
 
         <!-- HOME -->
         <section v-if="vista === 'home'" class="main-section">
-          <h2 class="mb-3">Home</h2>
+          <div class="section-header">
+            <h1 class="section-title">React Native Hub</h1>
+            <p class="section-description">Scopri React Native: storia, funzionamento e vantaggi del framework mobile cross-platform di Meta.</p>
+          </div>
 
           <h3>Che cosa è React Native?</h3>
             <div class="react-row">
@@ -85,15 +88,15 @@ createApp({
               </div>
 
           <h3 class="mt-4">Vantaggi</h3>
-          <ul>
-            <li>Codice unico per più piattaforme (Android e iOS)</li>
-            <li>Prestazioni elevate, grazie al rendering nativo</li>
-            <li>Fast Refresh, per aggiornare l'app in tempo reale durante lo sviluppo</li>
-            <li>Grande community e ampia disponibilità di librerie</li>
-            <li>Facile apprendimento per sviluppatori web</li>
-            <li>Ecosistema completo (Expo, UI libraries, strumenti di testing)</li>
-            <li>Riduzione dei costi e dei tempi di sviluppo</li>
-          </ul>
+          <div class="vantaggi-grid">
+            <div class="vantaggio-item">Codice unico per più piattaforme (Android e iOS)</div>
+            <div class="vantaggio-item">Prestazioni elevate, grazie al rendering nativo</div>
+            <div class="vantaggio-item">Fast Refresh per aggiornamenti in tempo reale</div>
+            <div class="vantaggio-item">Grande community e ampia disponibilità di librerie</div>
+            <div class="vantaggio-item">Facile apprendimento per sviluppatori web</div>
+            <div class="vantaggio-item">Ecosistema completo (Expo, UI libraries, testing)</div>
+            <div class="vantaggio-item">Riduzione dei costi e dei tempi di sviluppo</div>
+          </div>
         </section>
 
         <!-- REACT NATIVE / API -->
@@ -145,13 +148,10 @@ createApp({
 
         <!-- GAMEDEX -->
         <section v-else-if="vista === 'gamedex'" class="main-section">
-          <h2 class="mb-3">GameDex</h2>
-
-          <p class="mb-3">
-            GameDex è una semplice tabella che raccoglie alcuni videogiochi famosi, con informazioni
-            su genere, anno di uscita, piattaforma, sviluppatore, valutazione e modalità di gioco.
-            I dati sono caricati da un file JSON esterno.
-          </p>
+          <div class="section-header">
+            <h1 class="section-title">GameDex</h1>
+            <p class="section-description">Una raccolta di videogiochi famosi con informazioni su genere, anno, piattaforma, sviluppatore e valutazione.</p>
+          </div>
 
           <div class="d-flex gap-2 mb-3 flex-wrap">
             <input type="search" class="form-control form-control-sm"
@@ -202,13 +202,10 @@ createApp({
 
         <!-- CRUD ESAMI -->
         <section v-else-if="vista === 'crud'" class="main-section">
-          <h2 class="mb-3">Inserimento esami</h2>
-
-          <p class="mb-3">
-            In questa sezione è possibile inserire, modificare ed eliminare gli esami sostenuti.
-            I dati vengono salvati nel localStorage del browser, così da rimanere disponibili
-            anche dopo la chiusura della pagina.
-          </p>
+          <div class="section-header">
+            <h1 class="section-title">Esami</h1>
+            <p class="section-description">Inserisci, modifica ed elimina gli esami sostenuti. I dati vengono salvati nel localStorage del browser.</p>
+          </div>
 
           <form class="row g-2 mb-4" @submit.prevent="salvaEsame">
             <div class="col-md-4">
