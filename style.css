@@ -8,11 +8,22 @@
 
 body { font-family: system-ui, sans-serif; background-color: var(--blue); color: black; }
 header, footer { background-color: var(--blue); color: #fff; }
+header { box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+header h1 { color: #fff; }
 .logo-react { width: 32px; height: 32px; }
 
-.nav-link { cursor: pointer; color: aqua !important; }
-.nav-link.active { background-color: rgb(65, 89, 163); color: #fff !important; }
-.nav-link:hover { color: rgb(34, 144, 180) !important; }
+.nav-link {
+  cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.nav-link.active { background: #fff; color: var(--blue); font-weight: 600; }
 
 .main-section {
   background: #fff;
