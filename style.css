@@ -7,6 +7,7 @@ body {
 header {
   background-color: #1f4f7b;
   color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .logo-react {
@@ -16,15 +17,24 @@ header {
 
 .nav-link {
   cursor: pointer;
-  color: aqua !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  border-radius: 8px;
+  padding: 6px 14px !important;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  transition: background-color .15s, color .15s;
 }
 
 .nav-link.active {
-  background-color: rgb(65, 89, 163);
+  background-color: rgba(255, 255, 255, 0.18);
   color: #fff !important;
+  font-weight: 600;
 }
-.nav-link:hover {
-  color: rgb(34, 144, 180) !important;
+
+.nav-link:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
 }
 
 .main-section {
@@ -44,8 +54,8 @@ h1, h2, h3 {
   gap: 20px;
 }
 .react-image {
-  width: 200px;        
-  border-radius: 20px; 
+  width: 200px;
+  border-radius: 20px;
   display: block;
 }
 
@@ -58,25 +68,30 @@ h1, h2, h3 {
   .react-image {
     margin-top: 10px;
   }
+
+  .features-grid,
+  .syntax-grid,
+  .tools-grid,
+  .vantaggi-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .react-text {
-  flex: 1; 
+  flex: 1;
 }
 
-.react.text-2{
+.react-text-2 {
   align-items: center;
 }
 
 .react-image-box {
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
-
-
 
 .react-row-2 {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   gap: 10px;
 }
@@ -84,10 +99,9 @@ h1, h2, h3 {
 .react-image-2 {
   width: 350px;
   border-radius: 20px;
-
 }
 
-.table thead {
+.table thead th {
   background-color: #1f4f7b;
   color: #fff;
 }
@@ -105,6 +119,279 @@ form input {
 }
 
 footer {
-  background-color: #1f4f7b;  
+  background-color: #1f4f7b;
   color: #fff;
+}
+
+/* Aggiunte: header delle sezioni */
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  color: #1f4f7b;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: #555;
+  margin: 0;
+}
+
+.subsection-title {
+  color: #1f4f7b;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+}
+
+/* Vista "Fondamenti": griglia di card cliccabili */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card {
+  background-color: #f2f6fb;
+  border: 1px solid #d8e2ec;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s, transform .05s;
+}
+
+.feature-card:hover {
+  background-color: #e6eef8;
+  border-color: #1f4f7b;
+}
+
+.feature-card.active {
+  background-color: rgb(65, 89, 163);
+  border-color: rgb(65, 89, 163);
+}
+
+.feature-card.active h3,
+.feature-card.active p {
+  color: #fff;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Pulsante "torna alle sezioni" */
+
+.api-content-wrapper {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 1px solid #1f4f7b;
+  color: #1f4f7b;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color .15s;
+}
+
+.btn-back:hover {
+  background-color: #1f4f7b;
+  color: #fff;
+}
+
+/* Wrapper sezione API */
+
+.api-section h2 {
+  margin-bottom: 1rem;
+}
+
+/* Steps "Come Funziona" */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  background-color: #f2f6fb;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #1f4f7b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.step-code {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.code-line {
+  display: block;
+  white-space: pre;
+}
+
+/* Blocchi <pre> per snippet di codice */
+
+pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 1rem 0;
+}
+
+/* Code highlighting (i tag <span> dentro <pre>) */
+
+.keyword  { color: #c084fc; }
+.function { color: #60a5fa; }
+.string   { color: #fbbf24; }
+.component{ color: #34d399; }
+.tag      { color: #34d399; }
+.variable { color: #f472b6; }
+
+/* Codice inline con <code> */
+
+code {
+  background-color: #f2f6fb;
+  color: #1f4f7b;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* Box informativi (info, tip) */
+
+.info-box {
+  background-color: #eef5fb;
+  border-left: 4px solid #1f4f7b;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.tip-box {
+  background-color: #fff8e1;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.info-box ul, .tip-box ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.info-box li, .tip-box li {
+  margin-bottom: 4px;
+}
+
+/* Griglia per "Sintassi di Base" e "Debug e strumenti" */
+
+.syntax-grid, .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 1rem 0;
+}
+
+.syntax-item, .tool-card {
+  background-color: #f2f6fb;
+  border: 1px solid #d8e2ec;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.syntax-item h3, .tool-card h3 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.syntax-item p, .tool-card p {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.code-example {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: auto;
+}
+
+.code-example code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Vantaggi (Home) */
+
+.vantaggi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.vantaggio-item {
+  background-color: #f2f6fb;
+  border-left: 3px solid #1f4f7b;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }

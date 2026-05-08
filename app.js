@@ -479,7 +479,7 @@ getSectionContent() {
   },
 });</pre>
                     
-            <div class="info-box">
+            <div class="tip-box">
               <strong>Concetti chiave:</strong>
               <ul>
                 <li><strong>useState:</strong> gestisce lo stato della lista e del campo di testo</li>
@@ -612,7 +612,7 @@ getSectionContent() {
               </div>
             </div>
 
-            <div class="info-box">
+            <div class="tip-box">
               <strong>Documentazione:</strong> 
               Per approfondire ogni componente e API, consulta la 
               <a href="https://reactnative.dev/docs/components-and-apis" target="_blank" rel="noopener">documentazione ufficiale di React Native</a>.
@@ -677,7 +677,7 @@ getSectionContent() {
               </div>
             </div>
             
-            <div class="info-box">
+            <div class="tip-box">
               <strong>Menu di Debug:</strong> Durante lo sviluppo, scuoti il dispositivo (o premi Cmd+D su iOS / Ctrl+M su Android) 
               per aprire il Dev Menu con opzioni come: reload, debug JS remotely, enable fast refresh, e show inspector.
             </div>
