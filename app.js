@@ -204,7 +204,6 @@ createApp({
         <section v-else-if="vista === 'crud'" class="main-section">
           <div class="section-header">
             <h1 class="section-title">Esami</h1>
-            <p class="section-description">Inserisci, modifica ed elimina gli esami sostenuti. I dati vengono salvati nel localStorage del browser.</p>
           </div>
 
           <form class="row g-2 mb-4" @submit.prevent="salvaEsame">
@@ -249,7 +248,7 @@ createApp({
                   <td>{{ e.voto }}</td>
                   <td>{{ e.data }}</td>
                   <td class="text-end">
-                    <button class="btn btn-sm btn-outline-secondary me-1" @click="modificaEsame(e)">Modifica</button>
+                    <button class="btn btn-sm btn-outline-secondary me-2 mb-1 mb-sm-0" @click="modificaEsame(e)">Modifica</button>
                     <button class="btn btn-sm btn-outline-danger" @click="cancellaEsame(e.id)">Elimina</button>
                   </td>
                 </tr>
@@ -369,7 +368,7 @@ getSectionContent() {
                 <div class="step-number">1</div>
                 <div class="step-content">
                   <h3>Installa React Native</h3>
-                  <p>Inizia configurando l'ambiente di sviluppo. React Native CLI ti permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
+                  <p>Si inizia configurando l'ambiente di sviluppo. React Native CLI permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
                   <div class="step-code">
                     <span class="code-line"><span class="keyword">npx</span> react-native init MiaApp</span>
                     <span class="code-line"><span class="keyword">cd</span> MiaApp</span>
@@ -382,7 +381,7 @@ getSectionContent() {
                 <div class="step-number">2</div>
                 <div class="step-content">
                   <h3>Crea Componenti React</h3>
-                  <p>Utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
+                  <p>Si utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
                   <div class="step-code">
                     <span class="code-line"><span class="keyword">const</span> <span class="function">MioComponente</span> = () => (</span>
                     <span class="code-line">  &lt;<span class="tag">View</span> style={styles.container}&gt;</span>
@@ -414,7 +413,7 @@ getSectionContent() {
                 <div class="step-number">4</div>
                 <div class="step-content">
                   <h3>Pubblica la Tua App</h3>
-                  <p>Quando sei pronto, compila la tua app per produzione e pubblicala su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
+                  <p>Quando si è pronti, si compila l' app per produzione e si pubblica su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
                 </div>
               </div>
             </div>
@@ -528,13 +527,13 @@ getSectionContent() {
             <h2>Sintassi di Base</h2>
             <p style="margin-bottom: 32px;">
               React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
-              Ecco i principali elementi che utilizzerai quotidianamente nello sviluppo.
+              Ecco i principali elementi utilizzati quotidianamente nello sviluppo.
             </p>
 
             <div class="syntax-grid">
               <div class="syntax-item">
                 <h3>useState</h3>
-                <p>Hook per la gestione dello stato locale del componente. Quando modifichi lo stato, il componente si ri-renderizza.</p>
+                <p>Hook per la gestione dello stato locale del componente.</p>
                 <div class="code-example">
                   <code>const [value, setValue] = useState(initialValue);</code>
                 </div>
@@ -542,7 +541,7 @@ getSectionContent() {
 
               <div class="syntax-item">
                 <h3>View</h3>
-                <p>Contenitore principale per il layout (come un <code>div</code> nel web). Supporta Flexbox.</p>
+                <p>Contenitore principale per il layout.</p>
                 <div class="code-example">
                   <code>&lt;View style={styles.container}&gt;...&lt;/View&gt;</code>
                 </div>
@@ -550,7 +549,7 @@ getSectionContent() {
 
               <div class="syntax-item">
                 <h3>Text</h3>
-                <p>Componente per visualizzare testo. In React Native, il testo va sempre dentro <code>Text</code>.</p>
+                <p>Componente per visualizzare testo.</p>
                 <div class="code-example">
                   <code>&lt;Text style={styles.title}&gt;Hello&lt;/Text&gt;</code>
                 </div>
@@ -558,7 +557,7 @@ getSectionContent() {
 
               <div class="syntax-item">
                 <h3>Button</h3>
-                <p>Pulsante nativo: usa <code>onPress</code> (non <code>onClick</code>).</p>
+                <p>Pulsante nativo: usa <code>onPress</code>.</p>
                 <div class="code-example">
                   <code>&lt;Button title="Click" onPress={handlePress} /&gt;</code>
                 </div>
@@ -574,7 +573,7 @@ getSectionContent() {
 
               <div class="syntax-item">
                 <h3>FlatList</h3>
-                <p>Lista ottimizzata: renderizza solo gli elementi visibili per performance migliori.</p>
+                <p>Lista ottimizzata: renderizza solo gli elementi visibili.</p>
                 <div class="code-example">
                   <code>&lt;FlatList data={items} renderItem={...} /&gt;</code>
                 </div>
@@ -612,16 +611,15 @@ getSectionContent() {
               <div class="tool-card">
                 <h3>Fast Refresh</h3>
                 <p>
-                  Aggiorna automaticamente l'applicazione ogni volta che salvi il codice, mantenendo lo stato corrente. 
-                  Permette di vedere istantaneamente le modifiche senza dover riavviare l'intera app.
+                  Aggiorna automaticamente l'applicazione. 
+                  Permette di vedere istantaneamente le modifiche senza dover riavviare l'app.
                 </p>
               </div>
               
               <div class="tool-card">
                 <h3>Console.log</h3>
                 <p>
-                  Il metodo più semplice per il debug. Stampa valori, oggetti e messaggi nella console per verificare 
-                  il flusso del codice e controllare i dati in tempo reale durante l'esecuzione.
+                  Stampa valori, oggetti e messaggi nella console per verificare la corretta esecuzione del codice.
                 </p>
               </div>
               
@@ -629,22 +627,21 @@ getSectionContent() {
                 <h3>React Developer Tools</h3>
                 <p>
                   Estensione browser che permette di ispezionare la gerarchia dei componenti React, visualizzare props e state, 
-                  e analizzare le performance. Essenziale per debug avanzato.
+                  e analizzare le performance.
                 </p>
               </div>
               
               <div class="tool-card">
                 <h3>React Native Debugger</h3>
                 <p>
-                  Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia. 
-                  Offre funzionalità di breakpoint e inspection avanzata.
+                  Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia.
                 </p>
               </div>
               
               <div class="tool-card">
                 <h3>Error Boundaries</h3>
                 <p>
-                  Componenti speciali che catturano gli errori JavaScript nei loro componenti figli, permettendo di 
+                  Componenti che catturano errori JavaScript nei loro componenti figli, permettendo di 
                   mostrare un'interfaccia di fallback invece di far crashare l'intera app.
                 </p>
               </div>
@@ -652,7 +649,7 @@ getSectionContent() {
               <div class="tool-card">
                 <h3>Flipper</h3>
                 <p>
-                  Piattaforma di debug estensibile creata da Meta. Offre network inspector, database viewer, 
+                  Piattaforma di debug creata da Meta. Offre network inspector, database viewer, 
                   performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
                 </p>
               </div>
@@ -663,7 +660,7 @@ getSectionContent() {
           <div class="api-section">
             <h2>Esempi Pratici di Codice</h2>
             <p style="margin-bottom: 32px;">
-              Di seguito trovi alcuni esempi pratici che dimostrano i concetti fondamentali di React Native,
+              Di seguito ci sono due esempi pratici che mostrano i concetti fondamentali di React Native,
               dalla gestione dello stato alla creazione di interfacce interattive.
             </p>
 
