@@ -149,13 +149,12 @@ footer {
 /* Vista "Fondamenti": griglia di card cliccabili */
 
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-bottom: 1.5rem;
 }
 
 .feature-card {
+  display: inline-block; /* Per mantenere il layout a griglia anche con display: inline-block */
   background-color: #f2f6fb;
   border: 1px solid #d8e2ec;
   border-radius: 12px;
@@ -333,12 +332,12 @@ code {
 /* Griglia per "Sintassi di Base" e "Debug e strumenti" */
 
 .syntax-grid, .tools-grid {
-  display: grid;
   gap: 16px;
   margin: 1rem 0;
 }
 
 .syntax-item, .tool-card {
+  display: inline-block; /* Per mantenere il layout a griglia anche con display: inline-block */
   background-color: #f2f6fb;
   border: 1px solid #d8e2ec;
   border-radius: 10px;
@@ -375,12 +374,12 @@ code {
 /* Vantaggi (Home) */
 
 .vantaggi-grid {
-  display: grid;
   gap: 16px;
   margin-top: 1rem;
 }
 
 .vantaggio-item {
+  display: inline-block; /* Per mantenere il layout a griglia anche con display: inline-block */
   background-color: #f2f6fb;
   border-left: 3px solid #1f4f7b;
   padding: 10px 14px;
