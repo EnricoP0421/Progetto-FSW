@@ -478,17 +478,6 @@ getSectionContent() {
     padding: <span class="string">5</span>,
   },
 });</pre>
-                    
-            <div class="tip-box">
-              <strong>Concetti chiave:</strong>
-              <ul>
-                <li><strong>useState:</strong> gestisce lo stato della lista e del campo di testo</li>
-                <li><strong>TextInput:</strong> permette all'utente di inserire nuovi elementi</li>
-                <li><strong>FlatList:</strong> renderizza liste lunghe in modo ottimizzato</li>
-                <li><strong>keyExtractor:</strong> identifica univocamente ogni elemento della lista</li>
-              </ul>
-            </div>
-          </div>
         `,
     styles: `
           <div class="api-section">
@@ -532,10 +521,6 @@ getSectionContent() {
     marginTop: <span class="string">10</span>,
   }
 });</pre>
-            
-            <div class="tip-box">
-              <strong>Suggerimento:</strong> A differenza del CSS web, in React Native i valori numerici sono già interpretati come pixel (dp su Android, pt su iOS), quindi non serve specificare unità di misura.
-            </div>
           </div>
         `,
     sintax: `
@@ -612,11 +597,7 @@ getSectionContent() {
               </div>
             </div>
 
-            <div class="tip-box">
-              <strong>Documentazione:</strong> 
-              Per approfondire ogni componente e API, consulta la 
-              <a href="https://reactnative.dev/docs/components-and-apis" target="_blank" rel="noopener">documentazione ufficiale di React Native</a>.
-            </div>
+            
           </div>
         `,
     debug: `
@@ -675,11 +656,6 @@ getSectionContent() {
                   performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
                 </p>
               </div>
-            </div>
-            
-            <div class="tip-box">
-              <strong>Menu di Debug:</strong> Durante lo sviluppo, scuoti il dispositivo (o premi Cmd+D su iOS / Ctrl+M su Android) 
-              per aprire il Dev Menu con opzioni come: reload, debug JS remotely, enable fast refresh, e show inspector.
             </div>
           </div>
         `,
@@ -761,16 +737,6 @@ getSectionContent() {
     gap: <span class="string">10</span>,
   },
 });</pre>
-
-            <div class="tip-box">
-              <strong>Best Practices:</strong>
-              <ul>
-                <li>Usa sempre <code>useState</code> per gestire dati che cambiano nel tempo</li>
-                <li>Mantieni i componenti piccoli e focalizzati su un singolo compito</li>
-                <li>Definisci gli stili con <code>StyleSheet.create</code> per migliori performance</li>
-                <li>Usa <code>FlatList</code> invece di <code>ScrollView</code> per liste lunghe</li>
-              </ul>
-            </div>
           </div>
         `
   };
