@@ -382,14 +382,15 @@ getSectionContent() {
                 <div class="step-content">
                   <h3>Crea Componenti React</h3>
                   <p>Si utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
-                  <div class="step-code">
+                <div class="step-code">
                     <span class="code-line"><span class="keyword">const</span> <span class="function">MioComponente</span> = () => (</span>
                     <span class="code-line">  &lt;<span class="tag">View</span> style={styles.container}&gt;</span>
                     <span class="code-line">    &lt;<span class="tag">Text</span>&gt;<span class="string">Testo Nativo</span>&lt;/<span class="tag">Text</span>&gt;</span>
                     <span class="code-line">  &lt;/<span class="tag">View</span>&gt;</span>
                     <span class="code-line">);</span>
                   </div>
-                </div>
+                  </div>
+                
               </div>
 
               <div class="step">

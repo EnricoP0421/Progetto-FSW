@@ -42,6 +42,7 @@ header {
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  margin-bottom: 1.5rem; /* nuovo */
 }
 
 h1, h2, h3 {
@@ -59,26 +60,9 @@ h1, h2, h3 {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .react-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .react-image {
-    margin-top: 10px;
-  }
-
-  .features-grid, .tools-grid, .vantaggi-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .syntax-grid {
-    display: block !important;
-  }
-  .syntax-item {
-    margin-bottom: 20px;
-  }
+.react-image-2 {
+  width: 350px;
+  border-radius: 20px;
 }
 
 .react-text {
@@ -98,11 +82,6 @@ h1, h2, h3 {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-}
-
-.react-image-2 {
-  width: 350px;
-  border-radius: 20px;
 }
 
 .table thead th {
@@ -394,10 +373,11 @@ code {
 /* Vantaggi (Home) */
 
 .vantaggi-grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 1rem;
+  margin-bottom: 0.5rem; /* nuovo: spazio interno al box bianco */
 }
 
 .vantaggio-item {
@@ -407,3 +387,115 @@ code {
   border-radius: 6px;
   font-size: 0.95rem;
 }
+
+@media (max-width: 768px) {
+  .react-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .react-image {
+    margin-top: 10px;
+  }
+
+  .features-grid, .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vantaggi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .syntax-grid {
+    display: block !important;
+  }
+  .syntax-item {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .react-image,
+  .react-image-2 {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .features-grid,
+  .tools-grid,
+  .vantaggi-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+    .vantaggio-item {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .feature-card {
+    padding: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .react-row {
+    gap: 10px;
+  }
+
+  .react-image,
+  .react-image-2 {
+    max-width: 220px;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+
+  .vantaggio-item {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  h1, h2, h3 {
+    font-size: 1.1rem;
+  }
+
+  .react-image,
+  .react-image-2 {
+    max-width: 180px;
+  }
+
+  .feature-card {
+    padding: 10px;
+  }
+
+  .feature-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .feature-card p {
+    font-size: 0.8rem;
+  }
+
+  .vantaggio-item {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}
+
+
