@@ -6,7 +6,7 @@ createApp({
     <header class="py-3 mb-3">
       <div class="container d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-2">
-          <img src="images/React native icona.png" alt="React Logo" class="logo-react">
+          <img src="images/react-native-icona.png" alt="React Logo" class="logo-react">
           <h1 class="h4 m-0">React Native Hub</h1>
         </div>
         <nav>
@@ -38,7 +38,7 @@ createApp({
             <p class="section-description">Scopri React Native: storia, funzionamento e vantaggi del framework mobile cross-platform di Meta.</p>
           </div>
 
-          <h3>Che cosa è React Native?</h3>
+          <h2>Che cosa è React Native?</h2>
             <div class="react-row">
               <div class="react-text">
                 <p>
@@ -61,7 +61,7 @@ createApp({
             </div>
           
 
-          <h3 class="mt-4">Storia e futuro</h3>
+          <h2 class="mt-4">Storia e futuro</h2>
             <div class="react-row-2">
               <p>
                 React Native nasce come evoluzione naturale di React.js, la libreria JavaScript introdotta nel 2013 che ha 
@@ -87,7 +87,7 @@ createApp({
 
               </div>
 
-          <h3 class="mt-4">Vantaggi</h3>
+          <h2 class="mt-4">Vantaggi</h2>
           <div class="vantaggi-grid">
             <div class="vantaggio-item">Codice unico per più piattaforme (Android e iOS)</div>
             <div class="vantaggio-item">Prestazioni elevate, grazie al rendering nativo</div>
@@ -110,32 +110,32 @@ createApp({
 
           <div class="features-grid">
             <div class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
-              <h3>Come Funziona</h3>
+              <h2>Come Funziona</h2>
               <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
             </div>
 
             <div class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
-              <h3>Componenti</h3>
+              <h2>Componenti</h2>
               <p>Creazione dell'interfaccia con JSX.</p>
             </div>
 
             <div class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
-              <h3>Stili</h3>
+              <h2>Stili</h2>
               <p>Layout Flexbox e StyleSheet.</p>
             </div>
 
             <div class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
-              <h3>Sintassi di Base</h3>
+              <h2>Sintassi di Base</h2>
               <p>Componenti fondamentali e hook.</p>
             </div>
 
             <div class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
-              <h3>Debug e strumenti</h3>
+              <h2>Debug e strumenti</h2>
               <p>Strumenti per lo sviluppo e il debugging.</p>
             </div>
 
             <div class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
-              <h3>Esempi di codice</h3>
+              <h2>Esempi di codice</h2>
               <p>Esempi pratici di codice.</p>
             </div>
           </div>
@@ -478,6 +478,7 @@ getSectionContent() {
     padding: <span class="string">5</span>,
   },
 });</pre>
+          </div>
         `,
     styles: `
           <div class="api-section">

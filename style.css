@@ -162,12 +162,12 @@ footer {
   border-color: rgb(65, 89, 163);
 }
 
-.feature-card.active h3,
+.feature-card.active h2, .feature-card.active h3,
 .feature-card.active p {
   color: #fff;
 }
 
-.feature-card h3 {
+.feature-card h2, .feature-card h3 {
   font-size: 1.1rem;
   margin-bottom: 6px;
   color: #1f4f7b;
@@ -179,7 +179,7 @@ footer {
   color: #333;
 }
 
-.feature-card h3, .feature-card p {
+.feature-card h2, .feature-card h3, .feature-card p {
   text-align: center;
 }
 
@@ -470,7 +470,7 @@ code {
     max-width: 220px;
   }
 
-  .feature-card h3 {
+  .feature-card h2, .feature-card h3 {
     font-size: 1rem;
   }
 
@@ -507,7 +507,7 @@ code {
     padding: 10px;
   }
 
-  .feature-card h3 {
+  .feature-card h2, .feature-card h3 {
     font-size: 0.95rem;
   }
 
