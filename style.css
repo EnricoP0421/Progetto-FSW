@@ -442,6 +442,21 @@ code {
   h1, h2, h3 {
     font-size: 1.3rem;
   }
+  .step {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .step-content {
+    width: 100%;
+  }
+
+  .step-code {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 375px) {
@@ -466,6 +481,14 @@ code {
   .vantaggio-item {
     font-size: 0.85rem;
     padding: 10px 12px;
+  }
+
+  .step {
+    padding: 12px;
+  }
+
+  .step-code {
+    font-size: 0.78rem;
   }
 }
 
@@ -495,6 +518,14 @@ code {
   .vantaggio-item {
     font-size: 0.8rem;
     padding: 8px 10px;
+  }
+
+   .step {
+    padding: 10px;
+  }
+
+  .step-code {
+    font-size: 0.72rem;
   }
 }
 
