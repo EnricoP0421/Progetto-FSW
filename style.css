@@ -157,6 +157,13 @@ footer {
   transform: translateY(-2px);
 }
 
+.feature-card:focus {
+  outline: 3px solid #1f4f7b;
+  outline-offset: 2px;
+  background-color: #dce8f5;
+  border-color: #1f4f7b;
+}
+
 .feature-card.active {
   background-color: rgb(65, 89, 163);
   border-color: rgb(65, 89, 163);
