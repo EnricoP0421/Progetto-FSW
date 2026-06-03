@@ -139,7 +139,7 @@ footer {
 }
 
 .feature-card {
- background-color: #eef5fb;
+  background-color: #eef5fb;
   border: 2px solid #c9d7e6;
   border-radius: 12px;
   padding: 18px;
@@ -149,6 +149,9 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font: inherit;
+  color: inherit;
+  width: 100%;
 }
 
 .feature-card:hover {

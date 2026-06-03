@@ -109,35 +109,35 @@ createApp({
           </div>
 
           <div class="features-grid">
-            <div class="feature-card" :class="{ active: activeSection === 'how' }" role="button" tabindex="0" @click="showApiSection('how')" @keydown.enter.prevent="showApiSection('how')" @keydown.space.prevent="showApiSection('how')">
+            <button class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
               <h2>Come Funziona</h2>
               <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
-            </div>
+            </button>
 
-            <div class="feature-card" :class="{ active: activeSection === 'component' }" role="button" tabindex="0" @click="showApiSection('component')" @keydown.enter.prevent="showApiSection('component')" @keydown.space.prevent="showApiSection('component')">
+            <button class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
               <h2>Componenti</h2>
               <p>Creazione dell'interfaccia con JSX.</p>
-            </div>
+            </button>
 
-            <div class="feature-card" :class="{ active: activeSection === 'styles' }" role="button" tabindex="0" @click="showApiSection('styles')" @keydown.enter.prevent="showApiSection('styles')" @keydown.space.prevent="showApiSection('styles')">
+            <button class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
               <h2>Stili</h2>
               <p>Layout Flexbox e StyleSheet.</p>
-            </div>
+            </button>
 
-            <div class="feature-card" :class="{ active: activeSection === 'sintax' }" role="button" tabindex="0" @click="showApiSection('sintax')" @keydown.enter.prevent="showApiSection('sintax')" @keydown.space.prevent="showApiSection('sintax')">
+            <button class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
               <h2>Sintassi di Base</h2>
               <p>Componenti fondamentali e hook.</p>
-            </div>
+            </button>
 
-            <div class="feature-card" :class="{ active: activeSection === 'debug' }" role="button" tabindex="0" @click="showApiSection('debug')" @keydown.enter.prevent="showApiSection('debug')" @keydown.space.prevent="showApiSection('debug')">
+            <button class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
               <h2>Debug e strumenti</h2>
               <p>Strumenti per lo sviluppo e il debugging.</p>
-            </div>
+            </button>
 
-            <div class="feature-card" :class="{ active: activeSection === 'examples' }" role="button" tabindex="0" @click="showApiSection('examples')" @keydown.enter.prevent="showApiSection('examples')" @keydown.space.prevent="showApiSection('examples')">
+            <button class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
               <h2>Esempi di codice</h2>
               <p>Esempi pratici di codice.</p>
-            </div>
+            </button>
           </div>
 
           <div v-if="activeSection" class="api-content-wrapper">
