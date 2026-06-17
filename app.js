@@ -1,38 +1,9 @@
 const { createApp } = Vue;
+const { createRouter, createWebHashHistory } = VueRouter;
 
-createApp({
+const Home = {
   template: `
-  <div class="d-flex flex-column min-vh-100">
-    <header class="py-3 mb-3">
-      <div class="container d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center gap-2">
-          <img src="images/react-native-icona.png" alt="React Logo" class="logo-react">
-          <h1 class="h4 m-0">React Native Hub</h1>
-        </div>
-        <nav>
-          <ul class="nav">
-            <li class="nav-item">
-              <button class="nav-link" :class="{active: vista==='home'}" @click="vista='home'">Home</button>
-            </li>
-            <li class="nav-item">
-              <button class="nav-link" :class="{active: vista==='react'}" @click="vista='react'">Fondamenti</button>
-            </li>
-            <li class="nav-item">
-              <button class="nav-link" :class="{active: vista==='gamedex'}" @click="vista='gamedex'">GameDex</button>
-            </li>
-            <li class="nav-item">
-              <button class="nav-link" :class="{active: vista==='crud'}" @click="vista='crud'">Esami</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main class="flex-grow-1">
-      <div class="container mb-4">
-
-        <!-- HOME -->
-        <section v-if="vista === 'home'" class="main-section">
+        <section class="main-section">
           <div class="section-header">
             <h1 class="section-title">React Native Hub</h1>
             <p class="section-description">Scopri React Native: storia, funzionamento e vantaggi del framework mobile cross-platform di Meta.</p>
@@ -97,269 +68,20 @@ createApp({
             <div class="vantaggio-item">Ecosistema completo (Expo, UI libraries, testing)</div>
             <div class="vantaggio-item">Riduzione dei costi e dei tempi di sviluppo</div>
           </div>
-        </section>
-
-        <!-- REACT NATIVE / API -->
-        <section v-else-if="vista === 'react'" class="main-section">
-          <div class="section-header">
-            <h1 class="section-title">Fondamenti di React Native</h1>
-            <p class="section-description">
-              Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
-            </p>
-          </div>
-
-          <div class="features-grid">
-            <button class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
-              <h2>Come Funziona</h2>
-              <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
-            </button>
-
-            <button class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
-              <h2>Componenti</h2>
-              <p>Creazione dell'interfaccia con JSX.</p>
-            </button>
-
-            <button class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
-              <h2>Stili</h2>
-              <p>Layout Flexbox e StyleSheet.</p>
-            </button>
-
-            <button class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
-              <h2>Sintassi di Base</h2>
-              <p>Componenti fondamentali e hook.</p>
-            </button>
-
-            <button class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
-              <h2>Debug e strumenti</h2>
-              <p>Strumenti per lo sviluppo e il debugging.</p>
-            </button>
-
-            <button class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
-              <h2>Esempi di codice</h2>
-              <p>Esempi pratici di codice.</p>
-            </button>
-          </div>
-
-          <div v-if="activeSection" class="api-content-wrapper">
-            <button class="btn-back" @click="showApiSection(null)">← Torna alle sezioni</button>
-            <div v-html="getSectionContent()"></div>
-          </div>
-        </section>
-
-        <!-- GAMEDEX -->
-        <section v-else-if="vista === 'gamedex'" class="main-section">
-          <div class="section-header">
-            <h1 class="section-title">GameDex</h1>
-            <p class="section-description">Una raccolta di videogiochi famosi con informazioni su genere, anno, piattaforma, sviluppatore e valutazione.</p>
-          </div>
-
-          <div class="d-flex gap-2 mb-3 flex-wrap">
-            <input type="search" class="form-control form-control-sm"
-                   placeholder="Cerca titolo o genere"
-                   v-model="filtroGiochi">
-            <select class="form-select form-select-sm" v-model="ordinamentoGiochi">
-              <option value="id">ID crescente</option>
-              <option value="anno_desc">Dall'anno più recente</option>
-              <option value="anno_asc">Dall'anno più vecchio</option>
-              <option value="val_desc">Dalla valutazione più alta</option>
-              <option value="val_asc">Dalla valutazione più bassa</option>
-            </select>
-          </div>
-
-          <div v-if="caricamentoGiochi" class="mb-2 text-muted">
-            Caricamento giochi...
-          </div>
-
-          <div v-else class="table-responsive">
-            <table class="table table-striped table-hover align-middle">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Titolo</th>
-                  <th>Genere</th>
-                  <th>Anno</th>
-                  <th>Piattaforma</th>
-                  <th>Sviluppatore</th>
-                  <th>Valutazione</th>
-                  <th>Modalità</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="g in giochiFiltrati" :key="g.id">
-                  <td>{{ g.id }}</td>
-                  <td>{{ g.titolo }}</td>
-                  <td>{{ g.genere }}</td>
-                  <td>{{ g.anno }}</td>
-                  <td>{{ g.piattaforma }}</td>
-                  <td>{{ g.sviluppatore }}</td>
-                  <td>{{ g.valutazione }}</td>
-                  <td>{{ g.modalita }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- CRUD ESAMI -->
-        <section v-else-if="vista === 'crud'" class="main-section">
-          <div class="section-header">
-            <h1 class="section-title">Esami</h1>
-          </div>
-
-          <form class="row g-2 mb-4" @submit.prevent="salvaEsame">
-            <div class="col-md-4">
-              <label class="form-label">Corso</label>
-              <input v-model="formEsame.corso" class="form-control" required>
-            </div>
-            <div class="col-md-2">
-              <label class="form-label">Voto</label>
-              <input v-model="formEsame.voto" type="number" min="18" max="30" class="form-control" required>
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Data</label>
-              <input v-model="formEsame.data" type="date" class="form-control" required>
-            </div>
-            <div class="col-md-3 d-flex align-items-end gap-2">
-              <button class="btn btn-primary flex-grow-1">
-                {{ formEsame.id ? 'Aggiorna' : 'Aggiungi' }}
-              </button>
-              <button v-if="formEsame.id" type="button" class="btn btn-outline-secondary" @click="resetFormEsame">Annulla</button>
-            </div>
-          </form>
-
-          <div class="table-responsive">
-            <table class="table align-middle">
-              <thead>
-                <tr>
-                  <th>Corso</th>
-                  <th>Voto</th>
-                  <th>Data</th>
-                  <th class="text-end">Azioni</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-if="esami.length === 0">
-                  <td colspan="4" class="text-center text-muted">
-                    Nessun esame inserito.
-                  </td>
-                </tr>
-                <tr v-for="e in esami" :key="e.id">
-                  <td>{{ e.corso }}</td>
-                  <td>{{ e.voto }}</td>
-                  <td>{{ e.data }}</td>
-                  <td class="text-end">
-                    <button class="btn btn-sm btn-outline-secondary me-2 mb-1 mb-sm-0" @click="modificaEsame(e)">Modifica</button>
-                    <button class="btn btn-sm btn-outline-danger" @click="cancellaEsame(e.id)">Elimina</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-      </div>
-    </main>
-
-    <footer class="py-3 mt-auto">
-      <p class="text-center m-0 small">
-        Fondamenti di Sistemi Web – A.A. 2024/2025
-      </p>
-    </footer>
-  </div>
-  `,
-
+        </section>`
+};
+const Fondamenti = {
   data() {
     return {
-      vista: "home",
-
-      activeSection: null,
-      giochi: [],
-      caricamentoGiochi: false,
-      filtroGiochi: "",
-      ordinamentoGiochi: "id",
-
-      esami: [
-      { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
-      { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
-      { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
-    ],
-    formEsame: {
-      id: null,
-      corso: "",
-      voto: "",
-      data: ""
-    }
+      activeSection: null
     };
   },
-
-  computed: {
-    giochiFiltrati() {
-  let lista = [...this.giochi];
-
-  if (this.filtroGiochi.trim() !== "") {
-    const f = this.filtroGiochi.toLowerCase();
-    lista = lista.filter(g =>
-      g.titolo.toLowerCase().includes(f) ||
-      g.genere.toLowerCase().includes(f)
-    );
-  }
-
-  if (this.ordinamentoGiochi === "id") {
-    lista.sort((a, b) => a.id - b.id);
-  }
-
-  if (this.ordinamentoGiochi === "anno_desc") {
-    lista.sort((a, b) => b.anno - a.anno);
-  }
-
-  if (this.ordinamentoGiochi === "anno_asc") {
-    lista.sort((a, b) => a.anno - b.anno);
-  }
-
-  if (this.ordinamentoGiochi === "val_desc") {
-    lista.sort((a, b) => b.valutazione - a.valutazione);
-  }
-
-  if (this.ordinamentoGiochi === "val_asc") {
-    lista.sort((a, b) => a.valutazione - b.valutazione);
-  }
-
-  return lista;
-}
-  },
-
   methods: {
-    caricaGiochi() {
-      this.caricamentoGiochi = true;
-      axios.get("games.json")
-        .then(res => {
-          this.giochi = res.data;
-        })
-        .catch(err => {
-          console.error("Errore nel caricamento dei giochi:", err);
-        })
-        .finally(() => {
-          this.caricamentoGiochi = false;
-        });
+    showApiSection(section) {
+      this.activeSection = section;
     },
-
-caricaEsami() {
-  try {
-    const salvati = localStorage.getItem("esami-react");
-    if (salvati) {
-      this.esami = JSON.parse(salvati);
-    }
-  } catch (e) {
-    console.warn("LocalStorage non disponibile, uso solo gli esami iniziali.");
-  }
-},
-
-showApiSection(section) {
-  this.activeSection = section;
-},
-
-getSectionContent() {
-  const sections = {
+    getSectionContent() {
+      const sections = {
     how: `
           <div class="api-section">
             <h2>Come Funziona React Native</h2>
@@ -376,7 +98,7 @@ getSectionContent() {
                   </div>
                 </div>
               </div>
-
+ 
               <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
@@ -392,7 +114,7 @@ getSectionContent() {
                   </div>
                 
               </div>
-
+ 
               <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
@@ -409,7 +131,7 @@ getSectionContent() {
                   </div>
                 </div>
               </div>
-
+ 
               <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
@@ -431,7 +153,7 @@ getSectionContent() {
             <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
             <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">TextInput</span>, <span class="component">FlatList</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
-
+ 
 <span class="keyword">export default function</span> <span class="function">ShoppingList</span>() {
   <span class="keyword">const</span> [items, setItems] = <span class="function">useState</span>([]);
   <span class="keyword">const</span> [text, setText] = <span class="function">useState</span>(<span class="string">''</span>);
@@ -460,7 +182,7 @@ getSectionContent() {
     &lt;/<span class="component">View</span>&gt;
   );
 }
-
+ 
 <span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
   container: {
     flex: <span class="string">1</span>,
@@ -499,7 +221,7 @@ getSectionContent() {
                 <li><strong>gap:</strong> spazio tra gli elementi figli</li>
               </ul>
             </div>
-
+ 
             <h3 class="subsection-title">Esempio di Stili</h3>
             <pre><span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
   container: {
@@ -531,7 +253,7 @@ getSectionContent() {
               React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
               Ecco i principali elementi utilizzati quotidianamente nello sviluppo.
             </p>
-
+ 
             <div class="syntax-grid">
               <div class="syntax-item">
                 <h3>useState</h3>
@@ -540,7 +262,7 @@ getSectionContent() {
                   <code>const [value, setValue] = useState(initialValue);</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>View</h3>
                 <p>Contenitore principale per il layout.</p>
@@ -548,7 +270,7 @@ getSectionContent() {
                   <code>&lt;View style={styles.container}&gt;...&lt;/View&gt;</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>Text</h3>
                 <p>Componente per visualizzare testo.</p>
@@ -556,7 +278,7 @@ getSectionContent() {
                   <code>&lt;Text style={styles.title}&gt;Hello&lt;/Text&gt;</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>Button</h3>
                 <p>Pulsante nativo: usa <code>onPress</code>.</p>
@@ -564,7 +286,7 @@ getSectionContent() {
                   <code>&lt;Button title="Click" onPress={handlePress} /&gt;</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>TextInput</h3>
                 <p>Campo di input testo con evento <code>onChangeText</code>.</p>
@@ -572,7 +294,7 @@ getSectionContent() {
                   <code>&lt;TextInput value={text} onChangeText={setText} /&gt;</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>FlatList</h3>
                 <p>Lista ottimizzata: renderizza solo gli elementi visibili.</p>
@@ -580,7 +302,7 @@ getSectionContent() {
                   <code>&lt;FlatList data={items} renderItem={...} /&gt;</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>StyleSheet.create</h3>
                 <p>Definisce stili in modo ottimizzato e "validato".</p>
@@ -588,7 +310,7 @@ getSectionContent() {
                   <code>const styles = StyleSheet.create({...});</code>
                 </div>
               </div>
-
+ 
               <div class="syntax-item">
                 <h3>Image</h3>
                 <p>Per immagini locali o remote (via <code>uri</code>).</p>
@@ -597,7 +319,7 @@ getSectionContent() {
                 </div>
               </div>
             </div>
-
+ 
             
           </div>
         `,
@@ -665,20 +387,20 @@ getSectionContent() {
               Di seguito ci sono due esempi pratici che mostrano i concetti fondamentali di React Native,
               dalla gestione dello stato alla creazione di interfacce interattive.
             </p>
-
+ 
             <h3 class="subsection-title">Esempio 1: Hello World con Interazione</h3>
             <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
-
+ 
             <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">Text</span>, <span class="component">View</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
-
+ 
 <span class="keyword">export default function</span> <span class="function">App</span>() {
   <span class="keyword">const</span> [message, setMessage] = <span class="function">useState</span>(<span class="string">'Benvenuto in React Native!'</span>);
-
+ 
   <span class="keyword">const</span> <span class="function">changeMessage</span> = () => {
     <span class="function">setMessage</span>(<span class="string">'Hai premuto il pulsante!'</span>);
   };
-
+ 
   <span class="keyword">return</span> (
     &lt;<span class="component">View</span> style={styles.container}&gt;
       &lt;<span class="component">Text</span> style={styles.text}&gt;{message}&lt;/<span class="component">Text</span>&gt;
@@ -686,7 +408,7 @@ getSectionContent() {
     &lt;/<span class="component">View</span>&gt;
   );
 }
-
+ 
 <span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
   container: {
     flex: <span class="string">1</span>,
@@ -705,10 +427,10 @@ getSectionContent() {
             
             <pre><span class="keyword">import</span> React, { <span class="function">useState</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="component">View</span>, <span class="component">Text</span>, <span class="component">Button</span>, <span class="component">StyleSheet</span> } <span class="keyword">from</span> <span class="string">'react-native'</span>;
-
+ 
 <span class="keyword">export default function</span> <span class="function">Counter</span>() {
   <span class="keyword">const</span> [count, setCount] = <span class="function">useState</span>(<span class="string">0</span>);
-
+ 
   <span class="keyword">return</span> (
     &lt;<span class="component">View</span> style={styles.container}&gt;
       &lt;<span class="component">Text</span> style={styles.counter}&gt;{count}&lt;/<span class="component">Text</span>&gt;
@@ -719,7 +441,7 @@ getSectionContent() {
     &lt;/<span class="component">View</span>&gt;
   );
 }
-
+ 
 <span class="keyword">const</span> styles = <span class="component">StyleSheet</span>.<span class="function">create</span>({
   container: {
     flex: <span class="string">1</span>,
@@ -739,17 +461,210 @@ getSectionContent() {
           </div>
         `
   };
-  
-  return sections[this.activeSection] || '';
-},
 
+      return sections[this.activeSection] || '';
+    }
+},
+template: `
+        <section class="main-section">
+          <div class="section-header">
+            <h1 class="section-title">Fondamenti di React Native</h1>
+            <p class="section-description">
+              Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
+            </p>
+          </div>
+ 
+          <div class="features-grid">
+            <button class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
+              <h2>Come Funziona</h2>
+              <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
+            </button>
+ 
+            <button class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
+              <h2>Componenti</h2>
+              <p>Creazione dell'interfaccia con JSX.</p>
+            </button>
+ 
+            <button class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
+              <h2>Stili</h2>
+              <p>Layout Flexbox e StyleSheet.</p>
+            </button>
+ 
+            <button class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
+              <h2>Sintassi di Base</h2>
+              <p>Componenti fondamentali e hook.</p>
+            </button>
+ 
+            <button class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
+              <h2>Debug e strumenti</h2>
+              <p>Strumenti per lo sviluppo e il debugging.</p>
+            </button>
+ 
+            <button class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
+              <h2>Esempi di codice</h2>
+              <p>Esempi pratici di codice.</p>
+            </button>
+          </div>
+ 
+          <div v-if="activeSection" class="api-content-wrapper">
+            <button class="btn-back" @click="showApiSection(null)">← Torna alle sezioni</button>
+            <div v-html="getSectionContent()"></div>
+          </div>
+        </section>`
+};
+
+const GameDex = {
+  data() {
+    return{
+      giochi: [],
+      caricamentoGiochi: false,
+      filtroGiochi: "",
+      ordinamentoGiochi: "id"
+    };
+  },
+  computed: {
+    giochiFiltrati() {
+      let lista = [...this.giochi];
+
+      if (this.filtroGiochi.trim() !== "") {
+        const f = this.filtroGiochi.toLowerCase();
+        lista = lista.filter(g =>
+          g.titolo.toLowerCase().includes(f) ||
+          g.genere.toLowerCase().includes(f)
+        );
+      }
+
+      if (this.ordinamentoGiochi === "id") {
+        lista.sort((a, b) => a.id - b.id);
+      }
+
+      if (this.ordinamentoGiochi === "anno_desc") {
+        lista.sort((a, b) => b.anno - a.anno);
+      }
+
+      if (this.ordinamentoGiochi === "anno_asc") {
+        lista.sort((a, b) => a.anno - b.anno);
+      }
+
+      if (this.ordinamentoGiochi === "val_desc") {
+        lista.sort((a, b) => b.valutazione - a.valutazione);
+      }
+
+      if (this.ordinamentoGiochi === "val_asc") {
+        lista.sort((a, b) => a.valutazione - b.valutazione);
+      }
+
+      return lista;
+    }
+  },
+  methods: {
+    caricaGiochi() {
+      this.caricamentoGiochi = true;
+      axios.get("games.json")
+        .then(res => {
+          this.giochi = res.data;
+        })
+        .catch(err => {
+          console.error("Errore nel caricamento dei giochi:", err);
+        })
+        .finally(() => {
+          this.caricamentoGiochi = false;
+        });
+    }
+  },
+  mounted() {
+      if (this.giochi.length === 0) {
+        this.caricaGiochi();
+      }
+    },
+  template: `
+        <section class="main-section">
+          <div class="section-header">
+            <h1 class="section-title">GameDex</h1>
+            <p class="section-description">Una raccolta di videogiochi famosi con informazioni su genere, anno, piattaforma, sviluppatore e valutazione.</p>
+          </div>
+ 
+          <div class="d-flex gap-2 mb-3 flex-wrap">
+            <input type="search" class="form-control form-control-sm"
+                   placeholder="Cerca titolo o genere"
+                   v-model="filtroGiochi">
+            <select class="form-select form-select-sm" v-model="ordinamentoGiochi">
+              <option value="id">ID crescente</option>
+              <option value="anno_desc">Dall'anno più recente</option>
+              <option value="anno_asc">Dall'anno più vecchio</option>
+              <option value="val_desc">Dalla valutazione più alta</option>
+              <option value="val_asc">Dalla valutazione più bassa</option>
+            </select>
+          </div>
+ 
+          <div v-if="caricamentoGiochi" class="mb-2 text-muted">
+            Caricamento giochi...
+          </div>
+ 
+          <div v-else class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titolo</th>
+                  <th>Genere</th>
+                  <th>Anno</th>
+                  <th>Piattaforma</th>
+                  <th>Sviluppatore</th>
+                  <th>Valutazione</th>
+                  <th>Modalità</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="g in giochiFiltrati" :key="g.id">
+                  <td>{{ g.id }}</td>
+                  <td>{{ g.titolo }}</td>
+                  <td>{{ g.genere }}</td>
+                  <td>{{ g.anno }}</td>
+                  <td>{{ g.piattaforma }}</td>
+                  <td>{{ g.sviluppatore }}</td>
+                  <td>{{ g.valutazione }}</td>
+                  <td>{{ g.modalita }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>`
+};
+
+const Esami = {
+  data() {
+    return {
+      esami: [
+      { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
+      { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
+      { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
+      ],
+      formEsame: {
+        id: null,
+        corso: "",
+        voto: "",
+        data: ""
+      }
+    };
+  },
+  methods: {
+    caricaEsami() {
+      try {
+        const salvati = localStorage.getItem("esami-react");
+        if (salvati) {
+          this.esami = JSON.parse(salvati);
+        }
+      } catch (e) {
+        console.warn("LocalStorage non disponibile, uso solo gli esami iniziali.");
+      }
+    },
     salvaEsamiLS() {
       localStorage.setItem("esami-react", JSON.stringify(this.esami));
     },
-
     salvaEsame() {
       if (!this.formEsame.corso || !this.formEsame.voto || !this.formEsame.data) return;
-
+ 
       if (this.formEsame.id) {
         const idx = this.esami.findIndex(e => e.id === this.formEsame.id);
         if (idx !== -1) this.esami[idx] = { ...this.formEsame };
@@ -757,36 +672,91 @@ getSectionContent() {
         const nuovo = { ...this.formEsame, id: Date.now() };
         this.esami.push(nuovo);
       }
-
+ 
       this.salvaEsamiLS();
       this.resetFormEsame();
     },
-
     modificaEsame(e) {
       this.formEsame = { ...e };
-      this.vista = "crud";
     },
-
     cancellaEsame(id) {
       this.esami = this.esami.filter(e => e.id !== id);
       this.salvaEsamiLS();
       if (this.formEsame.id === id) this.resetFormEsame();
     },
-
     resetFormEsame() {
       this.formEsame = { id: null, corso: "", voto: "", data: "" };
     }
   },
-
-  watch: {
-    vista(nuova) {
-      if (nuova === "gamedex" && this.giochi.length === 0) {
-        this.caricaGiochi();
-      }
-    }
-  },
-
   mounted() {
     this.caricaEsami();
-  }
+  },
+  template: `
+        <section class="main-section">
+          <div class="section-header">
+            <h1 class="section-title">Esami</h1>
+          </div>
+ 
+          <form class="row g-2 mb-4" @submit.prevent="salvaEsame">
+            <div class="col-md-4">
+              <label class="form-label">Corso</label>
+              <input v-model="formEsame.corso" class="form-control" required>
+            </div>
+            <div class="col-md-2">
+              <label class="form-label">Voto</label>
+              <input v-model="formEsame.voto" type="number" min="18" max="30" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Data</label>
+              <input v-model="formEsame.data" type="date" class="form-control" required>
+            </div>
+            <div class="col-md-3 d-flex align-items-end gap-2">
+              <button class="btn btn-primary flex-grow-1">
+                {{ formEsame.id ? 'Aggiorna' : 'Aggiungi' }}
+              </button>
+              <button v-if="formEsame.id" type="button" class="btn btn-outline-secondary" @click="resetFormEsame">Annulla</button>
+            </div>
+          </form>
+ 
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th>Corso</th>
+                  <th>Voto</th>
+                  <th>Data</th>
+                  <th class="text-end">Azioni</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-if="esami.length === 0">
+                  <td colspan="4" class="text-center text-muted">
+                    Nessun esame inserito.
+                  </td>
+                </tr>
+                <tr v-for="e in esami" :key="e.id">
+                  <td>{{ e.corso }}</td>
+                  <td>{{ e.voto }}</td>
+                  <td>{{ e.data }}</td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary me-2 mb-1 mb-sm-0" @click="modificaEsame(e)">Modifica</button>
+                    <button class="btn btn-sm btn-outline-danger" @click="cancellaEsame(e.id)">Elimina</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>`
+};
+  
+
+  
+
+  
+
+
+
+  
+
+ 
 }).mount("#app");
