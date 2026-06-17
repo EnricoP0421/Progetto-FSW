@@ -1,6 +1,6 @@
 const { createApp } = Vue;
 const { createRouter, createWebHashHistory } = VueRouter;
-
+ 
 const Home = {
   template: `
         <section class="main-section">
@@ -8,7 +8,7 @@ const Home = {
             <h1 class="section-title">React Native Hub</h1>
             <p class="section-description">Scopri React Native: storia, funzionamento e vantaggi del framework mobile cross-platform di Meta.</p>
           </div>
-
+ 
           <h2>Che cosa è React Native?</h2>
             <div class="react-row">
               <div class="react-text">
@@ -24,14 +24,14 @@ const Home = {
                   quella delle app sviluppate interamente in linguaggio nativo.
                 </p>
               </div>
-
+ 
               <div >
                 <img src="images/react-1.svg" class="react-image" alt="React Native">
               </div>
-
+ 
             </div>
           
-
+ 
           <h2 class="mt-4">Storia e futuro</h2>
             <div class="react-row-2">
               <p>
@@ -42,7 +42,7 @@ const Home = {
               </p>
               
                 <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" class="react-image-2" alt="React Native">
-
+ 
               <div class="react-text-2">
                 <p style="padding-top: 20px;">
                   Guardando al futuro, il team di React Native sta lavorando alla New Architecture:
@@ -55,9 +55,9 @@ const Home = {
                   Questi miglioramenti promettono di rendere React Native ancora più performante e scalabile, consolidando la sua posizione come uno dei framework più popolari per lo sviluppo mobile cross-platform.
                 </p>
                 </div>
-
+ 
               </div>
-
+ 
           <h2 class="mt-4">Vantaggi</h2>
           <div class="vantaggi-grid">
             <div class="vantaggio-item">Codice unico per più piattaforme (Android e iOS)</div>
@@ -70,6 +70,7 @@ const Home = {
           </div>
         </section>`
 };
+ 
 const Fondamenti = {
   data() {
     return {
@@ -140,8 +141,7 @@ const Fondamenti = {
                 </div>
               </div>
             </div>
-          </div>
-        `,
+          </div>`,
     component: `
           <div class="api-section">
             <h2>Componenti di Base</h2>
@@ -200,8 +200,7 @@ const Fondamenti = {
     padding: <span class="string">5</span>,
   },
 });</pre>
-          </div>
-        `,
+          </div>`,
     styles: `
           <div class="api-section">
             <h2>Gestione degli Stili</h2>
@@ -244,8 +243,7 @@ const Fondamenti = {
     marginTop: <span class="string">10</span>,
   }
 });</pre>
-          </div>
-        `,
+          </div>`,
     sintax: `
           <div class="api-section">
             <h2>Sintassi di Base</h2>
@@ -321,8 +319,7 @@ const Fondamenti = {
             </div>
  
             
-          </div>
-        `,
+          </div>`,
     debug: `
           <div class="api-section">
             <h2>Debug e Strumenti</h2>
@@ -378,8 +375,7 @@ const Fondamenti = {
                 </p>
               </div>
             </div>
-          </div>
-        `,
+          </div>`,
     examples: `
           <div class="api-section">
             <h2>Esempi Pratici di Codice</h2>
@@ -458,14 +454,13 @@ const Fondamenti = {
     gap: <span class="string">10</span>,
   },
 });</pre>
-          </div>
-        `
+          </div>`
   };
-
+ 
       return sections[this.activeSection] || '';
     }
-},
-template: `
+  },
+  template: `
         <section class="main-section">
           <div class="section-header">
             <h1 class="section-title">Fondamenti di React Native</h1>
@@ -512,10 +507,10 @@ template: `
           </div>
         </section>`
 };
-
+ 
 const GameDex = {
   data() {
-    return{
+    return {
       giochi: [],
       caricamentoGiochi: false,
       filtroGiochi: "",
@@ -525,7 +520,7 @@ const GameDex = {
   computed: {
     giochiFiltrati() {
       let lista = [...this.giochi];
-
+ 
       if (this.filtroGiochi.trim() !== "") {
         const f = this.filtroGiochi.toLowerCase();
         lista = lista.filter(g =>
@@ -533,27 +528,27 @@ const GameDex = {
           g.genere.toLowerCase().includes(f)
         );
       }
-
+ 
       if (this.ordinamentoGiochi === "id") {
         lista.sort((a, b) => a.id - b.id);
       }
-
+ 
       if (this.ordinamentoGiochi === "anno_desc") {
         lista.sort((a, b) => b.anno - a.anno);
       }
-
+ 
       if (this.ordinamentoGiochi === "anno_asc") {
         lista.sort((a, b) => a.anno - b.anno);
       }
-
+ 
       if (this.ordinamentoGiochi === "val_desc") {
         lista.sort((a, b) => b.valutazione - a.valutazione);
       }
-
+ 
       if (this.ordinamentoGiochi === "val_asc") {
         lista.sort((a, b) => a.valutazione - b.valutazione);
       }
-
+ 
       return lista;
     }
   },
@@ -573,10 +568,10 @@ const GameDex = {
     }
   },
   mounted() {
-      if (this.giochi.length === 0) {
-        this.caricaGiochi();
-      }
-    },
+    if (this.giochi.length === 0) {
+      this.caricaGiochi();
+    }
+  },
   template: `
         <section class="main-section">
           <div class="section-header">
@@ -631,14 +626,14 @@ const GameDex = {
           </div>
         </section>`
 };
-
+ 
 const Esami = {
   data() {
     return {
       esami: [
-      { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
-      { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
-      { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
+        { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
+        { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
+        { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
       ],
       formEsame: {
         id: null,
@@ -748,22 +743,21 @@ const Esami = {
           </div>
         </section>`
 };
-
-
+ 
 const routes = [
   { path: '/', component: Home },
   { path: '/fondamenti', component: Fondamenti },
   { path: '/gamedex', component: GameDex },
-  { path: '/esami', component: Esami}
-]
-
-const router = VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+  { path: '/esami', component: Esami }
+];
+ 
+const router = createRouter({
+  history: createWebHashHistory(),
   linkActiveClass: 'active',
-  linksActiveClass: 'active',
+  linkExactActiveClass: 'active',
   routes
 });
-
-const app = Vue.createApp({});
+ 
+const app = createApp({});
 app.use(router);
 app.mount('#app');
