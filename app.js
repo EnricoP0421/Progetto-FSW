@@ -748,15 +748,22 @@ const Esami = {
           </div>
         </section>`
 };
-  
-
-  
-
-  
 
 
+const routes = [
+  { path: '/', component: Home },
+  { path: '/fondamenti', component: Fondamenti },
+  { path: '/gamedex', component: GameDex },
+  { path: '/esami', component: Esami}
+]
 
-  
+const router = VueRouter.createRouter({
+  history: VueRouter.createWebHashHistory(),
+  linkActiveClass: 'active',
+  linksActiveClass: 'active',
+  routes
+});
 
- 
-}).mount("#app");
+const app = Vue.createApp({});
+app.use(router);
+app.mount('#app');
