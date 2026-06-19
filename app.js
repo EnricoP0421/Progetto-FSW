@@ -593,7 +593,7 @@ const GameDex = {
             </select>
           </div>
  
-          <div v-if="caricamentoGiochi" class="mb-2 text-muted">
+          <div v-if="caricamentoGiochi" class="mb-2 text-muted" role="status">
             Caricamento giochi...
           </div>
  
@@ -601,14 +601,14 @@ const GameDex = {
             <table class="table table-striped table-hover align-middle">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Titolo</th>
-                  <th>Genere</th>
-                  <th>Anno</th>
-                  <th>Piattaforma</th>
-                  <th>Sviluppatore</th>
-                  <th>Valutazione</th>
-                  <th>Modalità</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Titolo</th>
+                  <th scope="col">Genere</th>
+                  <th scope="col">Anno</th>
+                  <th scope="col">Piattaforma</th>
+                  <th scope="col">Sviluppatore</th>
+                  <th scope="col">Valutazione</th>
+                  <th scope="col">Modalità</th>
                 </tr>
               </thead>
               <tbody>
@@ -721,10 +721,10 @@ const Esami = {
             <table class="table align-middle">
               <thead>
                 <tr>
-                  <th>Corso</th>
-                  <th>Voto</th>
-                  <th>Data</th>
-                  <th class="text-end">Azioni</th>
+                  <th scope="col">Corso</th>
+                  <th scope="col">Voto</th>
+                  <th scope="col">Data</th>
+                  <th scope="col" class="text-end">Azioni</th>
                 </tr>
               </thead>
               <tbody>

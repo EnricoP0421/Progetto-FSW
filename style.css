@@ -539,4 +539,16 @@ code {
   }
 }
 
+/* Per evitare overflow orizzontale a larghezza ridotta */
+* {
+  overflow-wrap: break-word;
+}
 
+.table-responsive {
+  overflow-x: auto;
+}
+
+img,
+table {
+  max-width: 100%;
+}
