@@ -582,6 +582,7 @@ const GameDex = {
           <div class="d-flex gap-2 mb-3 flex-wrap">
             <input type="search" class="form-control form-control-sm"
                    placeholder="Cerca titolo o genere"
+                   autocomplete="off"
                    v-model="filtroGiochi">
             <select class="form-select form-select-sm" v-model="ordinamentoGiochi">
               <option value="id">ID crescente</option>
@@ -694,16 +695,19 @@ const Esami = {
  
           <form class="row g-2 mb-4" @submit.prevent="salvaEsame">
             <div class="col-md-4">
-              <label class="form-label">Corso</label>
-              <input v-model="formEsame.corso" class="form-control" required>
+              <label class="form-label" for="esame-corso">Corso</label>
+              <input v-model="formEsame.corso" id="esame-corso" name="corso"
+                    autocomplete="off" class="form-control" required>
             </div>
             <div class="col-md-2">
-              <label class="form-label">Voto</label>
-              <input v-model="formEsame.voto" type="number" min="18" max="30" class="form-control" required>
+              <label class="form-label" for="esame-voto">Voto</label>
+              <input v-model="formEsame.voto" id="esame-voto" name="voto" type="number"
+                    min="18" max="30" autocomplete="off" class="form-control" required>
             </div>
             <div class="col-md-3">
-              <label class="form-label">Data</label>
-              <input v-model="formEsame.data" type="date" class="form-control" required>
+              <label class="form-label" for="esame-data">Data</label>
+              <input v-model="formEsame.data" id="esame-data" name="data" type="date"
+                    autocomplete="off" class="form-control" required>
             </div>
             <div class="col-md-3 d-flex align-items-end gap-2">
               <button class="btn btn-primary flex-grow-1">
