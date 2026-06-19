@@ -26,7 +26,7 @@ const Home = {
               </div>
  
               <div >
-                <img src="images/react-1.svg" class="react-image" alt="React Native">
+                <img src="images/react-1.svg" class="react-image" alt="Schema di funzionamento di React Native">
               </div>
  
             </div>
@@ -41,7 +41,7 @@ const Home = {
                 come Ionic o Cordova.
               </p>
               
-                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" class="react-image-2" alt="React Native">
+                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" class="react-image-2" alt="Evoluzione da React.js a React Native">
  
               <div class="react-text-2">
                 <p style="padding-top: 20px;">
@@ -471,32 +471,32 @@ const Fondamenti = {
  
           <div class="features-grid">
             <button class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
-              <h2>Come Funziona</h2>
+              <span class="feature-card-title">Come Funziona</span>
               <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
-              <h2>Componenti</h2>
+              <span class="feature-card-title">Componenti</span>
               <p>Creazione dell'interfaccia con JSX.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
-              <h2>Stili</h2>
+              <span class="feature-card-title">Stili</span>
               <p>Layout Flexbox e StyleSheet.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
-              <h2>Sintassi di Base</h2>
+              <span class="feature-card-title">Sintassi di Base</span>
               <p>Componenti fondamentali e hook.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
-              <h2>Debug e strumenti</h2>
+              <span class="feature-card-title">Debug e strumenti</span>
               <p>Strumenti per lo sviluppo e il debugging.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
-              <h2>Esempi di codice</h2>
+              <span class="feature-card-title">Esempi di codice</span>
               <p>Esempi pratici di codice.</p>
             </button>
           </div>
@@ -580,11 +580,10 @@ const GameDex = {
           </div>
  
           <div class="d-flex gap-2 mb-3 flex-wrap">
-            <input type="search" class="form-control form-control-sm"
-                   placeholder="Cerca titolo o genere"
-                   autocomplete="off"
-                   v-model="filtroGiochi">
-            <select class="form-select form-select-sm" autocomplete="off" v-model="ordinamentoGiochi">
+            <label for="filtro-giochi" class="visually-hidden">Cerca giochi</label>
+            <input id="filtro-giochi" type="search" class="form-control form-control-sm" placeholder="Cerca titolo o genere" autocomplete="off" v-model="filtroGiochi">
+            <label for="ordinamento-giochi" class="visually-hidden">Ordina giochi</label>
+            <select id="ordinamento-giochi" class="form-select form-select-sm" autocomplete="off" v-model="ordinamentoGiochi">
               <option value="id">ID crescente</option>
               <option value="anno_desc">Dall'anno più recente</option>
               <option value="anno_asc">Dall'anno più vecchio</option>
@@ -593,7 +592,7 @@ const GameDex = {
             </select>
           </div>
  
-          <div v-if="caricamentoGiochi" class="mb-2 text-muted" role="status">
+          <div v-if="caricamentoGiochi" class="mb-2" style="color:#444;" role="status">
             Caricamento giochi...
           </div>
  
@@ -729,7 +728,7 @@ const Esami = {
               </thead>
               <tbody>
                 <tr v-if="esami.length === 0">
-                  <td colspan="4" class="text-center text-muted">
+                  <td colspan="4" class="text-center" style="color:#444;">
                     Nessun esame inserito.
                   </td>
                 </tr>
