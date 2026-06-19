@@ -584,7 +584,7 @@ const GameDex = {
                    placeholder="Cerca titolo o genere"
                    autocomplete="off"
                    v-model="filtroGiochi">
-            <select class="form-select form-select-sm" v-model="ordinamentoGiochi">
+            <select class="form-select form-select-sm" autocomplete="off" v-model="ordinamentoGiochi">
               <option value="id">ID crescente</option>
               <option value="anno_desc">Dall'anno più recente</option>
               <option value="anno_asc">Dall'anno più vecchio</option>
