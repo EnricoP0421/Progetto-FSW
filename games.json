@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "titolo": "The Legend of Zelda: Breath of the Wild",
+    "genere": "Action RPG",
+    "anno": 2017,
+    "piattaforma": "Nintendo Switch",
+    "sviluppatore": "Nintendo",
+    "valutazione": 97,
+    "modalita": "Single Player"
+  },
+  {
+    "id": 2,
+    "titolo": "God of War",
+    "genere": "Action",
+    "anno": 2018,
+    "piattaforma": "PlayStation",
+    "sviluppatore": "Santa Monica Studio",
+    "valutazione": 94,
+    "modalita": "Single Player"
+  },
+  {
+    "id": 3,
+    "titolo": "Minecraft",
+    "genere": "Sandbox",
+    "anno": 2011,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "Mojang",
+    "valutazione": 93,
+    "modalita": "Single/Multi Player"
+  },
+  {
+    "id": 4,
+    "titolo": "The Witcher 3",
+    "genere": "RPG",
+    "anno": 2015,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "CD Projekt Red",
+    "valutazione": 92,
+    "modalita": "Single Player"
+  },
+  {
+    "id": 5,
+    "titolo": "Red Dead Redemption 2",
+    "genere": "Action",
+    "anno": 2018,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "Rockstar Games",
+    "valutazione": 97,
+    "modalita": "Single Player"
+  },
+  {
+    "id": 6,
+    "titolo": "Fortnite",
+    "genere": "Battle Royale",
+    "anno": 2017,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "Epic Games",
+    "valutazione": 85,
+    "modalita": "Multi Player"
+  },
+  {
+    "id": 7,
+    "titolo": "FIFA 23",
+    "genere": "Sport",
+    "anno": 2022,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "EA Sports",
+    "valutazione": 78,
+    "modalita": "Multi Player"
+  },
+  {
+    "id": 8,
+    "titolo": "Among Us",
+    "genere": "Party",
+    "anno": 2020,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "Innersloth",
+    "valutazione": 80,
+    "modalita": "Multi Player"
+  }
+]
