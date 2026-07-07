@@ -517,41 +517,6 @@ const GameDex = {
       ordinamentoGiochi: "id"
     };
   },
-  computed: {
-    giochiFiltrati() {
-      let lista = [...this.giochi];
- 
-      if (this.filtroGiochi.trim() !== "") {
-        const f = this.filtroGiochi.toLowerCase();
-        lista = lista.filter(g =>
-          g.titolo.toLowerCase().includes(f) ||
-          g.genere.toLowerCase().includes(f)
-        );
-      }
- 
-      if (this.ordinamentoGiochi === "id") {
-        lista.sort((a, b) => a.id - b.id);
-      }
- 
-      if (this.ordinamentoGiochi === "anno_desc") {
-        lista.sort((a, b) => b.anno - a.anno);
-      }
- 
-      if (this.ordinamentoGiochi === "anno_asc") {
-        lista.sort((a, b) => a.anno - b.anno);
-      }
- 
-      if (this.ordinamentoGiochi === "val_desc") {
-        lista.sort((a, b) => b.valutazione - a.valutazione);
-      }
- 
-      if (this.ordinamentoGiochi === "val_asc") {
-        lista.sort((a, b) => a.valutazione - b.valutazione);
-      }
- 
-      return lista;
-    }
-  },
   methods: {
     caricaGiochi() {
       this.caricamentoGiochi = true;
@@ -578,20 +543,6 @@ const GameDex = {
             <h1 class="section-title">GameDex</h1>
             <p class="section-description">Una raccolta di videogiochi famosi con informazioni su genere, anno, piattaforma, sviluppatore e valutazione.</p>
           </div>
- 
-          <div class="d-flex gap-2 mb-3 flex-wrap">
-            <label for="filtro-giochi" class="visually-hidden">Cerca giochi</label>
-            <input id="filtro-giochi" type="search" class="form-control form-control-sm" placeholder="Cerca titolo o genere" autocomplete="off" v-model="filtroGiochi">
-            <label for="ordinamento-giochi" class="visually-hidden">Ordina giochi</label>
-            <select id="ordinamento-giochi" class="form-select form-select-sm" autocomplete="off" v-model="ordinamentoGiochi">
-              <option value="id">ID crescente</option>
-              <option value="anno_desc">Dall'anno più recente</option>
-              <option value="anno_asc">Dall'anno più vecchio</option>
-              <option value="val_desc">Dalla valutazione più alta</option>
-              <option value="val_asc">Dalla valutazione più bassa</option>
-            </select>
-          </div>
- 
           <div v-if="caricamentoGiochi" class="mb-2" style="color:#444;" role="status">
             Caricamento giochi...
           </div>
@@ -611,7 +562,7 @@ const GameDex = {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="g in giochiFiltrati" :key="g.id">
+                <tr v-for="g in giochi" :key="g.id">
                   <td>{{ g.id }}</td>
                   <td>{{ g.titolo }}</td>
                   <td>{{ g.genere }}</td>
