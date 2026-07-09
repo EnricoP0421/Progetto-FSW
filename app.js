@@ -471,32 +471,32 @@ const Fondamenti = {
  
           <div class="features-grid">
             <button class="feature-card" :class="{ active: activeSection === 'how' }" @click="showApiSection('how')">
-              <span class="feature-card-title">Come Funziona</span>
+              <span class="feature-card-title"><b>Come Funziona</b></span>
               <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'component' }" @click="showApiSection('component')">
-              <span class="feature-card-title">Componenti</span>
+              <span class="feature-card-title"><b>Componenti</b></span>
               <p>Creazione dell'interfaccia con JSX.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'styles' }" @click="showApiSection('styles')">
-              <span class="feature-card-title">Stili</span>
+              <span class="feature-card-title"><b>Stili</b></span>
               <p>Layout Flexbox e StyleSheet.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'sintax' }" @click="showApiSection('sintax')">
-              <span class="feature-card-title">Sintassi di Base</span>
+              <span class="feature-card-title"><b>Sintassi di Base</b></span>
               <p>Componenti fondamentali e hook.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'debug' }" @click="showApiSection('debug')">
-              <span class="feature-card-title">Debug e strumenti</span>
+              <span class="feature-card-title"><b>Debug e strumenti</b></span>
               <p>Strumenti per lo sviluppo e il debugging.</p>
             </button>
  
             <button class="feature-card" :class="{ active: activeSection === 'examples' }" @click="showApiSection('examples')">
-              <span class="feature-card-title">Esempi di codice</span>
+              <span class="feature-card-title"><b>Esempi di codice</b></span>
               <p>Esempi pratici di codice.</p>
             </button>
           </div>

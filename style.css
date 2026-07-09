@@ -173,7 +173,7 @@ footer {
 }
 
 .feature-card.active h2, .feature-card.active h3,
-.feature-card.active p {
+.feature-card.active p, .feature-card.active .feature-card-title {
   color: #fff;
 }
 
