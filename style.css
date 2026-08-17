@@ -19,7 +19,7 @@ div#app > header > h1{
 }
 
 nav{
-    margin: 0 5%;
+    margin-top:200px;
 }
 
 nav ul{
@@ -34,9 +34,6 @@ nav ul li{
     background-color:rgb(54,54,54);
 }
 
-nav ul li:nth-child(odd){
-    margin-right: 10%;
-}
 
 nav ul li a{
     display: inline-block;
@@ -60,6 +57,9 @@ main{
     margin: 20px 5% 0;
 }
 
+img{
+    box-align:center;
+}
 main > h2{
     text-align: center;
     height: 50px;
