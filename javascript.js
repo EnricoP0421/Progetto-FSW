@@ -6,7 +6,7 @@ const Home = {
           <h2>Che cosa e' React Native?</h2>
                 <p>
                   React Native e' un framework open source sviluppato da Facebook che permette di creare
-                  applicazioni mobili native utilizzando JavaScript e il paradigma di React. L’idea centrale
+                  applicazioni mobili native utilizzando JavaScript e il paradigma di React. L'idea centrale
                   e' quella di scrivere il codice una sola volta e distribuirlo su piu' piattaforme, come
                   Android e iOS, mantenendo pero' componenti e prestazioni native.
                 </p>
@@ -53,34 +53,169 @@ const Home = {
 };
 
 const Fondamenti = {     
-    data() {
-        return {
-            datiArticoli: null        
-        }
-    }, 
-    template:  `
-    <h2>Archivio Articoli</h2>
-    <article v-for="articolo in datiArticoli">
-        <img v-bind:src="articolo['Immagine']" alt="" />
-        <h3>{{articolo["Titolo"]}}</h3>
-        <p>{{articolo["Autore"]}} - {{articolo["Data"]}}</p>
-        <p>{{articolo["Testo"]}}</p>
-        <a href="#">Leggi tutto</a>
-    </article>
-    `,
-    methods: {
-        getArchivioArticoli: function(){
-            axios.get('./archivio-articoli.json')
-              .then(response => {
-                this.datiArticoli = response.data
-              });
-        }
-    },
-    mounted(){
-        this.getArchivioArticoli();
-    }
+       template:  `
+       <h1> Fondamenti di React Native </h1>
+        <p class=>
+              Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
+            </p>
+            <div class="fondamenti-layout">
+           
+            <section>
+            <div class="blocchi">
+            <h2>Come Funziona React Native</h2>
+                  <h3> 1) Installa React Native</h3>
+                  <p>Si inizia configurando l'ambiente di sviluppo. React Native CLI permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
+ 
+        
+                  <h3>2) Crea Componenti React</h3>
+                  <p>Si utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
+                    
+                  <h3>3) Stilizza con Flexbox</h3>
+                  <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive. Gli stili sono definiti in JavaScript utilizzando un subset di CSS.</p>
+                  <div class="step-code">
+                    
+                  <h3>4) Pubblica la Tua App</h3>
+                  <p>Quando si è pronti, si compila l' app per produzione e si pubblica su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
+            </div>
+            <div class="blocchi">
+            <h2>Componenti di Base</h2>
+            <p>
+              React Native utilizza componenti nativi come <strong>View</strong>, <strong>Text</strong>, <strong>Button</strong>, <strong>TextInput</strong> e <strong>FlatList</strong>.
+              Lo stato dell'app viene gestito tramite hook come <strong>useState</strong>, che permette di rendere l'interfaccia dinamica e interattiva.
+            </p>
+            
+            <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
 
-};
+            </div>
+            <div class="blocchi">            
+            <h2>Gestione degli Stili</h2>
+            <p>
+              Gli stili in React Native vengono definiti in JavaScript usando <strong>StyleSheet.create</strong>.
+              Il layout è basato su <strong>Flexbox</strong>, un sistema flessibile che permette di creare interfacce responsive
+              che si adattano a diverse dimensioni dello schermo.
+            </p>
+            
+            <h3>Proprietà Flexbox Principali</h3>
+              <ul>
+                <li><strong>flex:</strong> definisce quanto spazio occupa un componente rispetto agli altri</li>
+                <li><strong>flexDirection:</strong> 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
+                <li><strong>justifyContent:</strong> 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'</li>
+                <li><strong>alignItems:</strong> 'center' | 'flex-start' | 'flex-end' | 'stretch'</li>
+                <li><strong>gap:</strong> spazio tra gli elementi figli</li>
+              </ul>
+ 
+            <h3>Esempio di Stili</h3>
+            </div>
+            <div class="blocchi">
+            <h2>Sintassi di Base</h2>
+            <p style="margin-bottom: 32px;">
+              React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
+              Ecco i principali elementi utilizzati quotidianamente nello sviluppo.
+            </p>
+                <h3>useState</h3>
+                <p>Hook per la gestione dello stato locale del componente.</p>
+               
+                <h3>View</h3>
+                <p>Contenitore principale per il layout.</p>
+                
+                <h3>Text</h3>
+                <p>Componente per visualizzare testo.</p>
+                
+                <h3>Button</h3>
+                <p>Pulsante nativo: usa <code>onPress</code>.</p>
+                
+                <h3>TextInput</h3>
+                <p>Campo di input testo con evento <code>onChangeText</code>.</p>
+                
+                <h3>FlatList</h3>
+                <p>Lista ottimizzata: renderizza solo gli elementi visibili.</p>
+                
+                <h3>StyleSheet.create</h3>
+                <p>Definisce stili in modo ottimizzato e "validato".</p>
+                
+                <h3>Image</h3>
+                <p>Per immagini locali o remote (via <code>uri</code>).</p>
+            </div>
+            <div class="blocchi">
+            <h2>Debug e Strumenti</h2>
+            <p>
+              Durante lo sviluppo di applicazioni mobile, il debug è una fase fondamentale per individuare errori, 
+              ottimizzare le prestazioni e garantire la corretta esecuzione del codice.
+            </p>
+            
+                <h3>Fast Refresh</h3>
+                <p>
+                  Aggiorna automaticamente l'applicazione. 
+                  Permette di vedere istantaneamente le modifiche senza dover riavviare l'app.
+                </p>
+              
+                <h3>Console.log</h3>
+                <p>
+                  Stampa valori, oggetti e messaggi nella console per verificare la corretta esecuzione del codice.
+                </p>
+              
+                <h3>React Developer Tools</h3>
+                <p>
+                  Estensione browser che permette di ispezionare la gerarchia dei componenti React, visualizzare props e state, 
+                  e analizzare le performance.
+                </p>
+              
+                <h3>React Native Debugger</h3>
+                <p>
+                  Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia.
+                </p>
+    
+                <h3>Error Boundaries</h3>
+                <p>
+                  Componenti che catturano errori JavaScript nei loro componenti figli, permettendo di 
+                  mostrare un'interfaccia di fallback invece di far crashare l'intera app.
+                </p>
+              
+                <h3>Flipper</h3>
+                <p>
+                  Piattaforma di debug creata da Meta. Offre network inspector, database viewer, 
+                  performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
+                </p>
+            </div>
+            <div class="blocchi">
+            <h2>Esempi Pratici di Codice</h2>
+            <p style="margin-bottom: 32px;">
+              Di seguito ci sono due esempi pratici che mostrano i concetti fondamentali di React Native,
+              dalla gestione dello stato alla creazione di interfacce interattive.
+            </p>
+ 
+            <h3>Esempio 1: Hello World con Interazione</h3>
+            <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
+             
+            <h3>Esempio 2: Contatore Interattivo</h3>
+            <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
+            </div>
+            </section>
+             <aside>
+              <h2><b>Come Funziona</b></h2>
+              <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
+
+              <h2><b>Componenti</b></h2>
+              <p>Creazione dell'interfaccia con JSX.</p>
+
+            <h2><b>Stili</b></h2>
+              <p>Layout Flexbox e StyleSheet.</p>
+
+            <h2><b>Sintassi di Base</b></h2>
+              <p>Componenti fondamentali e hook.</p>
+
+            <h2><b>Debug e strumenti</b></h2>
+              <p>Strumenti per lo sviluppo e il debugging.</p>
+ 
+           <h2><b>Esempi di codice</b></h2>
+              <p>Esempi pratici di codice.</p>
+
+            </aside>
+            </div>
+           `
+  };
+
+  
 
 
 const Gamedex = {

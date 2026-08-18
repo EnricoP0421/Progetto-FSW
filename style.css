@@ -1,5 +1,5 @@
 body, header, h1, h2, h5, ul{
-    margin: 0;
+    margin:0;
     padding: 0;
 }
 
@@ -53,57 +53,55 @@ nav ul li:hover a{
     color:rgb(219, 69,83);
 }
 
-main{
-    margin: 20px 5% 0;
-}
+    .fondamenti-layout{
+        display: flex;
+        align-items: flex-start;
+        gap: 2%;
+    }
+
+    .fondamenti-layout > aside{
+        width: 25%;
+    }
+
+    .fondamenti-layout > section{
+        width: 73%;
+    }
 
 img{
     box-align:center;
 }
-main > h2{
+
+.blocchi, aside{
+    background-color:white;
+    padding: 10px;
+    padding-bottom: 20px;
+
+}
+
+.blocchi{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+main > h1{
     text-align: center;
     height: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-article, form, main > section{
+form{
     background-color: #fff;
     border: 1px solid #cacaca;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
 
-article{
-    text-align: center;
-}
-
-article > img{
-    max-height: 200px;
-    max-width: 100%;
-}
-
-article > h3, article > p{
-    padding: 0 5%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: left;
-}
-
-article > p{
-    font-size: 12px;    
-}
-
-article > a, form ul li input[type="submit"]{
-    padding: 5px 10px;
-    background-color: rgb(221, 221, 221);
+main > section{
+    background-color: transparent;   
     border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #000;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-article > a:hover{
-    color:rgb(219, 69,83);
+    padding-bottom: 0;
 }
 
 form{
@@ -167,53 +165,11 @@ table td{
     text-align: center;
 }
 
-aside{
-    margin: 0 5% 20px;
-    background-color:#fff;
-    border: 1px solid #cacaca;
-    box-sizing: border-box;
-}
 
-aside > section{
-    padding: 20px 5%;
-}
-
-aside > section > h2{
-    font: bold 16px 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0 0 15px;
-}
-
-aside > section > ul{
-    list-style: none;
-}
-
-aside > section > ul > li{
-    margin-bottom: 10px;
-}
-
-aside > section > ul > li > img{
-    width: 50px;
-    float: left;
-    margin-right: 5px;
-}
-
-aside > section > ul > li > a{
-    font: bold 12px 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: none;
-}
-
-aside > section > ul > li > a:visited{
-    color: #000;
-}
-
-aside > section > ul > li > a:hover{
-    color:rgb(219, 69,83);
-}
 
 div#app > footer > p{
     font-family: 'Courier New', Courier, monospace;
 }
-
 
 
 @media screen and (min-width:768px){
@@ -227,6 +183,7 @@ div#app > footer > p{
     nav ul li:not(:last-child){
         margin-right: 8%;
     }
+    
 
     main, aside{
         display: inline-block;
@@ -234,7 +191,7 @@ div#app > footer > p{
     }
 
     main{
-        width: 50%;
+        
         margin: 20px 5% 0 10%;
     }
 
