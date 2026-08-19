@@ -21,7 +21,7 @@ const Home = {
           <h2>Storia e futuro</h2>
               <p>
                 React Native nasce come evoluzione naturale di React.js, la libreria JavaScript introdotta nel 2013 che ha 
-                rivoluzionato lo sviluppo web grazie al Virtual DOM e alla programmazione dichiarativa. Facebook intuì' che gli stessi 
+                rivoluzionato lo sviluppo web grazie al Virtual DOM e alla programmazione dichiarativa. Facebook intui' che gli stessi 
                 principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali 
                 come Ionic o Cordova.
               </p>
@@ -54,30 +54,34 @@ const Home = {
 
 const Fondamenti = {     
        template:  `
-       <h1> Fondamenti di React Native </h1>
-        <p class=>
-              Guida ai principali concetti di React Native: installazione, componenti, stili ed esempi pratici.
-            </p>
+       <h1 class="titolo"> Fondamenti di React Native </h1>
             <div class="fondamenti-layout">
-           
-            <section>
-            <div class="blocchi">
+           <div class="contenuto">
+            <section class="blocchi">
             <h2>Come Funziona React Native</h2>
                   <h3> 1) Installa React Native</h3>
                   <p>Si inizia configurando l'ambiente di sviluppo. React Native CLI permette di creare un nuovo progetto con tutti i file necessari in pochi secondi.</p>
- 
-        
+                  <div style="text-align: center;">
+                  <img src="images/come_funz_1.png" alt="come funziona React Native" style="height:150px">
+                  </div>
+
                   <h3>2) Crea Componenti React</h3>
                   <p>Si utilizza JSX per descrivere l'interfaccia utente. I componenti React Native come View, Text e Image si traducono automaticamente in componenti nativi della piattaforma.</p>
-                    
+                  <div style="text-align: center;">
+                  <img src="images/come_funz_2.png" alt="come funziona React Native" style="height:250px">
+                  </div>
+
                   <h3>3) Stilizza con Flexbox</h3>
                   <p>React Native utilizza Flexbox per il layout, rendendo semplice creare interfacce responsive. Gli stili sono definiti in JavaScript utilizzando un subset di CSS.</p>
-                  <div class="step-code">
-                    
+                  <div style="text-align: center;">
+                  <img src="images/come_funz_3.png" alt="come funziona React Native" style="height:350px">
+                  </div>
+
                   <h3>4) Pubblica la Tua App</h3>
-                  <p>Quando si è pronti, si compila l' app per produzione e si pubblica su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
-            </div>
-            <div class="blocchi">
+                  <p>Quando si e' pronti, si compila l' app per produzione e si pubblica su App Store e Google Play Store. React Native gestisce l'ottimizzazione per entrambe le piattaforme.</p>
+            </section>
+
+            <article class="blocchi">
             <h2>Componenti di Base</h2>
             <p>
               React Native utilizza componenti nativi come <strong>View</strong>, <strong>Text</strong>, <strong>Button</strong>, <strong>TextInput</strong> e <strong>FlatList</strong>.
@@ -85,99 +89,83 @@ const Fondamenti = {
             </p>
             
             <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
-
-            </div>
-            <div class="blocchi">            
+            <img src="images/componenti_base.png" alt="componenti React Native" style="height:750px">
+            </article>
+            <section class="blocchi">            
             <h2>Gestione degli Stili</h2>
             <p>
               Gli stili in React Native vengono definiti in JavaScript usando <strong>StyleSheet.create</strong>.
-              Il layout è basato su <strong>Flexbox</strong>, un sistema flessibile che permette di creare interfacce responsive
+              Il layout e' basato su <strong>Flexbox</strong>, un sistema flessibile che permette di creare interfacce responsive
               che si adattano a diverse dimensioni dello schermo.
             </p>
             
-            <h3>Proprietà Flexbox Principali</h3>
-              <ul>
-                <li><strong>flex:</strong> definisce quanto spazio occupa un componente rispetto agli altri</li>
-                <li><strong>flexDirection:</strong> 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
-                <li><strong>justifyContent:</strong> 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'</li>
-                <li><strong>alignItems:</strong> 'center' | 'flex-start' | 'flex-end' | 'stretch'</li>
-                <li><strong>gap:</strong> spazio tra gli elementi figli</li>
+            <h3>Proprieta' Flexbox Principali</h3>
+              <ul class="spaziatura_ul">
+                <li><strong>Flex:</strong> definisce quanto spazio occupa un componente rispetto agli altri</li>
+                <li><strong>FlexDirection:</strong> 'row' | 'column' - dispone i figli orizzontalmente o verticalmente</li>
+                <li><strong>JustifyContent:</strong> 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around'</li>
+                <li><strong>AlignItems:</strong> 'center' | 'flex-start' | 'flex-end' | 'stretch'</li>
+                <li><strong>Gap:</strong> spazio tra gli elementi figli</li>
               </ul>
  
             <h3>Esempio di Stili</h3>
-            </div>
-            <div class="blocchi">
+            <img src="images/stili.png" alt="gestione stili React Native" style="height:350px">
+            </section>
+            <article class="blocchi">
             <h2>Sintassi di Base</h2>
             <p style="margin-bottom: 32px;">
               React Native fornisce un set di componenti e API fondamentali per costruire interfacce utente native.
               Ecco i principali elementi utilizzati quotidianamente nello sviluppo.
             </p>
-                <h3>useState</h3>
-                <p>Hook per la gestione dello stato locale del componente.</p>
-               
-                <h3>View</h3>
-                <p>Contenitore principale per il layout.</p>
-                
-                <h3>Text</h3>
-                <p>Componente per visualizzare testo.</p>
-                
-                <h3>Button</h3>
-                <p>Pulsante nativo: usa <code>onPress</code>.</p>
-                
-                <h3>TextInput</h3>
-                <p>Campo di input testo con evento <code>onChangeText</code>.</p>
-                
-                <h3>FlatList</h3>
-                <p>Lista ottimizzata: renderizza solo gli elementi visibili.</p>
-                
-                <h3>StyleSheet.create</h3>
-                <p>Definisce stili in modo ottimizzato e "validato".</p>
-                
-                <h3>Image</h3>
-                <p>Per immagini locali o remote (via <code>uri</code>).</p>
-            </div>
-            <div class="blocchi">
+              <ul class="spaziatura_ul">
+                <li class="immagini_stili"><strong>UseState: </strong>Hook per la gestione dello stato locale del componente.</li>
+                <img src="images/usestate.png" style="height:50px">
+                <li class="immagini_stili"><strong>View: </strong>Contenitore principale per il layout.</li>
+                <img src="images/view.png" style="height:50px">
+                <li class="immagini_stili"><strong>Text: </strong>Componente per visualizzare testo.</li>
+                <img src="images/textstyle.png" style="height:50px">
+                <li class="immagini_stili"><strong>Button: </strong>Pulsante nativo: usa <code>onPress</code>.</li>
+                <img src="images/button.png" style="height:50px">
+                <li class="immagini_stili"><strong>TextInput: </strong>Campo di input testo con evento <code>onChangeText</code>.</li>
+                <img src="images/textinput.png" style="height:50px">
+                <li class="immagini_stili"><strong>FlatList: </strong>Lista ottimizzata: renderizza solo gli elementi visibili.</li>
+                <img src="images/flatlist.png" style="height:50px">
+                <li class="immagini_stili"><strong>StyleSheet.create: </strong>Definisce stili in modo ottimizzato e "validato".</li>
+                <img src="images/conststyles.png" style="height:50px">
+                <li class="immagini_stili"><strong>Image: </strong>Per immagini locali o remote (via <code>uri</code>).</li>
+                <img src="images/image.png" style="height:50px">
+                </ul>
+                </article>
+            <section class="blocchi">
             <h2>Debug e Strumenti</h2>
             <p>
-              Durante lo sviluppo di applicazioni mobile, il debug è una fase fondamentale per individuare errori, 
+              Durante lo sviluppo di applicazioni mobile, il debug e' una fase fondamentale per individuare errori, 
               ottimizzare le prestazioni e garantire la corretta esecuzione del codice.
             </p>
-            
-                <h3>Fast Refresh</h3>
-                <p>
+                <p><strong>Fast Refresh:</strong>
                   Aggiorna automaticamente l'applicazione. 
                   Permette di vedere istantaneamente le modifiche senza dover riavviare l'app.
                 </p>
-              
-                <h3>Console.log</h3>
-                <p>
+                <p> <strong>Console.log:</strong>
                   Stampa valori, oggetti e messaggi nella console per verificare la corretta esecuzione del codice.
                 </p>
-              
-                <h3>React Developer Tools</h3>
-                <p>
+                <p><strong>React Developer Tools:</strong>
                   Estensione browser che permette di ispezionare la gerarchia dei componenti React, visualizzare props e state, 
                   e analizzare le performance.
                 </p>
-              
-                <h3>React Native Debugger</h3>
-                <p>
+                <p><strong>React Native Debugger:</strong>
                   Applicazione standalone che combina React DevTools, Redux DevTools e la console in un'unica interfaccia.
                 </p>
-    
-                <h3>Error Boundaries</h3>
-                <p>
+                <p><strong>Error Boundaries:</strong>
                   Componenti che catturano errori JavaScript nei loro componenti figli, permettendo di 
                   mostrare un'interfaccia di fallback invece di far crashare l'intera app.
                 </p>
-              
-                <h3>Flipper</h3>
-                <p>
+                <p><strong>Flipper:</strong>
                   Piattaforma di debug creata da Meta. Offre network inspector, database viewer, 
                   performance monitor e molti altri plugin per analizzare ogni aspetto dell'app.
                 </p>
-            </div>
-            <div class="blocchi">
+            </section>
+            <article class="blocchi">
             <h2>Esempi Pratici di Codice</h2>
             <p style="margin-bottom: 32px;">
               Di seguito ci sono due esempi pratici che mostrano i concetti fondamentali di React Native,
@@ -186,31 +174,32 @@ const Fondamenti = {
  
             <h3>Esempio 1: Hello World con Interazione</h3>
             <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
-             
+             <img src="images/esempio_1.png" alt="esempio 1 React Native" style="height:550px">
             <h3>Esempio 2: Contatore Interattivo</h3>
             <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
+            <img src="images/esempio_2.png" alt="esempio 2 React Native" style="height550px">
+            </article>
             </div>
-            </section>
-             <aside>
-              <h2><b>Come Funziona</b></h2>
-              <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
+                <aside>
+                    <h2><b>Come Funziona</b></h2>
+                    <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
+                  
+                    <h2><b>Componenti</b></h2>
+                    <p>Creazione dell'interfaccia con JSX.</p>
+                
+                    <h2><b>Stili</b></h2>
+                    <p>Layout Flexbox e StyleSheet.</p>
+               
+                    <h2><b>Sintassi di Base</b></h2>
+                    <p>Componenti fondamentali e hook.</p>
+               
+                    <h2><b>Debug e strumenti</b></h2>
+                    <p>Strumenti per lo sviluppo e il debugging.</p>
+                
+                    <h2><b>Esempi di codice</b></h2>
+                    <p>Esempi pratici di codice.</p>
+                </aside>
 
-              <h2><b>Componenti</b></h2>
-              <p>Creazione dell'interfaccia con JSX.</p>
-
-            <h2><b>Stili</b></h2>
-              <p>Layout Flexbox e StyleSheet.</p>
-
-            <h2><b>Sintassi di Base</b></h2>
-              <p>Componenti fondamentali e hook.</p>
-
-            <h2><b>Debug e strumenti</b></h2>
-              <p>Strumenti per lo sviluppo e il debugging.</p>
- 
-           <h2><b>Esempi di codice</b></h2>
-              <p>Esempi pratici di codice.</p>
-
-            </aside>
             </div>
            `
   };

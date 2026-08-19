@@ -4,11 +4,11 @@ body, header, h1, h2, h5, ul{
 }
 
 body{
-    background-color: #e4e4e4;
+    background-color: rgb(146, 184, 228);
 }
 
 div#app > header, div#app > footer{
-    background-color: rgb(54,54,54);
+    background-color: rgb(29, 102, 197);
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -31,7 +31,7 @@ nav ul li{
     width: 45%;
     margin: 10px 0 0;
     text-align: center;
-    background-color:rgb(54,54,54);
+    background-color:rgb(44, 102, 177);
 }
 
 
@@ -50,23 +50,42 @@ router-link{
 }
 
 nav ul li:hover a{
-    color:rgb(219, 69,83);
+    color:rgb(65, 215, 32);
 }
 
-    .fondamenti-layout{
-        display: flex;
-        align-items: flex-start;
-        gap: 2%;
-    }
+.fondamenti-layout{
+    display: flex;
+    align-items: flex-start;
+    gap: 2%;
+}
 
-    .fondamenti-layout > aside{
-        width: 25%;
-    }
+/* Colonna sinistra */
+.fondamenti-layout .contenuto{
+    width: 70%;
+}
 
-    .fondamenti-layout > section{
-        width: 73%;
-    }
+/* I blocchi dentro la colonna sinistra */
+.fondamenti-layout .contenuto > .blocchi{
+    margin-bottom: 20px;
+}
 
+/* Tutti gli aside della colonna destra */
+.fondamenti-layout > aside{
+    width: 25%;
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Blocchi */
+.blocchi{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 img{
     box-align:center;
 }
@@ -85,9 +104,22 @@ img{
     border-radius: 8px;
 }
 
+.spaziatura_ul{
+    margin-left:20px;
+}
+
+.immagini_stili{
+    margin: 10px;
+}
+
+strong{
+    font-size: 20px;
+}
 main > h1{
     text-align: center;
-    height: 50px;
+    height: 160px;
+    font-size: 80px;
+    color:blue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -104,8 +136,16 @@ main > section{
     padding-bottom: 0;
 }
 
+ul > li > img{
+    width: 50px;
+    float: left;
+    margin-right: 5px;
+}
+
+
 form{
     padding: 20px 5%;
+    
 }
 
 form h2, main > section > h2{
