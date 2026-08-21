@@ -204,9 +204,6 @@ const Fondamenti = {
            `
   };
 
-  
-
-
 const Gamedex = {
     data() {
         return {
@@ -214,38 +211,47 @@ const Gamedex = {
         }
     }, 
     template:  `
-    <h2>Autori del Blog</h2>
+    <h1 class="titolo">Gamedex</h1>
     <section>
         <table>
             <tr>
-                <th id="id">ID</th>
-                <th id="titolo">Titolo</th>
-                <th id="genere">Genere</th>
-                <th id="anno">Anno</th>
-                <th id="piattaforma">Piattaforma</th>
-                <th id="sviluppatore">Sviluppatore</th>
-                <th id="valutazione">Valutazione</th>
-                <th id="modalita">Modalita'</th>
+                <th>ID</th>
+                <th>Titolo</th>
+                <th>Genere</th>
+                <th>Anno</th>
+                <th>Piattaforma</th>
+                <th>Sviluppatore</th>
+                <th>Valutazione</th>
+                <th>Modalità</th>
             </tr>
-            <tr v-for="autore in autori">
-                <th>{{autore.Autore}}</th><td>{{autore.Email}}</td><td>{{autore.Argomenti}}</td>
+
+            <tr v-for="game in games" :key="game.id">
+                <td>{{game.id}}</td>
+                <td>{{game.titolo}}</td>
+                <td>{{game.genere}}</td>
+                <td>{{game.anno}}</td>
+                <td>{{game.piattaforma}}</td>
+                <td>{{game.sviluppatore}}</td>
+                <td>{{game.valutazione}}</td>
+                <td>{{game.modalita}}</td>
             </tr>
+
         </table>
-    </section>    `,
+    </section>`,
+    
     methods: {
-        getAutori: function(){
+        getgames:function() {
             axios.get('./games.json')
               .then(response => {
-                this.autori = response.data
+                this.games = response.data;
               });
         }
     },
-    mounted(){
-        this.getAutori();
+
+    mounted() {
+        this.getgames();
     }
-
 };
-
 const Esami = {     
     template:  `
     <h2>Login</h2>
