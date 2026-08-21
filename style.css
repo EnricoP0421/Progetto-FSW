@@ -101,6 +101,11 @@ img{
     margin-left:20px;
 }
 
+.spaziatura_ul2 li{
+    margin-left:20px;
+    margin-bottom: 20px;
+}
+
 .immagini_stili{
     margin: 10px;
 }
@@ -209,6 +214,17 @@ table td{
     color:rgb(115, 29, 185);
 }
 
+figure {
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    gap: 20px;
+}
+
+.second{
+    font-size: 30px;
+    color:rgb(63, 14, 120)
+}
 div#app > footer > p{
     font-family: 'Courier New', Courier, monospace;
 }

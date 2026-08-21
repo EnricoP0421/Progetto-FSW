@@ -3,44 +3,44 @@ const Home = {
             <h1>React Native Hub</h1>
         
  
-          <h2>Che cosa e' React Native?</h2>
-                <p>
-                  React Native e' un framework open source sviluppato da Facebook che permette di creare
+          <h2 class="second">Che cosa e' React Native?</h2>
+                <figure>
+                   <img src="images/react-1.svg" alt="Schema di funzionamento di React Native" style="height:100px">
+                    <figcaption>  React Native e' un framework open source sviluppato da Facebook che permette di creare
                   applicazioni mobili native utilizzando JavaScript e il paradigma di React. L'idea centrale
                   e' quella di scrivere il codice una sola volta e distribuirlo su piu' piattaforme, come
                   Android e iOS, mantenendo pero' componenti e prestazioni native.
-                </p>
-                <p>
                   A differenza delle soluzioni ibride basate su WebView, React Native utilizza componenti nativi reali,
                   garantendo prestazioni elevate, fluidita' dell'interfaccia e un'esperienza utente simile a
                   quella delle app sviluppate interamente in linguaggio nativo.
-                </p>
-        
-                <img src="images/react-1.svg" alt="Schema di funzionamento di React Native" style="height:250px">
-    
-          <h2>Storia e futuro</h2>
+                  </figcaption>
+                </figure> 
+          <h2 class="second">Storia e futuro</h2>
               <p>
                 React Native nasce come evoluzione naturale di React.js, la libreria JavaScript introdotta nel 2013 che ha 
                 rivoluzionato lo sviluppo web grazie al Virtual DOM e alla programmazione dichiarativa. Facebook intui' che gli stessi 
                 principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali 
                 come Ionic o Cordova.
               </p>
-              
-                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native">
- 
+              <div style="text-align: center;">
+                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" height="500px">
+              </div>  
                 <p >
                   Guardando al futuro, il team di React Native sta lavorando alla New Architecture:
                 </p>
-                <ul>
-                  <li>Fabric, un nuovo sistema di rendering piu' veloce</li>
-                  <li>TurboModules, per una gestione piu' efficiente dei moduli nativi</li>
+                <ul class="spaziatura_ul2">
+                  <li><strong>Fabric</strong>, un nuovo sistema di rendering piu' veloce</li>
+                  <li><strong>TurboModules</strong>, per una gestione piu' efficiente dei moduli nativi</li>
                 </ul>
                 <p>
                   Questi miglioramenti promettono di rendere React Native ancora piu' performante e scalabile, consolidando la sua posizione come uno dei framework piu' popolari per lo sviluppo mobile cross-platform.
                 </p>
                 
-          <h2>Vantaggi</h2>
-          <ul>
+          <h2 class="second">Vantaggi</h2>
+          <figure>
+          <img src="images/vantaggi react.jpg" alt="Vantaggi di React Native" style="height:300px">
+          <figcaption>
+          <ul class="spaziatura_ul2">
           <li>Codice unico per piu' piattaforme (Android e iOS)</li>
           <li>Prestazioni elevate, grazie al rendering nativo</li>
           <li>Fast Refresh per aggiornamenti in tempo reale</li>
@@ -48,13 +48,15 @@ const Home = {
           <li>Facile apprendimento per sviluppatori web</li>
           <li>Ecosistema completo (Expo, UI libraries, testing)</li>
           <li>Riduzione dei costi e dei tempi di sviluppo</li>
-          </ul>`
+          </ul>
+          </figcaption>
+          </figure>`
           
 };
 
 const Fondamenti = {     
        template:  `
-       <h1 class="titolo"> Fondamenti di React Native </h1>
+       <h1> Fondamenti di React Native </h1>
             <div class="fondamenti-layout">
            <div class="contenuto">
             <section class="blocchi">
