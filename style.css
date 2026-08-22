@@ -19,30 +19,29 @@ div#app > header > h1{
 }
 
 nav{
-    margin-top:200px;
+     margin-top: 40px;
 }
 
 nav ul{
     list-style: none;
+    padding: 0;
 }
 
 nav ul li{
-    display: inline-block;
-    width: 45%;
-    margin: 10px 0 0;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
     text-align: center;
     background-color:rgb(44, 102, 177);
 }
-
 
 nav ul li a{
     display: inline-block;
     width:100%;
     height: 100%;
-    padding: 5px 0;
+    padding: 10px 0;
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-decoration: none;
 }
 
 router-link{
@@ -54,29 +53,24 @@ nav ul li:hover a{
 }
 
 .fondamenti-layout{
-    display: flex;
+     display: block;
     align-items: flex-start;
     gap: 2%;
 }
 
-/* Colonna sinistra */
-.fondamenti-layout .contenuto{
-    width: 70%;
-}
-
-/* I blocchi dentro la colonna sinistra */
-.fondamenti-layout .contenuto > .blocchi{
+.fondamenti-layout .contenuto,
+.fondamenti-layout > aside {
+    width: 100%;
     margin-bottom: 20px;
 }
 
 /* Tutti gli aside della colonna destra */
 .fondamenti-layout > aside{
-    width: 25%;
     background: white;
     padding: 15px;
-    margin-bottom: 20px;
     border-radius: 8px;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 /* Blocchi */
@@ -88,13 +82,8 @@ nav ul li:hover a{
 }
 img{
     box-align:center;
-}
-
-.blocchi, aside{
-    background-color:white;
-    padding: 10px;
-    padding-bottom: 20px;
-
+    max-width: 100%;
+    height: auto;
 }
 
 .spaziatura_ul{
@@ -115,9 +104,10 @@ strong{
 }
 main > h1{
     text-align: center;
-    height: 160px;
-    font-size: 80px;
+    font-size: 40px;
+    height: auto;
     color:blue;
+    margin-bottom: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -187,6 +177,7 @@ table{
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+    font-size: 14px;
 }
 
 table th{
@@ -196,7 +187,7 @@ table th{
 
 table td, table th{
     border: 2px solid rgb(12, 105, 9);
-    padding: 10px 18px;
+    padding: 6px 10px;
     background-color: white;
     
 }
@@ -216,9 +207,10 @@ table td{
 
 figure {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content:left;
-    gap: 20px;
+    text-align: center;
+    gap: 10px;
 }
 
 .second{
@@ -229,43 +221,48 @@ div#app > footer > p{
     font-family: 'Courier New', Courier, monospace;
 }
 
-
 @media screen and (min-width:768px){
-    nav{
+
+    /* Navbar desktop */
+    nav {
         margin: 0 10%;
     }
-    nav ul li{
-        width: 19%;
-    }
 
-    nav ul li:not(:last-child){
+    nav ul li {
+        display: inline-block;
+        width: 19%;
         margin-right: 8%;
     }
-    
 
-    main, aside{
-        display: inline-block;
-        vertical-align: top;
+    nav ul li:last-child {
+        margin-right: 0;
     }
 
-    main{
-        
-        margin: 20px 5% 0 10%;
+    /* Layout Fondamenti desktop */
+    .fondamenti-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 2%;
     }
 
-    aside{
+    .fondamenti-layout .contenuto {
+        width: 70%;
+    }
+
+    .fondamenti-layout > aside {
         width: 25%;
-        margin: 70px 10% 20px 0;
-
+        margin-top: 40px;
     }
 
-    form ul{
+    /* Form desktop */
+    form ul {
         width: 50%;
         margin: 0 25%;
     }
 
-    table{
+    /* Tabelle desktop */
+    table {
         width: 80%;
-        margin: 0 10%;    
+        margin: 0 10%;
     }
 }
