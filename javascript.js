@@ -314,26 +314,23 @@ const Esami = {
     this.caricaEsami();
   },
   template: `
-        <section class="main-section">
-          <div class="section-header">
-            <h1 class="section-title">Esami</h1>
+        <section>
+          <div>
+            <h1>Esami</h1>
           </div>
  
           <form @submit.prevent="salvaEsame">
             <div>
-              <label class="form-label" for="esame-corso">Corso</label>
-              <input v-model="formEsame.corso" id="esame-corso" name="corso"
-                    autocomplete="off" class="form-control" required>
+              <label for="esame-corso">Corso</label>
+              <input v-model="formEsame.corso" id="esame-corso" name="corso" autocomplete="off" required>
             </div>
             <div>
-              <label class="form-label" for="esame-voto">Voto</label>
-              <input v-model="formEsame.voto" id="esame-voto" name="voto" type="number"
-                    min="18" max="30" autocomplete="off" class="form-control" required>
+              <label for="esame-voto">Voto</label>
+              <input v-model="formEsame.voto" id="esame-voto" name="voto" type="number" min="18" max="30" autocomplete="off" required>
             </div>
             <div>
-              <label class="form-label" for="esame-data">Data</label>
-              <input v-model="formEsame.data" id="esame-data" name="data" type="date"
-                    autocomplete="off" class="form-control" required>
+              <label for="esame-data">Data</label>
+              <input v-model="formEsame.data" id="esame-data" name="data" type="date" autocomplete="off" required>
             </div>
             <div>
               <button class="btn btn-primary flex-grow-1">
@@ -343,19 +340,19 @@ const Esami = {
             </div>
           </form>
  
-          <div class="table-responsive">
-            <table class="table align-middle">
+          <div>
+            <table>
               <thead>
                 <tr>
                   <th scope="col">Corso</th>
                   <th scope="col">Voto</th>
                   <th scope="col">Data</th>
-                  <th scope="col" class="text-end">Azioni</th>
+                  <th scope="col">Azioni</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-if="esami.length === 0">
-                  <td colspan="4" class="text-center" style="color:#444;">
+                  <td colspan="4" style="color:#444;">
                     Nessun esame inserito.
                   </td>
                 </tr>
@@ -364,8 +361,8 @@ const Esami = {
                   <td>{{ e.voto }}</td>
                   <td>{{ e.data }}</td>
                   <td class="text-end">
-                    <button class="btn btn-sm btn-outline-secondary me-2 mb-1 mb-sm-0" @click="modificaEsame(e)">Modifica</button>
-                    <button class="btn btn-sm btn-outline-danger" @click="cancellaEsame(e.id)">Elimina</button>
+                    <button @click="modificaEsame(e)">Modifica</button>
+                    <button @click="cancellaEsame(e.id)">Elimina</button>
                   </td>
                 </tr>
               </tbody>
