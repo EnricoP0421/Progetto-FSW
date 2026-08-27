@@ -255,22 +255,123 @@ const Gamedex = {
     }
 };
 const Esami = {     
-    template:  `
-    <h2>Login</h2>
-    <form action="#" method="POST">
-        <ul>
-            <li>
-                <label for="username">Username:</label><input type="text" id="username" name="username" />
-            </li>
-            <li>
-                <label for="password">Password:</label><input type="password" id="password" name="password" />
-            </li>
-            <li>
-                <input type="submit" name="submit" value="Invia" />
-            </li>
-        </ul>
-    </form>
-   `
+    data() {
+    return {
+      esami: [
+        { id: 1, corso: "Fondamenti di Sistemi Web", voto: 28, data: "2024-06-15" },
+        { id: 2, corso: "Programmazione", voto: 30, data: "2024-02-10" },
+        { id: 3, corso: "Basi di Dati", voto: 27, data: "2024-01-22" }
+      ],
+      formEsame: {
+        id: null,
+        corso: "",
+        voto: "",
+        data: ""
+      }
+    };
+  },
+  methods: {
+    caricaEsami() {
+      try {
+        const salvati = localStorage.getItem("esami-react");
+        if (salvati) {
+          this.esami = JSON.parse(salvati);
+        }
+      } catch (e) {
+        console.warn("LocalStorage non disponibile, uso solo gli esami iniziali.");
+      }
+    },
+    salvaEsamiLS() {
+      localStorage.setItem("esami-react", JSON.stringify(this.esami));
+    },
+    salvaEsame() {
+      if (!this.formEsame.corso || !this.formEsame.voto || !this.formEsame.data) return;
+ 
+      if (this.formEsame.id) {
+        const idx = this.esami.findIndex(e => e.id === this.formEsame.id);
+        if (idx !== -1) this.esami[idx] = { ...this.formEsame };
+      } else {
+        const nuovo = { ...this.formEsame, id: Date.now() };
+        this.esami.push(nuovo);
+      }
+ 
+      this.salvaEsamiLS();
+      this.resetFormEsame();
+    },
+    modificaEsame(e) {
+      this.formEsame = { ...e };
+    },
+    cancellaEsame(id) {
+      this.esami = this.esami.filter(e => e.id !== id);
+      this.salvaEsamiLS();
+      if (this.formEsame.id === id) this.resetFormEsame();
+    },
+    resetFormEsame() {
+      this.formEsame = { id: null, corso: "", voto: "", data: "" };
+    }
+  },
+  mounted() {
+    this.caricaEsami();
+  },
+  template: `
+        <section class="main-section">
+          <div class="section-header">
+            <h1 class="section-title">Esami</h1>
+          </div>
+ 
+          <form @submit.prevent="salvaEsame">
+            <div>
+              <label class="form-label" for="esame-corso">Corso</label>
+              <input v-model="formEsame.corso" id="esame-corso" name="corso"
+                    autocomplete="off" class="form-control" required>
+            </div>
+            <div>
+              <label class="form-label" for="esame-voto">Voto</label>
+              <input v-model="formEsame.voto" id="esame-voto" name="voto" type="number"
+                    min="18" max="30" autocomplete="off" class="form-control" required>
+            </div>
+            <div>
+              <label class="form-label" for="esame-data">Data</label>
+              <input v-model="formEsame.data" id="esame-data" name="data" type="date"
+                    autocomplete="off" class="form-control" required>
+            </div>
+            <div>
+              <button class="btn btn-primary flex-grow-1">
+                {{ formEsame.id ? 'Aggiorna' : 'Aggiungi' }}
+              </button>
+              <button v-if="formEsame.id" type="button" class="btn btn-outline-secondary" @click="resetFormEsame">Annulla</button>
+            </div>
+          </form>
+ 
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th scope="col">Corso</th>
+                  <th scope="col">Voto</th>
+                  <th scope="col">Data</th>
+                  <th scope="col" class="text-end">Azioni</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-if="esami.length === 0">
+                  <td colspan="4" class="text-center" style="color:#444;">
+                    Nessun esame inserito.
+                  </td>
+                </tr>
+                <tr v-for="e in esami" :key="e.id">
+                  <td>{{ e.corso }}</td>
+                  <td>{{ e.voto }}</td>
+                  <td>{{ e.data }}</td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-outline-secondary me-2 mb-1 mb-sm-0" @click="modificaEsame(e)">Modifica</button>
+                    <button class="btn btn-sm btn-outline-danger" @click="cancellaEsame(e.id)">Elimina</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>`
 };
 
 
