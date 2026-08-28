@@ -337,6 +337,7 @@ const Esami = {
             </div>
           </form>
  
+          <section>
           <div>
             <table>
               <thead>
@@ -364,7 +365,8 @@ const Esami = {
                 </tr>
               </tbody>
             </table>
-          </div>`
+          </div>
+          </section>`
 };
 
 
