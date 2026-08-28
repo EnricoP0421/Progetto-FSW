@@ -314,11 +314,8 @@ const Esami = {
     this.caricaEsami();
   },
   template: `
-        <section>
-          <div>
-            <h1>Esami</h1>
-          </div>
- 
+        <h1>Esami</h1>
+            
           <form @submit.prevent="salvaEsame">
             <div>
               <label for="esame-corso">Corso</label>
@@ -367,8 +364,7 @@ const Esami = {
                 </tr>
               </tbody>
             </table>
-          </div>
-        </section>`
+          </div>`
 };
 
 
