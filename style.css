@@ -1,6 +1,15 @@
+html, body {
+    height: 100%;
+}
+
 body, header, h1, h2, h5, ul{
     margin:0;
     padding: 0;
+}
+
+
+main {
+    flex: 1;
 }
 
 main, section, article {
@@ -15,16 +24,24 @@ body{
     background-color: rgb(146, 184, 228);
 }
 
+div#app {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 div#app > header, div#app > footer{
     background-color: rgb(29, 102, 197);
     color: #fff;
     text-align: center;
     padding: 20px 0;
+
 }
 
 div#app > header > h1{
     font-family: 'Courier New', Courier, monospace;
 }
+
 
 nav{
      margin-top: 40px;
@@ -50,6 +67,7 @@ nav ul li a{
     padding: 10px 0;
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
 }
 
 router-link{
@@ -220,14 +238,15 @@ table{
 }
 
 table th{
-    color:rgba(250, 109, 1, 0.868)
+    color:white;
+    background-color: rgb(68, 114, 196);
 
 }
 
 table td, table th{
-    border: 2px solid rgb(12, 105, 9);
+    border: 1.5px solid rgb(68, 114, 196);
     padding: 6px 10px;
-    background-color: white;
+    
     
 }
 
@@ -237,6 +256,15 @@ table th{
 
 table td{
     text-align: center;
+    background-color: white;
+}
+
+tr:nth-child(even) td {
+    background-color: rgb(230, 240, 255);
+}
+
+tr:nth-child(odd) td {
+    background-color: white;
 }
 
 .gamedex{
