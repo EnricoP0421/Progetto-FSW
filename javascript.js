@@ -350,7 +350,7 @@ const Esami = {
               </thead>
               <tbody>
                 <tr v-if="esami.length === 0">
-                  <td colspan="4" style="color:#444;">
+                  <td colspan="4" style="color:gray;">
                     Nessun esame inserito.
                   </td>
                 </tr>
