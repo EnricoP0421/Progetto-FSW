@@ -318,22 +318,22 @@ const Esami = {
             
           <form @submit.prevent="salvaEsame">
             <div>
-              <label for="esame-corso">Corso</label>
+              <label for="esame-corso">Corso </label>
               <input v-model="formEsame.corso" id="esame-corso" name="corso" autocomplete="off" required>
             </div>
             <div>
-              <label for="esame-voto">Voto</label>
+              <label for="esame-voto">Voto </label>
               <input v-model="formEsame.voto" id="esame-voto" name="voto" type="number" min="18" max="30" autocomplete="off" required>
             </div>
             <div>
-              <label for="esame-data">Data</label>
+              <label for="esame-data">Data </label>
               <input v-model="formEsame.data" id="esame-data" name="data" type="date" autocomplete="off" required>
             </div>
             <div>
-              <button class="btn btn-primary flex-grow-1">
+              <button class="btn-nav">
                 {{ formEsame.id ? 'Aggiorna' : 'Aggiungi' }}
               </button>
-              <button v-if="formEsame.id" type="button" class="btn btn-outline-secondary" @click="resetFormEsame">Annulla</button>
+              <button v-if="formEsame.id" type="button" class="btn-nav-outline" @click="resetFormEsame">Annulla</button>
             </div>
           </form>
  
@@ -359,8 +359,8 @@ const Esami = {
                   <td>{{ e.voto }}</td>
                   <td>{{ e.data }}</td>
                   <td class="text-end">
-                    <button @click="modificaEsame(e)">Modifica</button>
-                    <button @click="cancellaEsame(e.id)">Elimina</button>
+                    <button class="btn-nav" @click="modificaEsame(e)">Modifica</button>
+                    <button class="btn-nav-outline" @click="cancellaEsame(e.id)">Elimina</button>
                   </td>
                 </tr>
               </tbody>

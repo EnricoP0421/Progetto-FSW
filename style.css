@@ -60,6 +60,40 @@ nav ul li:hover a{
     color:rgb(65, 215, 32);
 }
 
+.btn-nav{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 4px;
+    background-color: transparent;
+    color: rgb(65, 215, 32);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    border: 2px solid rgb(65, 215, 32);
+    cursor: pointer;
+}
+
+.btn-nav:hover{
+    background-color: rgb(65, 215, 32);
+    color: white;
+}
+
+.btn-nav-outline{
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 4px;
+    background-color: transparent;
+    color: rgb(219, 69, 83);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    border: 2px solid rgb(219, 69, 83);
+    cursor: pointer;
+}
+
+.btn-nav-outline:hover{
+    color: white;
+    background-color: rgb(219, 69, 83);
+}
+
 .fondamenti-layout{
      display: block;
     align-items: flex-start;
