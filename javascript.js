@@ -23,7 +23,7 @@ const Home = {
                 come Ionic o Cordova.
               </p>
               <div style="text-align: center;">
-                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" height="500px">
+                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" width="700px">
               </div>  
                 <p >
                   Guardando al futuro, il team di React Native sta lavorando alla New Architecture:
