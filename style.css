@@ -32,7 +32,7 @@ div#app {
 
 div#app > header, div#app > footer{
     background-color: rgb(29, 102, 197);
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 20px 0;
 
@@ -65,7 +65,7 @@ nav ul li a{
     width:100%;
     height: 100%;
     padding: 10px 0;
-    color: #fff;
+    color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
 }
@@ -124,7 +124,6 @@ nav ul li:hover a{
     margin-bottom: 20px;
 }
 
-/* Tutti gli aside della colonna destra */
 .fondamenti-layout > aside{
     background: white;
     padding: 15px;
@@ -133,7 +132,6 @@ nav ul li:hover a{
     padding-bottom: 20px;
 }
 
-/* Blocchi */
 .blocchi{
     background: white;
     padding: 20px;
@@ -172,8 +170,8 @@ main > h1{
 }
 
 form{
-    background-color: #fff;
-    border: 1px solid #cacaca;
+    background-color: white;
+    border: 1px solid rgb(202,202,202);
     border-top: 4px solid rgb(44, 102, 177);
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -224,22 +222,6 @@ form ul li label{
     width: 100%;
 }
 
-form ul li input:not([type="submit"]){
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 10px;
-    border: 1px solid #cacaca;
-    font-family: inherit;
-    font-size: 14px;
-}
-
-form ul li input:not([type="submit"]):focus{
-    outline: none;
-    border-color: rgb(44, 102, 177);
-    box-shadow: 0 0 0 2px rgba(44, 102, 177, 0.25);
-}
-
-
 table{
     width: 100%;
     border-spacing: 0;
@@ -270,14 +252,6 @@ table td{
     background-color: white;
 }
 
-tr:nth-child(even) td {
-    background-color: rgb(230, 240, 255);
-}
-
-tr:nth-child(odd) td {
-    background-color: white;
-}
-
 .gamedex{
     text-align: center;
     color:rgb(115, 29, 185);
@@ -301,9 +275,6 @@ div#app > footer > p{
 
 @media screen and (min-width:768px){
 
-
-
-    /* Navbar desktop */
     nav {
         margin: 0 10%;
     }
@@ -318,7 +289,6 @@ div#app > footer > p{
         margin-right: 0;
     }
 
-    /* Layout Fondamenti desktop */
     .fondamenti-layout {
         display: flex;
         align-items: flex-start;
@@ -343,8 +313,6 @@ figure {
         text-align: left;
     }
 
-
-    /* Form desktop */
     form ul {
         width: 50%;
         margin: 0 25%;
@@ -367,7 +335,6 @@ figure {
         justify-content: flex-end;
     }
 
-    /* Tabelle desktop */
     table {
         width: 80%;
         margin: 0 10%;
