@@ -58,7 +58,6 @@ const Fondamenti = {
        template:  `
        <h1> Fondamenti di React Native </h1>
             <div class="fondamenti-layout">
-           <div class="contenuto">
             <section class="blocchi">
             <h2>Come Funziona React Native</h2>
                   <h3> 1) Installa React Native</h3>
@@ -181,27 +180,6 @@ const Fondamenti = {
             <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
             <img src="images/esempio_2.png" alt="esempio 2 React Native" style="height550px">
             </article>
-            </div>
-                <aside>
-                    <h2><b>Come Funziona</b></h2>
-                    <p>Il funzionamento di React Native e il flusso di sviluppo.</p>
-                  
-                    <h2><b>Componenti</b></h2>
-                    <p>Creazione dell'interfaccia con JSX.</p>
-                
-                    <h2><b>Stili</b></h2>
-                    <p>Layout Flexbox e StyleSheet.</p>
-               
-                    <h2><b>Sintassi di Base</b></h2>
-                    <p>Componenti fondamentali e hook.</p>
-               
-                    <h2><b>Debug e strumenti</b></h2>
-                    <p>Strumenti per lo sviluppo e il debugging.</p>
-                
-                    <h2><b>Esempi di codice</b></h2>
-                    <p>Esempi pratici di codice.</p>
-                </aside>
-
             </div>
            `
   };

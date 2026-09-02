@@ -118,20 +118,6 @@ nav ul li:hover a{
     gap: 2%;
 }
 
-.fondamenti-layout .contenuto,
-.fondamenti-layout > aside {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.fondamenti-layout > aside{
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    padding-bottom: 20px;
-}
-
 .blocchi{
     background: white;
     padding: 20px;
@@ -289,19 +275,8 @@ div#app > footer > p{
         margin-right: 0;
     }
 
-    .fondamenti-layout {
-        display: flex;
-        align-items: flex-start;
-        gap: 2%;
-    }
-
-    .fondamenti-layout .contenuto {
-        width: 70%;
-    }
-
-    .fondamenti-layout > aside {
-        width: 25%;
-        margin-top: 40px;
+    .fondamenti-layout{
+        display: block;
     }
 
 figure {
