@@ -130,6 +130,10 @@ img{
     height: auto;
 }
 
+section img{
+    max-width: none;
+}
+
 .spaziatura_ul{
     margin-left:20px;
 }
