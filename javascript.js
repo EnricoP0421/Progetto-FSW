@@ -5,9 +5,7 @@ const Home = {
  
           <h2 class="second">Che cosa e' React Native?</h2>
                 <figure>
-                   <section>
                    <img src="images/react-1.svg" alt="Schema di funzionamento di React Native" style="height:100px">
-                   </section>
                     <figcaption>  React Native e' un framework open source sviluppato da Facebook che permette di creare
                   applicazioni mobili native utilizzando JavaScript e il paradigma di React. L'idea centrale
                   e' quella di scrivere il codice una sola volta e distribuirlo su piu' piattaforme, come
@@ -24,7 +22,7 @@ const Home = {
                 principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali 
                 come Ionic o Cordova.
               </p>
-              <section style="text-align: center;">
+              <section class="img-scroll" style="text-align: center;">
                 <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" width="700px">
               </section>
                 <p >
@@ -40,7 +38,7 @@ const Home = {
                 
           <h2 class="second">Vantaggi</h2>
           <figure>
-          <section>
+          <section class="img-scroll">
           <img src="images/vantaggi react.jpg" alt="Vantaggi di React Native" style="height:300px">
           </section>
           <figcaption>
@@ -94,7 +92,7 @@ const Fondamenti = {
             </p>
             
             <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
-            <section>
+            <section class="img-scroll">
             <img src="images/componenti_base.png" alt="componenti React Native" style="height:750px">
             </section>
             </article>
@@ -181,12 +179,12 @@ const Fondamenti = {
  
             <h3>Esempio 1: Hello World con Interazione</h3>
             <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
-             <section>
+             <section class="img-scroll">
              <img src="images/esempio_1.png" alt="esempio 1 React Native" style="height:550px">
              </section>
             <h3>Esempio 2: Contatore Interattivo</h3>
             <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
-            <section>
+            <section class="img-scroll">
             <img src="images/esempio_2.png" alt="esempio 2 React Native" style="height:550px">
             </section>
             </article>
