@@ -78,5 +78,25 @@
     "sviluppatore": "Innersloth",
     "valutazione": 80,
     "modalita": "Multi Player"
+  },
+  {
+    "id": 9,
+    "titolo": "Hollow Knight",
+    "genere": "Metroidvania",
+    "anno": 2017,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "Team Cherry",
+    "valutazione": 90,
+    "modalita": "Single Player"
+  },
+  {
+    "id": 10,
+    "titolo": "Elden Ring",
+    "genere": "Action RPG",
+    "anno": 2022,
+    "piattaforma": "Multi-platform",
+    "sviluppatore": "FromSoftware",
+    "valutazione": 96,
+    "modalita": "Single Player"
   }
 ]

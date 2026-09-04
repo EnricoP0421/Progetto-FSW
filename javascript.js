@@ -2,11 +2,11 @@ const Home = {
     template: `
             <h1>React Native Hub</h1>
         
- 
+          <div class="blocchi">
           <h2 class="second">Che cosa e' React Native?</h2>
                 <figure>
-                   <img src="images/react-1.svg" alt="Schema di funzionamento di React Native" style="height:100px">
-                    <figcaption>  React Native e' un framework open source sviluppato da Facebook che permette di creare
+                   <img src="images/react-1.svg" alt="Schema di funzionamento di React Native" style="height:100px" class="img1">
+                    <figcaption class="img1">  React Native e' un framework open source sviluppato da Facebook che permette di creare
                   applicazioni mobili native utilizzando JavaScript e il paradigma di React. L'idea centrale
                   e' quella di scrivere il codice una sola volta e distribuirlo su piu' piattaforme, come
                   Android e iOS, mantenendo pero' componenti e prestazioni native.
@@ -15,6 +15,9 @@ const Home = {
                   quella delle app sviluppate interamente in linguaggio nativo.
                   </figcaption>
                 </figure> 
+          </div>
+          
+          <div class="blocchi">
           <h2 class="second">Storia e futuro</h2>
               <p>
                 React Native nasce come evoluzione naturale di React.js, la libreria JavaScript introdotta nel 2013 che ha 
@@ -35,12 +38,12 @@ const Home = {
                 <p>
                   Questi miglioramenti promettono di rendere React Native ancora piu' performante e scalabile, consolidando la sua posizione come uno dei framework piu' popolari per lo sviluppo mobile cross-platform.
                 </p>
-                
+          </div>
+          
+          <div class="blocchi">
           <h2 class="second">Vantaggi</h2>
           <figure>
-          <section class="img-scroll">
-          <img src="images/vantaggi react.jpg" alt="Vantaggi di React Native" style="height:300px">
-          </section>
+          <img src="images/vantaggi react.jpg" alt="Vantaggi di React Native" class="img3">
           <figcaption>
           <ul class="spaziatura_ul2">
           <li>Codice unico per piu' piattaforme (Android e iOS)</li>
@@ -52,7 +55,8 @@ const Home = {
           <li>Riduzione dei costi e dei tempi di sviluppo</li>
           </ul>
           </figcaption>
-          </figure>`
+          </figure>
+          </div>`
           
 };
 
