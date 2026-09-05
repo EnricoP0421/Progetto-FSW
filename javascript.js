@@ -127,22 +127,22 @@ const Fondamenti = {
               Ecco i principali elementi utilizzati quotidianamente nello sviluppo.
             </p>
               <ul class="spaziatura_ul">
-                <li class="immagini_stili"><strong>UseState: </strong>Hook per la gestione dello stato locale del componente.</li>
-                <img src="images/usestate.png" alt="codice hook useState" style="height:50px">
-                <li class="immagini_stili"><strong>View: </strong>Contenitore principale per il layout.</li>
-                <img src="images/view.png" alt="codice componente View" style="height:50px">
-                <li class="immagini_stili"><strong>Text: </strong>Componente per visualizzare testo.</li>
-                <img src="images/textstyle.png" alt="codice componente Text" style="height:50px">
-                <li class="immagini_stili"><strong>Button: </strong>Pulsante nativo: usa <code>onPress</code>.</li>
-                <img src="images/button.png" alt="codice componente Button" style="height:50px">
-                <li class="immagini_stili"><strong>TextInput: </strong>Campo di input testo con evento <code>onChangeText</code>.</li>
-                <img src="images/textinput.png" alt="codice componente TextInput" style="height:50px">
-                <li class="immagini_stili"><strong>FlatList: </strong>Lista ottimizzata: renderizza solo gli elementi visibili.</li>
-                <img src="images/flatlist.png" alt="codice componente FlatList" style="height:50px">
-                <li class="immagini_stili"><strong>StyleSheet.create: </strong>Definisce stili in modo ottimizzato e "validato".</li>
-                <img src="images/conststyles.png" alt="codice StyleSheet.create" style="height:50px">
-                <li class="immagini_stili"><strong>Image: </strong>Per immagini locali o remote (via <code>uri</code>).</li>
-                <img src="images/image.png" alt="codice componente Image" style="height:50px">
+                <li class="immagini_stili"><strong>UseState: </strong>Hook per la gestione dello stato locale del componente.
+                <img src="images/usestate.png" alt="codice hook useState" style="height:50px"></li>
+                <li class="immagini_stili"><strong>View: </strong>Contenitore principale per il layout.
+                <img src="images/view.png" alt="codice componente View" style="height:50px"></li>
+                <li class="immagini_stili"><strong>Text: </strong>Componente per visualizzare testo.
+                <img src="images/textstyle.png" alt="codice componente Text" style="height:50px"></li>
+                <li class="immagini_stili"><strong>Button: </strong>Pulsante nativo: usa <code>onPress</code>.
+                <img src="images/button.png" alt="codice componente Button" style="height:50px"></li>
+                <li class="immagini_stili"><strong>TextInput: </strong>Campo di input testo con evento <code>onChangeText</code>.
+                <img src="images/textinput.png" alt="codice componente TextInput" style="height:50px"></li>
+                <li class="immagini_stili"><strong>FlatList: </strong>Lista ottimizzata: renderizza solo gli elementi visibili.
+                <img src="images/flatlist.png" alt="codice componente FlatList" style="height:50px"></li>
+                <li class="immagini_stili"><strong>StyleSheet.create: </strong>Definisce stili in modo ottimizzato e "validato".
+                <img src="images/conststyles.png" alt="codice StyleSheet.create" style="height:50px"></li>
+                <li class="immagini_stili"><strong>Image: </strong>Per immagini locali o remote (via <code>uri</code>).
+                <img src="images/image.png" alt="codice componente Image" style="height:50px"></li>
                 </ul>
                 </article>
             <section class="blocchi">
@@ -206,17 +206,19 @@ const Gamedex = {
     <h1 class="titolo">Gamedex</h1>
     <section>
         <table>
+            <thead>
             <tr>
-                <th>ID</th>
-                <th>Titolo</th>
-                <th>Genere</th>
-                <th>Anno</th>
-                <th>Piattaforma</th>
-                <th>Sviluppatore</th>
-                <th>Valutazione</th>
-                <th>Modalità</th>
+                <th scope="col">ID</th>
+                <th scope="col">Titolo</th>
+                <th scope="col">Genere</th>
+                <th scope="col">Anno</th>
+                <th scope="col">Piattaforma</th>
+                <th scope="col">Sviluppatore</th>
+                <th scope="col">Valutazione</th>
+                <th scope="col">Modalit&agrave;</th>
             </tr>
-
+            </thead>
+            <tbody>
             <tr v-for="game in games" :key="game.id">
                 <td>{{game.id}}</td>
                 <td>{{game.titolo}}</td>
@@ -227,7 +229,7 @@ const Gamedex = {
                 <td>{{game.valutazione}}</td>
                 <td>{{game.modalita}}</td>
             </tr>
-
+            </tbody>
         </table>
     </section>`,
     
