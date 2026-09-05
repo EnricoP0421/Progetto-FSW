@@ -1,21 +1,12 @@
-:root {
-    --colore-blu-header: rgb(29, 102, 197);
-    --colore-blu-nav: rgb(44, 102, 177);
-    --colore-blu-tabelle: rgb(68, 114, 196);
-    --colore-verde: rgb(65, 215, 32);
-    --colore-rosso: rgb(219, 69, 83);
-    --colore-footer: rgb(29, 32, 197);
-    --font-nav: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    --font-testo: 'Courier New', Courier, monospace;
-}
-
-html, body, header, h1, h2, h5, ul{
-    margin:0;
+html, body {
+    height: 100%;
+    margin: 0;
     padding: 0;
 }
 
-html, body {
-    height: 100%;
+body, header, h1, h2, h5, ul{
+    margin:0;
+    padding: 0;
 }
 
 main{
@@ -40,10 +31,17 @@ body{
 #app {
     min-height: 100%;
     position: relative;
+    padding-bottom: 0px;
+}
+
+div#app {
+    min-height: 100%;
+    display: block;
+    position: relative;
 }
 
 div#app > header{
-    background-color: var(--colore-blu-header);
+    background-color: rgb(29, 102, 197);
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -51,18 +49,18 @@ div#app > header{
 }
 
 div#app > header > h1{
-    font-family: var(--font-testo);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 footer {
     background-color: none;
-    color: var(--colore-footer);
+    color: rgb(29, 32, 197);
     text-align: center;
     padding: 20px 0;
     width: 100%;
     margin-top: 40px;
-    border-top: dashed 3px var(--colore-footer);
-    border-bottom: dashed 3px var(--colore-footer);
+    border-top: dashed 3px rgb(29, 32, 197);
+    border-bottom: dashed 3px rgb(29, 32, 197);
 }
 
 nav{
@@ -79,7 +77,7 @@ nav ul li{
     width: 100%;
     margin: 10px 0;
     text-align: center;
-    background-color: var(--colore-blu-nav);
+    background-color:rgb(44, 102, 177);
 }
 
 nav ul li a{
@@ -88,7 +86,7 @@ nav ul li a{
     height: 100%;
     padding: 10px 0;
     color: white;
-    font-family: var(--font-nav);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
 }
 
@@ -97,7 +95,7 @@ router-link{
 }
 
 nav ul li:hover a{
-    color: var(--colore-verde);
+    color:rgb(65, 215, 32);
 }
 
 .btn-nav{
@@ -105,15 +103,15 @@ nav ul li:hover a{
     padding: 10px 20px;
     margin: 4px;
     background-color: transparent;
-    color: var(--colore-verde);
-    font-family: var(--font-nav);
+    color: rgb(65, 215, 32);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 13px;
-    border: 2px solid var(--colore-verde);
+    border: 2px solid rgb(65, 215, 32);
     cursor: pointer;
 }
 
 .btn-nav:hover{
-    background-color: var(--colore-verde);
+    background-color: rgb(65, 215, 32);
     color: white;
 }
 
@@ -122,16 +120,16 @@ nav ul li:hover a{
     padding: 10px 20px;
     margin: 4px;
     background-color: transparent;
-    color: var(--colore-rosso);
-    font-family: var(--font-nav);
+    color: rgb(219, 69, 83);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 14px;
-    border: 2px solid var(--colore-rosso);
+    border: 2px solid rgb(219, 69, 83);
     cursor: pointer;
 }
 
 .btn-nav-outline:hover{
     color: white;
-    background-color: var(--colore-rosso);
+    background-color: rgb(219, 69, 83);
 }
 
 .fondamenti-layout{
@@ -186,15 +184,15 @@ main > h1{
     height: auto;
     color:blue;
     margin-bottom: 20px;
-    font-family: var(--font-nav);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 form{
     background-color: white;
     border: 1px solid rgb(202,202,202);
-    border-top: 4px solid var(--colore-blu-nav);
+    border-top: 4px solid rgb(44, 102, 177);
     margin-bottom: 20px;
-    padding: 20px 5%;
+    padding-bottom: 20px;
 }
 
 main > section{
@@ -208,8 +206,13 @@ ul > li > img{
     margin-right: 5px;
 }
 
+form{
+    padding: 20px 5%;
+    
+}
+
 form h2, main > section > h2{
-    font-family: var(--font-nav);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0 0 20px;
 }
 
@@ -243,13 +246,19 @@ table{
 
 table th{
     color:white;
-    background-color: var(--colore-blu-tabelle);
-    font-family: var(--font-nav);
+    background-color: rgb(68, 114, 196);
+
 }
 
 table td, table th{
-    border: 1.5px solid var(--colore-blu-tabelle);
+    border: 1.5px solid rgb(68, 114, 196);
     padding: 6px 10px;
+    
+    
+}
+
+table th{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 table td{
@@ -277,7 +286,7 @@ figure img {
     color:rgb(63, 14, 120)
 }
 div#app > footer > p{
-    font-family: var(--font-testo);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 @media screen and (min-width:768px){
@@ -300,6 +309,11 @@ div#app > footer > p{
         font-size: 70px;
     }
 
+    .fondamenti-layout{
+        display: block;
+    }
+    
+    
     .img3{
         height:300px;
         margin-right: 30px;
