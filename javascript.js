@@ -215,7 +215,7 @@ const Gamedex = {
                 <th scope="col">Piattaforma</th>
                 <th scope="col">Sviluppatore</th>
                 <th scope="col">Valutazione</th>
-                <th scope="col">Modalit&agrave;</th>
+                <th scope="col">Modalità</th>
             </tr>
             </thead>
             <tbody>
