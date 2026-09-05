@@ -128,21 +128,21 @@ const Fondamenti = {
             </p>
               <ul class="spaziatura_ul">
                 <li class="immagini_stili"><strong>UseState: </strong>Hook per la gestione dello stato locale del componente.</li>
-                <img src="images/usestate.png" style="height:50px">
+                <img src="images/usestate.png" alt="codice hook useState" style="height:50px">
                 <li class="immagini_stili"><strong>View: </strong>Contenitore principale per il layout.</li>
-                <img src="images/view.png" style="height:50px">
+                <img src="images/view.png" alt="codice componente View" style="height:50px">
                 <li class="immagini_stili"><strong>Text: </strong>Componente per visualizzare testo.</li>
-                <img src="images/textstyle.png" style="height:50px">
+                <img src="images/textstyle.png" alt="codice componente Text" style="height:50px">
                 <li class="immagini_stili"><strong>Button: </strong>Pulsante nativo: usa <code>onPress</code>.</li>
-                <img src="images/button.png" style="height:50px">
+                <img src="images/button.png" alt="codice componente Button" style="height:50px">
                 <li class="immagini_stili"><strong>TextInput: </strong>Campo di input testo con evento <code>onChangeText</code>.</li>
-                <img src="images/textinput.png" style="height:50px">
+                <img src="images/textinput.png" alt="codice componente TextInput" style="height:50px">
                 <li class="immagini_stili"><strong>FlatList: </strong>Lista ottimizzata: renderizza solo gli elementi visibili.</li>
-                <img src="images/flatlist.png" style="height:50px">
+                <img src="images/flatlist.png" alt="codice componente FlatList" style="height:50px">
                 <li class="immagini_stili"><strong>StyleSheet.create: </strong>Definisce stili in modo ottimizzato e "validato".</li>
-                <img src="images/conststyles.png" style="height:50px">
+                <img src="images/conststyles.png" alt="codice StyleSheet.create" style="height:50px">
                 <li class="immagini_stili"><strong>Image: </strong>Per immagini locali o remote (via <code>uri</code>).</li>
-                <img src="images/image.png" style="height:50px">
+                <img src="images/image.png" alt="codice componente Image" style="height:50px">
                 </ul>
                 </article>
             <section class="blocchi">
