@@ -12,11 +12,11 @@ main{
     margin-bottom:40px;
 }
 
-main, section, article {
+main, section, article, .table-scroll {
     padding: 0px 5%;
 }
 
-section {
+section, .img-scroll, .table-scroll {
     overflow-x: auto;
 }
 
@@ -150,11 +150,11 @@ img{
     margin-right: 30px;
 }
 
-section img{
+section img, .img-scroll img{
     max-width: none;
 }
 
-section.img-scroll{
+.img-scroll{
     padding: 0;
 }
 
@@ -196,10 +196,9 @@ main > section{
     border: none;
 }
 
-ul > li > img{
-    width: 50px;
-    float: left;
-    margin-right: 5px;
+.immagini_stili img{
+    display: block;
+    margin-top: 5px;
 }
 
 form h2, main > section > h2{

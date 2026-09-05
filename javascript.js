@@ -25,9 +25,9 @@ const Home = {
                 principi potevano essere applicati anche allo sviluppo mobile, superando i limiti delle soluzioni ibride tradizionali 
                 come Ionic o Cordova.
               </p>
-              <section class="img-scroll" style="text-align: center;">
-                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" width="700px">
-              </section>
+              <div class="img-scroll" style="text-align: center;">
+                <img src="images/1_OhmYGQJZ6KIlPsxvS2vbtA.png" alt="Evoluzione fino a React Native" width="700">
+              </div>
                 <p >
                   Guardando al futuro, il team di React Native sta lavorando alla New Architecture:
                 </p>
@@ -43,7 +43,7 @@ const Home = {
           <div class="blocchi">
           <h2 class="second">Vantaggi</h2>
           <figure>
-          <img src="images/vantaggi react.jpg" alt="Vantaggi di React Native" class="img3">
+          <img src="images/vantaggi-react.jpg" alt="Vantaggi di React Native" class="img3">
           <figcaption>
           <ul class="spaziatura_ul2">
           <li>Codice unico per piu' piattaforme (Android e iOS)</li>
@@ -96,9 +96,9 @@ const Fondamenti = {
             </p>
             
             <h3 class="subsection-title">Esempio: Lista della Spesa</h3>
-            <section class="img-scroll">
+            <div class="img-scroll">
             <img src="images/componenti_base.png" alt="componenti React Native" style="height:750px">
-            </section>
+            </div>
             </article>
             <section class="blocchi">            
             <h2>Gestione degli Stili</h2>
@@ -183,14 +183,14 @@ const Fondamenti = {
  
             <h3>Esempio 1: Hello World con Interazione</h3>
             <p style="margin-bottom: 32px;">Un semplice esempio che mostra come cambiare il messaggio visualizzato premendo un pulsante:</p>
-             <section class="img-scroll">
+             <div class="img-scroll">
              <img src="images/esempio_1.png" alt="esempio 1 React Native" style="height:550px">
-             </section>
+             </div>
             <h3>Esempio 2: Contatore Interattivo</h3>
             <p style="margin-bottom: 32px;">Un classico esempio che dimostra la gestione dello stato e l'aggiornamento dell'interfaccia:</p>
-            <section class="img-scroll">
+            <div class="img-scroll">
             <img src="images/esempio_2.png" alt="esempio 2 React Native" style="height:550px">
-            </section>
+            </div>
             </article>
             </div>
            `
@@ -204,7 +204,7 @@ const Gamedex = {
     }, 
     template:  `
     <h1 class="titolo">Gamedex</h1>
-    <section>
+    <div class="table-scroll">
         <table>
             <thead>
             <tr>
@@ -231,7 +231,7 @@ const Gamedex = {
             </tr>
             </tbody>
         </table>
-    </section>`,
+    </div>`,
     
     methods: {
         getgames:function() {
@@ -329,7 +329,7 @@ const Esami = {
             </div>
           </form>
  
-          <section>
+          <div class="table-scroll">
           <div>
             <table>
               <thead>
@@ -358,7 +358,7 @@ const Esami = {
               </tbody>
             </table>
           </div>
-          </section>`
+          </div>`
 };
 
 
