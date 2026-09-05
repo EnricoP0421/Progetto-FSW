@@ -1,12 +1,10 @@
-html, body {
-    height: 100%;
-    margin: 0;
+html, body, header, h1, h2, h5, ul{
+    margin:0;
     padding: 0;
 }
 
-body, header, h1, h2, h5, ul{
-    margin:0;
-    padding: 0;
+html, body {
+    height: 100%;
 }
 
 main{
@@ -30,13 +28,6 @@ body{
 
 #app {
     min-height: 100%;
-    position: relative;
-    padding-bottom: 0px;
-}
-
-div#app {
-    min-height: 100%;
-    display: block;
     position: relative;
 }
 
@@ -192,7 +183,7 @@ form{
     border: 1px solid rgb(202,202,202);
     border-top: 4px solid rgb(44, 102, 177);
     margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding: 20px 5%;
 }
 
 main > section{
@@ -204,11 +195,6 @@ ul > li > img{
     width: 50px;
     float: left;
     margin-right: 5px;
-}
-
-form{
-    padding: 20px 5%;
-    
 }
 
 form h2, main > section > h2{
@@ -247,18 +233,12 @@ table{
 table th{
     color:white;
     background-color: rgb(68, 114, 196);
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 table td, table th{
     border: 1.5px solid rgb(68, 114, 196);
     padding: 6px 10px;
-    
-    
-}
-
-table th{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 table td{
@@ -309,11 +289,6 @@ div#app > footer > p{
         font-size: 70px;
     }
 
-    .fondamenti-layout{
-        display: block;
-    }
-    
-    
     .img3{
         height:300px;
         margin-right: 30px;
